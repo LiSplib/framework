@@ -1,0 +1,79 @@
+<div class="d-flex align-items-center justify-content-center myCards" style="background: url(<?= URL_SOURCES."/images/creative-light.jpg" ?>)">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card" style="background-color: <?= $GLOBALS['STYLE']['boxBackgroundColor']."d9" ?>; color: <?= $GLOBALS['STYLE']['textColor'] ?>;">
+                <h2 class="text-center card-title mt-5" style="color: <?= $GLOBALS['STYLE']['titleColor'] ?>; font-size: <?= $GLOBALS['STYLE']['titleFontSize'] ?>; font-family: <?= $GLOBALS['STYLE']['titleFontFamily'] ?>; text-shadow: <?= $GLOBALS['STYLE']['titleTextShadow'] ?>;">Mes données personnelles</h2>
+                <nav class="nav nav-pills justify-content-end px-3">
+                    <?php if($admin['role'] === 'admin' || $admin['role'] === 'superAdmin'): ?>
+                    <a class="nav-link btn btn-default" href="<?= route_to_url('fullAccount') ?>?id=<?= $admin['id'] ?>">+ d'info</a>
+                    <a class="nav-link btn btn-primary" href="<?= route_to_url('coaching') ?>?id=<?= $admin['id'] ?>">coaching</a>
+                    <?php endif; ?>
+                </nav>
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img id="profilImg" src="<?= $admin['image'] ?>" class="card-img" alt="photo de profil de <?= htmlspecialchars($admin['lastname']) ?>"/>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <div class="list-group">
+                                <form method="POST" action="">
+                                    <div class="form-row" name="id" value="<?= $admin['id'] ?>" style="font-size: <?= $GLOBALS['STYLE']['textFontSize'] ?>; font-family: <?= $GLOBALS['STYLE']['textFontFamily'] ?>;">
+                                        <div class="form-group col-md-6">
+                                            <label class="title2">Nom</label>
+                                            <input type="text" class="form-control" value="<?= htmlspecialchars(strtoupper($admin['lastname'])) ?>" name="lastname"></input>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="title2">Prénom</label>
+                                            <input class="form-control" type="text" value="<?= htmlspecialchars($admin['firstname']) ?>" name="firstname"></input>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label class="title2">Email</label>
+                                            <input class="form-control" type="email" value="<?= htmlspecialchars($admin['email']) ?>" name="email"></input>
+                                        </div>
+                                        <div class="form-group col-md-8">
+                                            <label class="title2">Photo de profil</label>
+                                            <input class="form-control" type="text" value="<?= htmlspecialchars($admin['image']) ?>" name="image"></input>
+                                        </div>
+                                        <?php if($_SESSION['auth']['role'] === 'superAdmin'): ?>
+                                        <div class="from-group col-md-2">
+                                            <label class="title2">Rôle</label>
+                                            <select class="browser-default custom-select" name="role" id="role">
+                                                <option value="" disabled selected>Rôle</option>
+                                                <option value="superAdmin">superAdmin</option>
+                                                <option value="admin">Admin</option>
+                                                <option value="user">User</option>
+                                            </select>
+                                        </div>
+                                        <?php endif ?>
+                                    </div>
+                                    <div class="d-flex justify-content-end">
+                                    <?php if($admin['role'] === 'admin' || $admin['role'] === 'superAdmin'): ?>
+                                        <a href="<?= route_to_url('adminEdit') ?>?id=<?=$admin['id']?>" class="btn btn-info infobulle">
+                                            <svg aria-hidden="true" width="2em" height="2em" focusable="false" data-prefix="fas" data-icon="user-edit" class="svg-inline--fa fa-user-edit fa-w-20" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h274.9c-2.4-6.8-3.4-14-2.6-21.3l6.8-60.9 1.2-11.1 7.9-7.9 77.3-77.3c-24.5-27.7-60-45.5-99.9-45.5zm45.3 145.3l-6.8 61c-1.1 10.2 7.5 18.8 17.6 17.6l60.9-6.8 137.9-137.9-71.7-71.7-137.9 137.8zM633 268.9L595.1 231c-9.3-9.3-24.5-9.3-33.8 0l-37.8 37.8-4.1 4.1 71.8 71.7 41.8-41.8c9.3-9.4 9.3-24.5 0-33.9z"></path></svg>
+                                            <span class="tooltip">Éditer</span>
+                                        </a>
+                                    <?php endif; ?>
+                                        <button type="submit" class="btn btn-warning mx-2 infobulle">
+                                            <svg class="bi bi-upload text-white" width="2em" height="2em" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" d="M2.5 10a.5.5 0 01.5.5V14a1 1 0 001 1h12a1 1 0 001-1v-3.5a.5.5 0 011 0V14a2 2 0 01-2 2H4a2 2 0 01-2-2v-3.5a.5.5 0 01.5-.5zM7 6.854a.5.5 0 00.707 0L10 4.56l2.293 2.293A.5.5 0 1013 6.146L10.354 3.5a.5.5 0 00-.708 0L7 6.146a.5.5 0 000 .708z" clip-rule="evenodd"/>
+                                                <path fill-rule="evenodd" d="M10 4a.5.5 0 01.5.5v8a.5.5 0 01-1 0v-8A.5.5 0 0110 4z" clip-rule="evenodd"/>
+                                            </svg>
+                                            <span class="tooltip">Envoyer</span>
+                                        </button>
+                                        <a href="<?= route_to_url('home') ?>" class="btn peach-gradient infobulle">
+                                            <svg class="bi bi-house" width="2em" height="2em" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" d="M9.646 3.146a.5.5 0 01.708 0l6 6a.5.5 0 01.146.354v7a.5.5 0 01-.5.5h-4.5a.5.5 0 01-.5-.5v-4H9v4a.5.5 0 01-.5.5H4a.5.5 0 01-.5-.5v-7a.5.5 0 01.146-.354l6-6zM4.5 9.707V16H8v-4a.5.5 0 01.5-.5h3a.5.5 0 01.5.5v4h3.5V9.707l-5.5-5.5-5.5 5.5z" clip-rule="evenodd"/>
+                                                <path fill-rule="evenodd" d="M15 4.5V8l-2-2V4.5a.5.5 0 01.5-.5h1a.5.5 0 01.5.5z" clip-rule="evenodd"/>
+                                            </svg>
+                                            <span class="tooltip">Accueil</span>
+                                        </a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>          
+</div>

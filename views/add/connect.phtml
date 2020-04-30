@@ -1,0 +1,20 @@
+<div class="jumbotron jumbotron-fluid text-center bg-dark text-white mb-5">
+    <div class="container bg-dark">
+        <h1>Se Connecter</h1>
+        <div class="userLog mt-5"> 
+            <form action="<?= route_to_url('connect') ?>" method="POST">
+                <div class="row">
+                    <div class="col">
+                        <input type="email" class="form-control" name="email" placeholder="Email d'utilisateur" />
+                    </div>
+                    <div class="col">
+                        <input type="password" class="form-control" name="password" placeholder="Mot de passe" />
+                    </div>
+                </div>
+                <div class="mt-5">
+                    <input type="submit" class="btn btn-info" value="Se Connecter"/>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

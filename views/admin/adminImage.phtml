@@ -1,0 +1,25 @@
+<h1>Images avant resize</h1>
+<?php
+        if(isset($_GET)){
+        foreach ($photos as $key => $photo):
+            ?>
+            <img src="<?= $photo ?>" alt="">
+        <?php endforeach; ?>
+
+        <form action="" method="post">
+            <label for="exampleFormControlSelect1">Example select</label>
+                <select class="form-control" id="exampleFormControlSelect1" name="size">
+                    <option value="250">250px</option>
+                    <option value="500">500px</option>
+                    <option value="50">50px</option>
+                </select>
+            <button>
+                Resize les images
+            </button>
+        </form>
+        <?php } else {
+            foreach ($imgs as $key => $img):
+                ?>
+                <img src="<?= $img ?>" alt="">
+            <?php endforeach; 
+        }

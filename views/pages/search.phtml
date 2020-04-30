@@ -1,0 +1,82 @@
+<div class="d-flex flex-direction-column align-items-center justify-content-center" style="background: url(<?= URL_SOURCES."/images/success.jpg" ?>); background-size: cover;">
+    <div class="container my-5" style="background-color: <?= $GLOBALS['STYLE']['boxBackgroundColor'].'d9' ?>">
+        <div class="row justify-content-center pt-5">
+                <h2 class="card-title" style="color: <?= $GLOBALS['STYLE']['titleColor'] ?>; font-size: <?= $GLOBALS['STYLE']['titleFontSize'] ?>; font-family: <?= $GLOBALS['STYLE']['titleFontFamily'] ?>; text-shadow: 2px 2px 3px #000000;">Le / les coachs : </h2>
+            </div>
+        <div class="card-deck mt-5 p-3">
+        <?php foreach($coachs as $coach): ?>
+            <?php if (!empty($_GET['filter'])):
+                $id = $coach['coach_id']; 
+            ?>
+            <?php else : ?>
+            <?php $id = $coach['id'];
+            ?>
+            <?php endif; ?>
+            <?php 
+                $coachAll = $coachEvents->myCreatedEvents($id);
+                $coachInfos = $coachInfo->getAdminCoaching($id);
+            ?>
+            <div id="card-1" class="card text-center" style="background-color: transparent; color: <?= $GLOBALS['STYLE']['textColor'] ?>; ">
+                <img src="<?= $coach['image'] ?>" class="card-img-top" alt="photo du coach <?= $coach['lastname']?>">
+                <div class="card-body">
+                    <a href="<?= route_to_url('fullAccount') ?>?id=<?= $id?>" class="list-group-item list-group-item-action bg-light mt-2 rounded">
+                        <h5 class="card-title"><?= $coach['firstname'].' '.$coach['lastname']?></h5>
+                        <?php if (!empty($coachInfos)) : ?>
+                                <h5 class="card-title"><?= ucwords($coachInfos['coachingDo']) ?></h5>
+                                <h5 class="card-title"><?= ucwords($coachInfos['coachingType']) ?></h5>
+                                <h6 class="card-text"><?= $coachInfos['categorie'] ?></h6>
+                        <?php endif; ?>
+                    </a>
+                   <hr>
+                   <h5>Les événéments de ce coach</h5>
+                    <?php  foreach ($coachAll as $eventsCoach): ?>
+                    <a href="<?= route_to_url('currentEvent') ?>?id=<?= $eventsCoach['id']?>" class="list-group-item list-group-item-action bg-light mt-2 rounded">
+                        <h5 class="card-title"><?= $eventsCoach['title'] ?> : <small><?= (new DateTime($eventsCoach['start']))->format('d-m-Y') ?></small></h5>
+                        <h6 class="card-text"><?= $eventsCoach['content'] ?></h6>
+                    </a>
+                    <?php endforeach; ?>
+                </div>
+                <div class="card-footer">
+                    <a href="<?= route_to_url('members') ?>" class="btn blue-gradient mt-2">
+                        <svg class="bi bi-house" width="2em" height="2em" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M9.646 3.146a.5.5 0 01.708 0l6 6a.5.5 0 01.146.354v7a.5.5 0 01-.5.5h-4.5a.5.5 0 01-.5-.5v-4H9v4a.5.5 0 01-.5.5H4a.5.5 0 01-.5-.5v-7a.5.5 0 01.146-.354l6-6zM4.5 9.707V16H8v-4a.5.5 0 01.5-.5h3a.5.5 0 01.5.5v4h3.5V9.707l-5.5-5.5-5.5 5.5z" clip-rule="evenodd"/>
+                            <path fill-rule="evenodd" d="M15 4.5V8l-2-2V4.5a.5.5 0 01.5-.5h1a.5.5 0 01.5.5z" clip-rule="evenodd"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <?php endforeach; ?>
+        </div>
+        <div class="row my-5">
+            <div class="col-sm-12">
+                <div class="card text-center" style="box-shadow: <?= $GLOBALS['STYLE']['boxShadow'] ?>; background-color: transparent; color: black; font-size: <?= $GLOBALS['STYLE']['textFontSize'] ?>; font-family: <?= $GLOBALS['STYLE']['textFontFamily'] ?>;">
+                    <div class="card-body">
+                        <div class="col-12 mt-4">
+                            <h2 class="card-title" style="color: <?= $GLOBALS['STYLE']['titleColor'] ?>; font-size: <?= $GLOBALS['STYLE']['titleFontSize'] ?>; font-family: <?= $GLOBALS['STYLE']['titleFontFamily'] ?>; text-shadow: 2px 2px 3px #000000;">Le / les évènements : </h2>
+                            <?php if (!empty($events)) : ?>
+                                <?php foreach($events as $event): ?>
+                                <div class="list-group col-12">
+                                    <a href="<?= route_to_url('currentEvent') ?>?id=<?= $event['id']?>" class="list-group-item list-group-item-action bg-light mt-2 rounded">
+                                        <div class="text-center">
+                                            <h5 class="card-title"><?= $event['title'] ?></h5>
+                                            <h6 class="card-title"><?= $event['content'] ?></h6>
+                                        </div>
+                                    </a>
+                                </div>
+                                <?php endforeach; ?>
+                            <?php else : ?>
+                                <p>Aucun Résultat</p>
+                            <?php endif; ?>
+                            <a href="<?= route_to_url('calendar') ?>" class="btn blue-gradient mt-2">
+                                <svg class="bi bi-house" width="2em" height="2em" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M9.646 3.146a.5.5 0 01.708 0l6 6a.5.5 0 01.146.354v7a.5.5 0 01-.5.5h-4.5a.5.5 0 01-.5-.5v-4H9v4a.5.5 0 01-.5.5H4a.5.5 0 01-.5-.5v-7a.5.5 0 01.146-.354l6-6zM4.5 9.707V16H8v-4a.5.5 0 01.5-.5h3a.5.5 0 01.5.5v4h3.5V9.707l-5.5-5.5-5.5 5.5z" clip-rule="evenodd"/>
+                                    <path fill-rule="evenodd" d="M15 4.5V8l-2-2V4.5a.5.5 0 01.5-.5h1a.5.5 0 01.5.5z" clip-rule="evenodd"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

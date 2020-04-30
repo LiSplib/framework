@@ -1,0 +1,70 @@
+<?php
+
+use App\Controller\AddEvent;
+
+if (!empty($errors)): ?>
+    <div class="container text-center">
+        <div class="alert alert-danger">
+            Merci de corriger vos erreurs
+        </div>
+    </div>
+<?php endif; ?>
+<?php $view = new AddEvent; ?>
+<div class="container-fluid text-center d-flex align-items-center justify-content-center myCards" style="background: url(<?= URL_SOURCES.'/images/events/board-4887880_1920.jpg' ?>); background-size: 100% auto; background-position: center;">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card text-center" style="background-color: <?= $GLOBALS['STYLE']['boxBackgroundColor']."d9" ?>; color: <?= $GLOBALS['STYLE']['textColor'] ?>; font-size: <?= $GLOBALS['STYLE']['textFontSize'] ?>; font-family: <?= $GLOBALS['STYLE']['textFontFamily'] ?>;">
+                <h1 style="color: <?= $GLOBALS['STYLE']['titleColor'] ?>; font-size: <?= $GLOBALS['STYLE']['titleFontSize'] ?>; font-family: <?= $GLOBALS['STYLE']['titleFontFamily'] ?>; text-shadow: <?= $GLOBALS['STYLE']['titleTextShadow'] ?>;" class="card-title mt-2">Ajouter un événemment</h1>
+                <div class="card-body">
+                    <form method="POST" action="">
+                    <div class="form-row mt-3">
+                        <div class="form-group col-md-8">
+                            <label for="title">Nom de l'événement</label>
+                            <input type="text" class="form-control" id="title" name="title" required value="<?= isset($data['title']) ? htmlentities($data['title']) : '' ?>">
+                            <?php if (isset($errors['title'])): ?>
+                                <small class="form-text text-muted"><?= $errors['title']; ?></small>
+                            <?php endif; ?>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="date">Date</label>
+                            <input type="date" class="form-control" id="date" name="date" required value="<?= isset($data['date']) ? htmlentities($data['date']) : '' ?>">
+                            <?php if (isset($errors['date'])): ?>
+                                <small class="form-text text-muted"><?= $errors['date']; ?></small>
+                            <?php endif; ?>
+                        </div>
+                        <div class="form-group col-md-4 ">
+                            <label for="start">Heude de début</label>
+                            <input type="time" class="form-control" id="start" name="start" placeholder="HH:MM" required value="<?= isset($data['start']) ? htmlentities($data['start']) : '' ?>">
+                            <?php if (isset($errors['start'])): ?>
+                                <small class="form-text text-muted"><?= $errors['start']; ?></small>
+                            <?php endif; ?>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="end">Heure de fin</label>
+                            <input type="time" class="form-control" id="end" name="end" placeholder="HH:MM" required value="<?= isset($data['end']) ? htmlentities($data['end']) : '' ?>">
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col">
+                        <label for="content">Description</label>
+                            <textarea name="content" class="form-control" id="content"><?= isset($data['content']) ? htmlentities($data['content']) : '' ?></textarea>
+                        </div>
+                    </div>   
+                    <button type="submit" class="btn btn-info mt-2">
+                        <svg class="bi bi-upload" width="2em" height="2em" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M2.5 10a.5.5 0 01.5.5V14a1 1 0 001 1h12a1 1 0 001-1v-3.5a.5.5 0 011 0V14a2 2 0 01-2 2H4a2 2 0 01-2-2v-3.5a.5.5 0 01.5-.5zM7 6.854a.5.5 0 00.707 0L10 4.56l2.293 2.293A.5.5 0 1013 6.146L10.354 3.5a.5.5 0 00-.708 0L7 6.146a.5.5 0 000 .708z" clip-rule="evenodd"/>
+                            <path fill-rule="evenodd" d="M10 4a.5.5 0 01.5.5v8a.5.5 0 01-1 0v-8A.5.5 0 0110 4z" clip-rule="evenodd"/>
+                        </svg>
+                    </button>
+                    <a href="<?= route_to_url('calendar') ?>" class="btn peach-gradient mt-2">
+                            <svg class="bi bi-house" width="2em" height="2em" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M9.646 3.146a.5.5 0 01.708 0l6 6a.5.5 0 01.146.354v7a.5.5 0 01-.5.5h-4.5a.5.5 0 01-.5-.5v-4H9v4a.5.5 0 01-.5.5H4a.5.5 0 01-.5-.5v-7a.5.5 0 01.146-.354l6-6zM4.5 9.707V16H8v-4a.5.5 0 01.5-.5h3a.5.5 0 01.5.5v4h3.5V9.707l-5.5-5.5-5.5 5.5z" clip-rule="evenodd"></path>
+                                <path fill-rule="evenodd" d="M15 4.5V8l-2-2V4.5a.5.5 0 01.5-.5h1a.5.5 0 01.5.5z" clip-rule="evenodd"></path>
+                            </svg>
+                        </a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

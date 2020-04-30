@@ -1,0 +1,8 @@
+/vendor
+/node_modules
+.htaccess
+pass.php
+.idea
+.vscode
+/sources/images
+/sources/fonts

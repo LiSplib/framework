@@ -1,0 +1,561 @@
+/*--------------------- HEADER ---------------------*/
+.btn {
+  color: #fff;
+}
+
+.btn-fb {
+  background-color: #3b5998 !important;
+  border: none;
+}
+
+.btn-floating {
+  padding: 0;
+  margin: 10px;
+  vertical-align: middle;
+  border-radius: 50%;
+  box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+  transition: all 0.2s ease-in-out;
+  width: 61.1px;
+  height: 61.1px;
+}
+
+@font-face {
+  font-family: "Barlow-Regular";
+  src: url("../fonts/Barlow-Regular.ttf");
+}
+@font-face {
+  font-family: "AbrilFatface";
+  src: url("../fonts/AbrilFatface-Regular.ttf");
+}
+@font-face {
+  font-family: "BebasNeue-Regular";
+  src: url("../fonts/BebasNeue-Regular.ttf");
+}
+@font-face {
+  font-family: "DancingScript";
+  src: url("../fonts/DancingScript-VariableFont_wght.ttf");
+}
+@font-face {
+  font-family: "HelveticaNeue";
+  src: url("../fonts/HelveticaNeue.ttf");
+}
+@font-face {
+  font-family: "Raleway";
+  src: url("../fonts/Raleway-Regular.ttf");
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto-Regular.ttf");
+}
+.navbar {
+  box-shadow: 5px 10px 10px #252525;
+  font-size: calc(1vw + 1vh + 0.5vmin);
+}
+
+.navbar svg {
+  width: calc(1vw + 1vh + 0.5vmin) !important;
+  height: calc(1vw + 1vh + 0.5vmin) !important;
+}
+
+.popover-body {
+  background-color: #eb5f62;
+  color: white;
+}
+
+.arrow::after {
+  border-bottom-color: #eb5f62 !important;
+}
+
+/* Personnalisation des boutons icones */
+.btn-altairDark:focus > #phone path, .btn-altairDark:hover > #phone path {
+  fill: #ff5500;
+}
+
+.btn-altairDark:focus > #calendar path, .btn-altairDark:hover > #calendar path {
+  fill: #e14391;
+}
+
+.btn-altairDark:focus > #logout path, .btn-altairDark:hover > #logout path {
+  fill: #ff4536;
+}
+
+.btn-altairDark:focus > #toolbox path, .btn-altairDark:hover > #toolbox path {
+  fill: #28b60c;
+}
+
+.btn-altairDark:focus > #connect path, .btn-altairDark:hover > #connect path {
+  fill: #036ce4;
+}
+
+.btn-altairDark:focus > #fb path, .btn-altairDark:hover > #fb path {
+  fill: #036ce4;
+}
+
+.btn-altairDark:focus > #insta path, .btn-altairDark:hover > #insta path {
+  fill: #dc3171;
+}
+
+.btn-altairDark:focus > #vimeo path, .btn-altairDark:hover > #vimeo path {
+  fill: #41b1db;
+}
+
+.btn-altairDark:focus > #pinterest path, .btn-altairDark:hover > #pinterest path {
+  fill: #e60019;
+}
+
+.dropdown-item {
+  color: inherit !important;
+}
+
+.dropdown-item:hover {
+  color: black !important;
+}
+
+/*---------------------- MAIN ----------------------*/
+body {
+  background-color: black !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  font-family: "Barlow-Regular", serif;
+}
+
+#bgImage {
+  filter: grayscale(0.8);
+  width: 99vw;
+}
+
+.card {
+  border: none !important;
+}
+
+#profilImg {
+  border-top-right-radius: 36%;
+  border-bottom-right-radius: 10%;
+  padding: 1em;
+}
+
+label {
+  color: inherit;
+}
+
+table a {
+  color: #eb5f62 !important;
+}
+
+.tableMembers {
+  color: inherit !important;
+}
+
+.infobulle {
+  position: relative;
+}
+
+.infobulle:hover .tooltip {
+  top: -30px;
+  opacity: 1;
+}
+
+.tooltip {
+  opacity: 0;
+  position: absolute;
+  top: 0px;
+  left: 10px;
+  color: #fff;
+  background-color: #222;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+/*-------------------- PARAMETER -------------------*/
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.exemple {
+  text-shadow: 1px 1px 2px red;
+}
+
+.exemple1 {
+  text-shadow: 1px 1px 2px pink;
+}
+
+.exemple2 {
+  text-shadow: 1px 1px 2px black;
+}
+
+.exemple3 {
+  text-shadow: 1px 1px 2px yellow;
+}
+
+.exempleFont {
+  font-family: "Barlow-Regular";
+}
+
+.exempleFont1 {
+  font-family: "AbrilFatface";
+}
+
+.exempleFont2 {
+  font-family: "BebasNeue-Regular";
+}
+
+.exempleFont3 {
+  font-family: "DancingScript";
+}
+
+.exempleFont4 {
+  font-family: "HelveticaNeue";
+}
+
+.exempleFont5 {
+  font-family: "Raleway";
+}
+
+.exempleFont6 {
+  font-family: "Roboto";
+}
+
+.zoom1:hover {
+  transform: scale(1);
+}
+
+.zoom15:hover {
+  transform: scale(1.5);
+}
+
+.zoom05:hover {
+  transform: scale(0.5);
+}
+
+.zoom2:hover {
+  transform: scale(2);
+}
+
+.zoom15, .zoom05, .zoom2 {
+  transition: all 0.3s ease-in-out !important;
+}
+
+/*-------------------BTN-EFFECTS------------------*/
+.btnEffect {
+  letter-spacing: 0.15em;
+  margin: 0 auto;
+  padding: 1rem 2.5rem;
+  background: #6c757d;
+  border-radius: 0.3rem;
+  outline: none;
+  font-size: 20px;
+  color: white;
+}
+
+.btnEffect:hover {
+  box-shadow: inset 0px 2px 5px black;
+  transform: translateY(20px);
+  color: white;
+}
+
+.container2:hover {
+  transform: translateY(2px);
+}
+
+.myAll {
+  box-sizing: border-box;
+}
+
+.cardBody {
+  color: #111111;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+
+.container2 {
+  width: auto;
+  margin: auto;
+}
+
+.container2 a {
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+@keyframes top {
+  from {
+    transform: translate(0rem, 0);
+  }
+  to {
+    transform: translate(0rem, 3.5rem);
+  }
+}
+@keyframes bottom {
+  from {
+    transform: translate(-11.5rem, 0);
+  }
+  to {
+    transform: translate(0rem, 0);
+  }
+}
+.btnEffect2 {
+  position: relative;
+  letter-spacing: 0.15em;
+  margin: 0 auto;
+  padding: 1rem 2.5rem;
+  background: transparent;
+  outline: none;
+  font-size: 28px;
+  color: #111111;
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.15s;
+}
+.btnEffect2::after, .btnEffect2::before {
+  content: "";
+  position: absolute;
+  height: 40%;
+  width: 10%;
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  z-index: -2;
+  border-radius: 50%;
+}
+.btnEffect2::before {
+  z-index: 0;
+  background-color: #c92918;
+  top: -0.75rem;
+  left: 0.5rem;
+  animation: top 2s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.25s infinite alternate;
+}
+.btnEffect2::after {
+  z-index: 0;
+  background-color: #e74c3c;
+  top: 3rem;
+  left: 13rem;
+  animation: bottom 2s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.5s infinite alternate;
+}
+.btnEffect2:hover {
+  z-index: 5;
+  color: #ececec;
+}
+.btnEffect2:hover::before, .btnEffect2:hover::after {
+  z-index: -1;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 0;
+  animation: none;
+}
+.btnEffect2:hover::after {
+  left: 0rem;
+}
+.btnEffect2:hover::before {
+  top: 0.5rem;
+  left: 0.35rem;
+}
+
+/*-------------------- CALENDAR -------------------*/
+.calendar__table {
+  width: 100%;
+}
+
+.eventsBlock {
+  height: 10vh !important;
+  overflow: auto;
+  scrollbar-color: #2a2e33 #2a2e33;
+  text-align: start !important;
+}
+
+.eventsBlock::-webkit-scrollbar {
+  display: none;
+}
+
+.calendar__table td {
+  border: 1px solid #ccc;
+  vertical-align: top;
+  width: calc(100vw / 7);
+  z-index: 12;
+}
+
+.calendar__table td:last-child {
+  display: none;
+}
+
+.calendar__table--6weeks td {
+  height: 16.66%;
+}
+
+.calendar__table td:hover, .calendar__table--6weeks td:hover {
+  background-color: #88898b07;
+  background-image: url("../images/logo-blanc.svg");
+  background-repeat: no-repeat;
+  background-position: top 2% right 2%;
+  background-size: 20%;
+  backdrop-filter: grayscale(20%);
+  z-index: 1;
+}
+
+.calendar__weekday {
+  font-weight: bold;
+  font-size: calc(1vw + 1vh + 0.5vmin);
+}
+
+.calendar__table td.is-today {
+  background-color: #454a50;
+}
+
+.calendar__othermonth .calendar__day {
+  opacity: 0.8;
+  color: grey !important;
+}
+
+.calendar__event a {
+  color: #ffcb94 !important;
+  padding: 0.4em 2em;
+  text-decoration: none;
+}
+
+.jumbotron {
+  opacity: 0.8 !important;
+}
+
+/*--------------------- RS --------------------------*/
+#postsList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 2%;
+}
+
+.post {
+  background-color: #514a4a;
+  color: #f8f7f7;
+  margin: 2%;
+  border-radius: 5%;
+  padding-left: 0.5%;
+  padding-right: 0.5%;
+  transition: all 0.3s ease-in-out;
+  word-wrap: break-word;
+  max-width: calc(250px + 1%);
+}
+
+.post:hover {
+  transform: scale(1.1);
+  box-shadow: -3px -5px 10px #fdfdfd, 3px 5px 5px #bbbbbb;
+}
+
+.post img, .post video {
+  width: 250px;
+  height: 250px;
+  border-radius: 5%;
+  margin-top: 3%;
+}
+
+.post:hover img {
+  border-radius: inherit;
+}
+
+.post p {
+  text-align: center;
+  word-break: break-word;
+}
+
+/*--------------------- FOOTER ---------------------*/
+.myFooter {
+  box-shadow: 5px -10px 10px #252525;
+  position: relative;
+  bottom: 0;
+}
+
+/*------------MEDIA QUERY----------------*/
+@media all and (max-width: 768px) {
+  .navbar {
+    display: inline-flex !important;
+    justify-content: right;
+  }
+
+  .navbar .container {
+    padding: 0 !important;
+  }
+
+  .navbar svg {
+    width: 1.3em !important;
+    height: 1.3em !important;
+  }
+
+  .nav-link {
+    padding: 0 !important;
+  }
+
+  .myLink a {
+    padding: 0.4rem 0.3rem !important;
+  }
+
+  /**-------CALENDAR----------**/
+  .calendar__weekday {
+    font-size: 0.65em;
+  }
+
+  .calendar__table td {
+    min-width: calc(90vw / 7);
+    max-width: calc(90vw / 7);
+    height: calc(100vh / 5);
+  }
+
+  .calendar__table--6weeks td {
+    height: calc(85vh / 6);
+  }
+
+  .calendar__table td:hover, .calendar__table--6weeks td:hover {
+    background-size: 50%;
+    background-position: center;
+  }
+
+  .calendar__event {
+    display: flex;
+    justify-content: center;
+  }
+
+  .calendar__event a {
+    display: flex;
+    justify-content: center;
+    color: white !important;
+    margin: 1em;
+  }
+
+  .calendar__event a span {
+    display: none;
+  }
+
+  #cercle {
+    background: #128293;
+  }
+
+  /*------------- RS --------------*/
+  #postsList {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .post {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: calc(95vw - 8%);
+  }
+
+  .post:hover {
+    transform: scale(1.03);
+  }
+
+  .post img, .post video {
+    width: calc(95vw - 14%);
+    height: auto;
+  }
+}
+@media all and (min-width: 768px) {
+  .myCards {
+    height: calc(100vh - 220px);
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

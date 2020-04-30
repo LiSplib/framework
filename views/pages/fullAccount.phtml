@@ -1,0 +1,62 @@
+<div class="d-flex align-items-center justify-content-center myCards" style="background: url(<?= URL_SOURCES."/images/creative-light.jpg" ?>)">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card" style="background-color: <?= $GLOBALS['STYLE']['boxBackgroundColor']."d9" ?>; color: <?= $GLOBALS['STYLE']['textColor'] ?>;">
+                <h2 class="text-center card-title mt-5" style="color: <?= $GLOBALS['STYLE']['titleColor'] ?>; font-size: <?= $GLOBALS['STYLE']['titleFontSize'] ?>; font-family: <?= $GLOBALS['STYLE']['titleFontFamily'] ?>; text-shadow: <?= $GLOBALS['STYLE']['titleTextShadow'] ?>;"><?= $admin['firstname']. ' ' .(strtoupper($admin['lastname'])) ?></h2>
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img id="profilImg" src="<?= $admin['image'] ?>" class="card-img" alt="photo de profil de <?= $admin['lastname'] ?>"/>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body" style="font-size: <?= $GLOBALS['STYLE']['textFontSize'] ?>; font-family: <?= $GLOBALS['STYLE']['textFontFamily'] ?>;">
+                            <div class="list-group">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h5 class="infobulle">
+                                            <a href="mailto:<?= $admin['email'] ?>"><i class="far fa-2x fa-envelope"></i></a>
+                                            <span class="tooltip">Contactez-moi</span>
+                                        </h5>
+                                    </div>
+                                    <?php if ($admin['role'] === 'admin' || $admin['role'] === 'superAdmin') : ?>
+                                    <div class="col-md-12">
+                                        <h5><span class="text-muted">Région : </span><?= $admin['region'] ?></h5>
+                                        <h5><span class="text-muted">Ville : </span><?= ucwords($admin['ville']) ?></h5>
+                                    </div>
+                                </div>
+                                <div class="row" >
+                                    <div class="col-md-12">
+                                        <h5><span class="text-muted">Société : </span><?= (empty($admin['societe'])) ? 'Société' : $admin['societe'] ?></h5>
+                                        <h5><span class="text-muted">Site Web : </span><?= (empty($admin['website'])) ? 'Site web' : $admin['website'] ?></h5>
+                                    </div>
+                                </div>
+                                <div class="row" >
+                                    <div class="col-md-12">
+                                        <h5><span class="text-muted">Coaching pratiqué : </span><?= ucfirst($admin['coachingDo']) ?></h5>
+                                        <h5><span class="text-muted">Type de coaching : </span><?= ucfirst($admin['coachingType']) ?></h5>
+                                        <h5><span class="text-muted">Catégorie : </span><?= ucfirst($admin['categorie']) ?></h5>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-end">
+                                    <div class="col-md-6 mt-4">
+                                        <a href="<?= $admin['facebook'] ?>" class="btn-floating btn-lg btn-fb" type="button" role="button"><i class="fab fa-lg fa-facebook-f"></i></a>
+                                        <a href="<?= $admin['linkedin'] ?>" class="px-2 fa-lg li-ic"><i class="fab fa-lg fa-linkedin-in"></i></a>
+                                        <a href="<?= $admin['viadeo'] ?>" class="px-2 fa-lg tw-ic"><i class="fab fa-lg fa-viadeo"></i></a>
+                                        <a href="<?= $admin['skype'] ?>" class="px-2 fa-lg tw-ic"><i class="fab fa-lg fa-skype"></i></a>
+                                    </div>
+                                    <?php endif; ?>
+                                    <a href="<?= route_to_url('home') ?>" class="btn peach-gradient infobulle">
+                                        <svg class="bi bi-house" width="2em" height="2em" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" d="M9.646 3.146a.5.5 0 01.708 0l6 6a.5.5 0 01.146.354v7a.5.5 0 01-.5.5h-4.5a.5.5 0 01-.5-.5v-4H9v4a.5.5 0 01-.5.5H4a.5.5 0 01-.5-.5v-7a.5.5 0 01.146-.354l6-6zM4.5 9.707V16H8v-4a.5.5 0 01.5-.5h3a.5.5 0 01.5.5v4h3.5V9.707l-5.5-5.5-5.5 5.5z" clip-rule="evenodd"/>
+                                            <path fill-rule="evenodd" d="M15 4.5V8l-2-2V4.5a.5.5 0 01.5-.5h1a.5.5 0 01.5.5z" clip-rule="evenodd"/>
+                                        </svg>
+                                        <span class="tooltip">Accueil</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>          
+</div>

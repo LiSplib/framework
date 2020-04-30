@@ -1,0 +1,58 @@
+<div class="jumbotron jumbotron-fluid text-center text-white bg-dark">
+    <div class="container-fluid">
+        <div class="d-flex flex-row justify-content-center">
+            <h3>
+                <a style="color: <?= $GLOBALS['STYLE']['titleColor'] ?>; font-size: <?= $GLOBALS['STYLE']['titleFontSize'] ?>; font-family: <?= $GLOBALS['STYLE']['titleFontFamily'] ?>; text-shadow: <?= $GLOBALS['STYLE']['titleTextShadow'] ?>;" href="<?= route_to_url('myEvents') ?>">
+                    MES ÉVÈVENEMENTS
+                </a>
+            </h3>
+        </div>
+        <div class="d-flex flex-row align-items center justify-content-between mx-sm-3">
+            <h1><?= $month->toString(); ?></h1>
+            <div>
+                <a href="<?= route_to_url('calendar') ?>?month=<?= $month->previousMonth()->month; ?>&year=<?= $month->previousMonth()->year; ?>" class="btn btn-info">&lt;</a>
+                <a href="<?= route_to_url('calendar') ?>?month=<?= $month->nextMonth()->month; ?>&year=<?= $month->nextMonth()->year; ?>" class="btn btn-info">&gt;</a>
+            </div>
+        </div>
+        <table class="calendar__table calendar__table--<?= $weeks; ?>weeks">
+            <?php for ($i = 0; $i < $weeks; $i++): ?>
+                <tr>
+                    <?php foreach($month->days as $k => $day): 
+                        $date = (clone $start)->modify("+" . ($k + $i * 7) . "days");
+                        $eventsForDay = $events[$date->format('Y-m-d')] ?? [];
+                        $isToday = date('Y-m-d') === $date->format('Y-m-d');
+                    ?>
+                    <td class="<?= $month->withinMonth($date) ? '' : 'calendar__othermonth'; ?> <?= $isToday ? 'is-today' : ''; ?>">
+                        <?php if ($i === 0): ?>
+                            <div class="calendar__weekday">
+                                <?= $day; ?>
+                            </div>
+                        <?php endif; ?>
+                        <?php if ($_SESSION['auth']['role'] === 'admin' || $_SESSION['auth']['role'] === 'superAdmin'): ?>
+                            <a class="calendar__day" href="<?= route_to_url('addEvent') ?>?date=<?= $date->format('Y-m-d'); ?>">
+                                <?= $date->format('d'); ?>
+                            </a>
+                        <?php else: ?><?= $date->format('d'); ?>
+                        <?php endif; ?>
+                        <div class="eventsBlock">
+                        <?php foreach($eventsForDay as $event): ?>
+                            <div class="calendar__event">
+                                <?php if ($_SESSION['auth']['role'] === 'superAdmin' || $event['id_admin'] === $_SESSION['auth']['id']): ?>
+                                    <a href="<?= route_to_url('editEvent') ?>?id=<?= $event['id']; ?>" id="cercle">
+                                        <?= (new DateTime($event['start']))->format('H:i') ?> - <?= (new DateTime($event['end']))->format('H:i') ?><span> : <?= htmlentities($event['title']); ?></span>
+                                    </a> 
+                                <?php else: ?>
+                                    <a href="<?= route_to_url('currentEvent') ?>?id=<?= $event['id']; ?>" id="cercle">
+                                        <?= (new DateTime($event['start']))->format('H:i') ?> - <?= (new DateTime($event['end']))->format('H:i') ?><span> : <?= htmlentities($event['title']); ?></span>
+                                    </a>
+                                <?php endif; ?>
+                            </div>
+                        <?php endforeach; ?>
+                        </div>
+                    </td>
+                    <?php endforeach; ?>
+                </tr>
+            <?php endfor; ?>
+        </table>
+    </div>
+</div>
