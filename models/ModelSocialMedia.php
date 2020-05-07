@@ -73,4 +73,28 @@ class ModelSocialMedia{
         return $query;
     }
 
+    public function getLongTokenFb(){
+        $sql = 'SELECT long_token_fb FROM social_media';
+        $query = $this->pdo->prepare($sql);
+        $query->execute();
+        $result = $query->fetch();
+        return $result['long_token_fb'];
+    }
+
+    public function getAppId(){
+        $sql = 'SELECT app_id FROM social_media';
+        $query = $this->pdo->prepare($sql);
+        $query->execute();
+        $result = $query->fetch();
+        return $result['app_id'];
+    }
+
+    public function getAppSecret(){
+        $sql = 'SELECT app_secret FROM social_media';
+        $query = $this->pdo->prepare($sql);
+        $query->execute();
+        $result = $query->fetch();
+        return $result['app_secret'];
+    }
+
 }

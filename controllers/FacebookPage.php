@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Model\ModelSocialMedia;
 use Facebook\Facebook;
 
 class FacebookPage{
@@ -13,12 +14,18 @@ class FacebookPage{
     }
 
     public function httpGetRequest(){
+
+        $fbBdd = new ModelSocialMedia;
+        $appId = $fbBdd->getAppId();
+        $appSecret = $fbBdd->getAppSecret();
+        $longToken = $fbBdd->getLongTokenFb();
+
         $fb = new Facebook([
-            'app_id' => '2551864771733343',
-            'app_secret' => 'fe7b2802c990a277af929b85f8371486',
+            'app_id' => $appId,
+            'app_secret' => $appSecret,
             'default_graph_version' => 'v2.2',
         ]);
-        $fb->setDefaultAccessToken('EAAkQ6FE7518BABqpoz1pZA8ynApbP9laLPJ9ESPL3AM3ZADJyU7xtIKXviPiKGOSZBvjfobJ50GgocIr8H3hb4UK80ArIsaxYQtjtZB22x2P9tSnDZArBjUMVyRF5ZC1dEie7fz5ZCGWWwsZCvaid9W9CpgKXXABYQy3oEenZAEUI4QZDZD');
+        $fb->setDefaultAccessToken($longToken);
         try {
             // Requires the "read_stream" permission
             $response = $fb->get('/177742082376259?fields=events{cover,description,name,start_time,end_time,id}');
