@@ -14,9 +14,9 @@
             <?php include 'header.phtml'; ?>
         </header>
         <main>
-            <?= (empty($_SESSION['auth']) ? include 'add/addAdmin.phtml' : include $app['view']); ?>
+            <?php (!empty($_SESSION['auth']) ? include $app['view'] : include 'add/addAdmin.phtml'); ?>
         </main>
-        <footer>
+        <footer class="footer mt-auto py-3 myFooter" style="background-color: <?= $GLOBALS['STYLE']['backgroundColor'] ?>">
             <?php include 'footer.phtml'; ?>
         </footer>
     </body>

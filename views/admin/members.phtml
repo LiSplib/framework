@@ -1,59 +1,61 @@
-<div class="d-flex align-items-center justify-content-center myCards" style="background: url(<?= URL_SOURCES."/images/creative-light.jpg" ?>); background-size: contain">
-    <div class="row">
-        <div class="col-sm-12 my-5 pt-5" style="background-color: <?= $GLOBALS['STYLE']['boxBackgroundColor'].'d9' ?>; color: <?= $GLOBALS['STYLE']['textColor'] ?>; font-size: <?= $GLOBALS['STYLE']['textFontSize'] ?>; font-family: <?= $GLOBALS['STYLE']['textFontFamily'] ?>;">
+<div class="d-flex align-items-center justify-content-center" style="background: url(<?= URL_SOURCES."/images/creative-light.jpg" ?>); background-size: contain">
+    <!-- <div class="row"> -->
+        <div class="col-sm-12 my-5 pt-5 overflow-auto text-center" style="background-color: <?= $GLOBALS['STYLE']['boxBackgroundColor'].'d9' ?>; color: <?= $GLOBALS['STYLE']['textColor'] ?>; font-size: <?= $GLOBALS['STYLE']['textFontSize'] ?>; font-family: <?= $GLOBALS['STYLE']['textFontFamily'] ?>;">
             <h4 class="text-center" style="color: <?= $GLOBALS['STYLE']['titleColor'] ?>; font-size: <?= $GLOBALS['STYLE']['titleFontSize'] ?>; font-family: <?= $GLOBALS['STYLE']['titleFontFamily'] ?>; text-shadow: <?= $GLOBALS['STYLE']['titleTextShadow'] ?>;">LISTE DES MEMBRES</h4>
             <?php if($_SESSION['auth']['role'] === 'superAdmin'): ?>
-                <form class="form-inline" action="<?= route_to_url('members') ?>?members" method="POST">
+                <form class="form-inline float-right" action="<?= route_to_url('members') ?>?members" method="POST">
                     <input class="form-control mr-sm-2" type="search" placeholder="Rechercher" name="search_name" aria-label="Search">
                     <button class="btn btn-info" type="submit" name="form_submit">
-                        <i class="fas fa-search fa-2x"></i>
+                        <i class="fas fa-search fa-lg"></i>
                     </button>
                 </form>
             <?php endif; ?>
-            <table class="table-responsive tableMembers">
-                <thead>
-                    <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Photo</th>
-                    <th scope="col">Nom</th>
-                    <th scope="col">Prénom</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Rôle</th>
-                    <th scope="col">Demande Coach <a href="<?= route_to_url('members')?>?coachAwait"><i class="fas fa-caret-down"></i></a></th>
-                    <th scope="col">Éditer</th>
-                    <th scope="col">Supprimer</th>
-                    </tr>
-                </thead>
-                <?php foreach ($members as $donnees) : ?>
-                <tbody>
-                    <tr>
-                        <th scope="row"><?=$donnees['id']?></th>
-                        <td><img style="height:50px;" src="<?= $donnees['image']?>"></td>
-                        <td><?= strtoupper($donnees['lastname'])?></td>
-                        <td><?= $donnees['firstname']?></td>
-                        <td><?= $donnees['email']?></td>
-                        <td><?= $donnees['role']?></td>
-                        <?php if($donnees['coach'] === '1') :?>
-                            <td> Demande en attente </td>
-                            <?php else: ?>
-                            <td> Non </td>
-                        <?php endif; ?>
-                        <td><a href="<?= route_to_url('account') ?>?id=<?=$donnees['id']?>" name="edit">
-                                <svg class="bi bi-person text-warning" width="2em" height="2em" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" d="M15 16s1 0 1-1-1-4-6-4-6 3-6 4 1 1 1 1h10zm-9.995-.944v-.002zM5.022 15h9.956a.274.274 0 00.014-.002l.008-.002c-.001-.246-.154-.986-.832-1.664C13.516 12.68 12.289 12 10 12c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664a1.05 1.05 0 00.022.004zm9.974.056v-.002zM10 9a2 2 0 100-4 2 2 0 000 4zm3-2a3 3 0 11-6 0 3 3 0 016 0z" clip-rule="evenodd"/>
-                                </svg>
-                            </a></td>
-                        <td><a href="<?= route_to_url('members') ?>?delete=<?=$donnees['id']?>" name="delete">
-                                <svg class="bi bi-trash text-danger" width="2em" height="2em" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M7.5 7.5A.5.5 0 018 8v6a.5.5 0 01-1 0V8a.5.5 0 01.5-.5zm2.5 0a.5.5 0 01.5.5v6a.5.5 0 01-1 0V8a.5.5 0 01.5-.5zm3 .5a.5.5 0 00-1 0v6a.5.5 0 001 0V8z"/>
-                                    <path fill-rule="evenodd" d="M16.5 5a1 1 0 01-1 1H15v9a2 2 0 01-2 2H7a2 2 0 01-2-2V6h-.5a1 1 0 01-1-1V4a1 1 0 011-1H8a1 1 0 011-1h2a1 1 0 011 1h3.5a1 1 0 011 1v1zM6.118 6L6 6.059V15a1 1 0 001 1h6a1 1 0 001-1V6.059L13.882 6H6.118zM4.5 5V4h11v1h-11z" clip-rule="evenodd"/>
-                                </svg>
-                            </a>
-                        </td>
-                    </tr>
-                <?php endforeach; ?>
-                </tbody>
-            </table> 
+            <div class="table-responsive">
+                <table class="table tableMembers">
+                    <thead>
+                        <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Photo</th>
+                        <th scope="col">Nom</th>
+                        <th scope="col">Prénom</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Rôle</th>
+                        <th scope="col">Demande Coach <a href="<?= route_to_url('members')?>?coachAwait"><i class="fas fa-caret-down"></i></a></th>
+                        <th scope="col">Éditer</th>
+                        <th scope="col">Supprimer</th>
+                        </tr>
+                    </thead>
+                    <?php foreach ($members as $donnees) : ?>
+                    <tbody>
+                        <tr>
+                            <th scope="row"><?=$donnees['id']?></th>
+                            <td><img style="height:50px;" src="<?= $donnees['image']?>"></td>
+                            <td><?= strtoupper($donnees['lastname'])?></td>
+                            <td><?= $donnees['firstname']?></td>
+                            <td><?= $donnees['email']?></td>
+                            <td><?= $donnees['role']?></td>
+                            <?php if($donnees['coach'] === '1') :?>
+                                <td> Demande en attente </td>
+                                <?php else: ?>
+                                <td> Non </td>
+                            <?php endif; ?>
+                            <td><a href="<?= route_to_url('account') ?>?id=<?=$donnees['id']?>" name="edit">
+                                    <svg class="bi bi-person text-warning" width="2em" height="2em" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M15 16s1 0 1-1-1-4-6-4-6 3-6 4 1 1 1 1h10zm-9.995-.944v-.002zM5.022 15h9.956a.274.274 0 00.014-.002l.008-.002c-.001-.246-.154-.986-.832-1.664C13.516 12.68 12.289 12 10 12c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664a1.05 1.05 0 00.022.004zm9.974.056v-.002zM10 9a2 2 0 100-4 2 2 0 000 4zm3-2a3 3 0 11-6 0 3 3 0 016 0z" clip-rule="evenodd"/>
+                                    </svg>
+                                </a></td>
+                            <td><a href="<?= route_to_url('members') ?>?delete=<?=$donnees['id']?>" name="delete">
+                                    <svg class="bi bi-trash text-danger" width="2em" height="2em" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M7.5 7.5A.5.5 0 018 8v6a.5.5 0 01-1 0V8a.5.5 0 01.5-.5zm2.5 0a.5.5 0 01.5.5v6a.5.5 0 01-1 0V8a.5.5 0 01.5-.5zm3 .5a.5.5 0 00-1 0v6a.5.5 0 001 0V8z"/>
+                                        <path fill-rule="evenodd" d="M16.5 5a1 1 0 01-1 1H15v9a2 2 0 01-2 2H7a2 2 0 01-2-2V6h-.5a1 1 0 01-1-1V4a1 1 0 011-1H8a1 1 0 011-1h2a1 1 0 011 1h3.5a1 1 0 011 1v1zM6.118 6L6 6.059V15a1 1 0 001 1h6a1 1 0 001-1V6.059L13.882 6H6.118zM4.5 5V4h11v1h-11z" clip-rule="evenodd"/>
+                                    </svg>
+                                </a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
-    </div>
+    <!-- </div> -->
 </div>

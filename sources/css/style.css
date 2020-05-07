@@ -432,30 +432,60 @@ select {
   border-radius: 5%;
   padding-left: 0.5%;
   padding-right: 0.5%;
-  transition: all 0.3s ease-in-out;
   word-wrap: break-word;
   max-width: calc(250px + 1%);
 }
 
 .post:hover {
-  transform: scale(1.1);
   box-shadow: -3px -5px 10px #fdfdfd, 3px 5px 5px #bbbbbb;
 }
 
 .post img, .post video {
   width: 250px;
   height: 250px;
-  border-radius: 5%;
+  border-top-right-radius: 5%;
+  border-top-left-radius: 5%;
   margin-top: 3%;
+  transition: all 0.5s ease-in-out;
 }
 
-.post:hover img {
+.post img:hover {
   border-radius: inherit;
+  transform: scale(1.5);
 }
 
 .post p {
   text-align: center;
   word-break: break-word;
+  overflow: scroll;
+  overflow-x: hidden;
+  height: 125px;
+}
+
+.post p::-webkit-scrollbar {
+  display: none;
+}
+
+/*----------------- IMAGE RESIZER ------------------*/
+.vignettes {
+  flex-direction: row;
+  overflow: scroll;
+  height: 180px;
+  border-radius: 8px;
+  overflow-y: hidden;
+}
+
+.caroussel {
+  display: inline-flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.vignettes .caroussel img {
+  width: 150px;
+  height: 150px;
+  margin: 5px;
+  border-radius: 8px;
 }
 
 /*--------------------- FOOTER ---------------------*/
@@ -543,8 +573,8 @@ select {
     max-width: calc(95vw - 8%);
   }
 
-  .post:hover {
-    transform: scale(1.03);
+  .post img:hover {
+    transform: scale(1.1);
   }
 
   .post img, .post video {

@@ -15,7 +15,9 @@ class ImageResizer{
     public function httpGetRequest(){
         $img = new ModelImage;
         $photos = $img->getImage();
-        return ['photos' => $photos];
+        $newImgs = $img->getThumbs(); 
+        return ['photos' => $photos,
+                'newImgs' => $newImgs];
     }
 
     public function httpPostRequest(){
@@ -27,7 +29,6 @@ class ImageResizer{
         }else{
             $_SESSION['flash']['danger'] = "Saisie incorrecte veuillez corrigez !" ;
             };
-        header('Location:' . route_to_url('imageResize'));
-        exit();
+        route_to_url('imageResize');
     }
 }

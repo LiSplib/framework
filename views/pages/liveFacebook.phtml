@@ -1,14 +1,5 @@
 <div class="my-5">
     <h1 class="text-center mb-5" style="color: <?= $GLOBALS['STYLE']['titleColor'] ?>; font-size: <?= $GLOBALS['STYLE']['titleFontSize'] ?>; font-family: <?= $GLOBALS['STYLE']['titleFontFamily'] ?>; text-shadow: <?= $GLOBALS['STYLE']['titleTextShadow'] ?>;">Les Lives</h1>
-    <?php foreach ($liveVideo as $video) : ?>
-        <?php if($video['status'] === 'LIVE'){
-            $_SESSION['alert']['danger'] = 'live';
-        }
-        ?>
-    <div class="vids d-inline-flex mx-2">
-        <?= $video['embed_html'] ?>
-    </div>
-    <?php endforeach; ?>
     <?php foreach ($pageLive as $live) : ?>
         <?php if($live['status'] === 'LIVE'){
             $_SESSION['alert']['danger'] = 'live';
@@ -22,9 +13,11 @@
 <hr>
 <div class="mb-5"> 
     <h1 class="text-center mb-5" style="color: <?= $GLOBALS['STYLE']['titleColor'] ?>; font-size: <?= $GLOBALS['STYLE']['titleFontSize'] ?>; font-family: <?= $GLOBALS['STYLE']['titleFontFamily'] ?>; text-shadow: <?= $GLOBALS['STYLE']['titleTextShadow'] ?>;">Les Videos</h1>
-    <?php foreach ($videos as $vid) : ?>
-        <video controls width="500">
-            <source src="<?= $vid['source'] ?>">
-        </video>
-    <?php endforeach; ?>
+    <?php if(!empty($videos)) : ?>
+        <?php foreach ($videos as $vid) : ?>
+            <video controls width="500">
+                <source src="<?= $vid['source'] ?>">
+            </video>
+        <?php endforeach; ?>
+    <?php endif; ?>
 </div>

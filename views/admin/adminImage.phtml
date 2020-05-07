@@ -1,25 +1,31 @@
-<h1>Images avant resize</h1>
-<?php
-        if(isset($_GET)){
-        foreach ($photos as $key => $photo):
-            ?>
-            <img src="<?= $photo ?>" alt="">
+<h1 class="text-center card-title mt-5" style="color: <?= $GLOBALS['STYLE']['titleColor'] ?>; font-size: <?= $GLOBALS['STYLE']['titleFontSize'] ?>; font-family: <?= $GLOBALS['STYLE']['titleFontFamily'] ?>; text-shadow: <?= $GLOBALS['STYLE']['titleTextShadow'] ?>;">Images avant resize</h1>
+    <div class="vignettes mt-3" id="scroller">
+        <div id="thumbnail-list" class="caroussel">
+        <?php
+            foreach ($photos as $key => $photo): ?>
+            <img src="<?= $photo ?>" alt=" image de profil de <?= $photo ?>">
         <?php endforeach; ?>
-
-        <form action="" method="post">
-            <label for="exampleFormControlSelect1">Example select</label>
-                <select class="form-control" id="exampleFormControlSelect1" name="size">
-                    <option value="250">250px</option>
-                    <option value="500">500px</option>
-                    <option value="50">50px</option>
-                </select>
-            <button>
-                Resize les images
-            </button>
-        </form>
-        <?php } else {
-            foreach ($imgs as $key => $img):
-                ?>
-                <img src="<?= $img ?>" alt="">
-            <?php endforeach; 
-        }
+    </div>
+</div>
+    <form action="" method="POST">
+        <label for="exampleFormControlSelect1">Example select</label>
+            <select class="form-control" id="exampleFormControlSelect1" name="size">
+                <option value="250">250px</option>
+                <option value="500">500px</option>
+                <option value="50">50px</option>
+            </select>
+        <button class="btn btn-info">
+            Resize les images
+        </button>
+    </form>
+    <h1 class="text-center card-title mt-5" style="color: <?= $GLOBALS['STYLE']['titleColor'] ?>; font-size: <?= $GLOBALS['STYLE']['titleFontSize'] ?>; font-family: <?= $GLOBALS['STYLE']['titleFontFamily'] ?>; text-shadow: <?= $GLOBALS['STYLE']['titleTextShadow'] ?>;">Images après resize</h1>
+    <div class="vignettes mt-3" id="scroller">
+        <div id="thumbnail-list" class="caroussel">
+        <?php
+            if (!empty($_POST)) : 
+                foreach ($newImgs as $key => $new): ?>
+                <img src="<?= $new ?>" alt=" image de profil de <?= $new ?>">
+                <?php endforeach; ?>
+            <?php endif; ?>
+        </div>
+    </div>

@@ -94,6 +94,10 @@ $config = [
         'fullAccount' => [
             'controller' => 'FullAccount',
             'view' => 'pages/fullAccount.phtml'
+        ],
+        'instagram' => [
+            'controller' => 'Instagram',
+            'view' => 'pages/instagram.phtml'
         ]
     ],
 ];

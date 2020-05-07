@@ -2,30 +2,75 @@
 
 namespace App\Model;
 
+use App\Model\dataBase\PdoSql;
+
 class ModelSocialMedia{
 
+    private $longLivedToken;
+    private $pdo;
+
+    public function __construct() {
+        $this->pdo = (new PdoSql)->getPdo();
+    }
+
+    public function curlInit($url){
+        $curl = curl_init($url);    // Initialiser curl
+        curl_setopt($curl,CURLOPT_HTTPGET,true);   // pour requête GET
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);   // retourn la valeur du curl_exec() en string.
+        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);   // verifie la validité du certificat !!! ne pas laisser en false.
+        $result = curl_exec($curl);   // Execute la requête
+        curl_close($curl);   // ferme la session curl
+        return $result;
+    }
+
     public function refreshToken(){
+        $insta = new ModelSocialMedia;
+        $this->longLivedToken = $insta->getTokenInsta();
+        $url = "https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&&access_token=$this->longLivedToken";
+        $curl = $insta->curlInit($url);
+        return $curl;
+    }
+    
+    public function getFluxInsta(){
+        $insta = new ModelSocialMedia;
+        $this->longLivedToken = $insta->getTokenInsta();
+        $url = "https://graph.instagram.com/me/media?fields=caption,media_url,permalink,media_type,children&access_token=$this->longLivedToken";
+        $curl = $insta->curlInit($url);
+        return $curl;
+    }
 
-        $longLivedToken = 'IGQVJVdkZAYZA1FneHpwMDF3aG9mOXRKbC1UTTNYMndHaUFwVE1VcVAtREZAWTnhxMzdkSnA0bVplZA0l1M080MDNOdjMxTFlFZA1NhWElkZAk1ZAc3djMGx0aUh3Y1N1WTduckEyZAXhxdVA1akxrM0cwR3ROLXBRRjdKYTM3MDkw';
-        $url = "https://graph.instagram.com/refresh_access_token";
-        $access_token_parameters = array(
-            'grant_type'         =>     'ig_refresh_token',
-            'access_token'       =>     $longLivedToken
-        );
+    public function getPreviousFlux($url){
+        $insta = new ModelSocialMedia;
+        $this->longLivedToken = $insta->getTokenInsta();
+        $curl = $insta->curlInit($url);
+        return $curl;
+    }
 
-        $curl = curl_init($url);    // we init curl by passing the url
-            curl_setopt($curl,CURLOPT_POST,true);   // to send a POST request
-            curl_setopt($curl,CURLOPT_POSTFIELDS,$access_token_parameters);   // indicate the data to send
-            curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);   // to return the transfer as a string of the return value of curl_exec() instead of outputting it out directly.
-            curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);   // to stop cURL from verifying the peer's certificate.
-            $result = curl_exec($curl);   // to perform the curl session
-            curl_close($curl);   // to close the curl session
-
-            var_dump($result);
-    }    
+    public function getNextFlux($url){
+        $insta = new ModelSocialMedia;
+        $this->longLivedToken = $insta->getTokenInsta();
+        $curl = $insta->curlInit($url);
+        return $curl;
+    }
     
     public function toDateInterval($seconds){
         return ['toDateInterval' => date_create('@' . (($now = time()) + $seconds))->diff(date_create('@' . $now))];
+    }
+
+    public function getTokenInsta(){
+        $sql = 'SELECT long_token_insta FROM social_media';
+        $query = $this->pdo->prepare($sql);
+        $query->execute();
+        $result = $query->fetch();
+        return $result['long_token_insta'];
+    }
+
+    public function setTokenInsta($long_token_insta){
+        $sql = 'INSERT INTO social_media (long_token_insta) VALUES (:long_token_insta)';
+        $query = $this->pdo->prepare($sql);
+        $query->bindParam(':long_token_insta', $long_token_insta);
+        $query->execute();
+        return $query;
     }
 
 }
