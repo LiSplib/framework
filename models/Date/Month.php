@@ -12,7 +12,11 @@ class Month{
     
     public $year;
 
-    public function __construct(?int $month = null, ?int $year = null)
+    public $day;
+
+
+
+    public function __construct(?int $month = null, ?int $year = null, ?int $day = null)
     {
         if ($month === null || $month < 1 || $month > 12){
             $month = intval(date('m'));
@@ -22,8 +26,14 @@ class Month{
             $year = intval(date('Y'));
         }
 
+        if ($day === null || $day < 1 || $day > 7){
+            $day = intval(date('N'));
+        }
+
+       
         $this->month = $month;
-        $this->year= $year;
+        $this->year = $year;
+        $this->day = $day;
 
     }
 
@@ -33,6 +43,14 @@ class Month{
 
     public function toString() : string {
         return $this->months[$this->month -1] . ' ' . $this->year;
+    }
+
+    public function monthToString() : string {
+        return $this->months[$this->month -1];
+    }
+
+    public function dayToString() : string {
+        return $this->days[$this->day -1];
     }
 
 

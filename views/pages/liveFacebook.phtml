@@ -6,7 +6,7 @@
         }
         ?>
     <div class="vids d-inline-flex mx-2">
-        <?= $live['embed_html'] ?>
+            <?= $live['embed_html'] ?>
     </div>
     <?php endforeach; ?>
 </div>
@@ -15,9 +15,11 @@
     <h1 class="text-center mb-5" style="color: <?= $GLOBALS['STYLE']['titleColor'] ?>; font-size: <?= $GLOBALS['STYLE']['titleFontSize'] ?>; font-family: <?= $GLOBALS['STYLE']['titleFontFamily'] ?>; text-shadow: <?= $GLOBALS['STYLE']['titleTextShadow'] ?>;">Les Videos</h1>
     <?php if(!empty($videos)) : ?>
         <?php foreach ($videos as $vid) : ?>
-            <video controls width="500">
-                <source src="<?= $vid['source'] ?>">
-            </video>
+            <div class="embed-responsive embed-responsive-16by9">
+                <video controls>
+                    <source class="embed-responsive-item" src="<?= $vid['source'] ?>">
+                </video>
+            </div>
         <?php endforeach; ?>
     <?php endif; ?>
 </div>

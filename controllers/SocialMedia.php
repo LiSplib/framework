@@ -28,7 +28,24 @@ class SocialMedia{
             return ['result' => $result,
                     'value' => $value
                     ];
-        }    
+        }
+        
+        $fbBdd = new ModelSocialMedia;
+        $appId = $fbBdd->getAppId();
+        $appSecret = $fbBdd->getAppSecret();
+        // $longToken = $fbBdd->getLongTokenFb();
+
+        $fb = new \Facebook\Facebook([
+            'app_id' => $appId,
+            'app_secret' => $appSecret,
+            'default_graph_version' => 'v6.0',
+        ]);
+        
+        $helper = $fb->getRedirectLoginHelper();
+        
+        $permissions = ['email'];
+        $loginUrl = $helper->getLoginUrl('fb-callback.php', $permissions);
+        return ['loginUrl' => $loginUrl];    
     }
 
     public function httpPostRequest(){

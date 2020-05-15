@@ -1,8 +1,15 @@
+<form class="form-inline float-right mt-5 mr-5" action="<?= route_to_url('instagram') ?>?hashtag" method="POST">
+        <input class="form-control mr-sm-2" type="search" placeholder="Rechercher" name="search_hashtag" aria-label="Search">
+        <button class="btn btn-info" type="submit" name="form_submit">
+            <i class="fas fa-search fa-lg"></i>
+        </button>
+    </form>
 <div id="postsList" class="w-100 mb-3">
 <?php 
     foreach($data as $d) : 
-        // var_dump($d);
-        // $caption = $d->caption;
+        $caption = $d->caption;
+        $result = stristr($caption, "#");
+        // var_dump($result);
         // $caption = explode('#', $caption);
         // foreach($caption as $key => $c) :        
             // if(preg_match('/altair/', $c, $matches)){

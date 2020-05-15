@@ -113,13 +113,12 @@ class ModelAdmin{
         return $query;
     }
 
-    public function editCoaching($coachingDo, $adherent, $coachingType, $categorie, $id){
+    public function editCoaching($coachingDo, $adherent, $categorie, $id){
         $sql = 'UPDATE coaching 
-        SET coachingDo = :coachingDo, adherent = :adherent, coachingType = :coachingType, categorie = :categorie WHERE coach_id = :id';
+        SET coachingDo = :coachingDo, adherent = :adherent, categorie = :categorie WHERE coach_id = :id';
         $query = $this->pdo->prepare($sql);
         $query->bindParam(':coachingDo', $coachingDo);
         $query->bindParam(':adherent', $adherent);
-        $query->bindParam(':coachingType', $coachingType);
         $query->bindParam(':categorie', $categorie);
         $query->bindParam(':id', $id);
         $query->execute();
@@ -160,12 +159,11 @@ class ModelAdmin{
         return $query;
     }
 
-    public function addCoaching($coachingDo, $adherent, $coachingType, $categorie, $id){
-        $sql = 'INSERT INTO coaching (coachingDo, adherent, coachingType, categorie, coach_id) VALUES (:coachingDo, :adherent, :coachingType, :categorie, :coach_id)';
+    public function addCoaching($coachingDo, $adherent, $categorie, $id){
+        $sql = 'INSERT INTO coaching (coachingDo, adherent, categorie, coach_id) VALUES (:coachingDo, :adherent, :categorie, :coach_id)';
         $query = $this->pdo->prepare($sql);
         $query->bindParam(':coachingDo', $coachingDo);
         $query->bindParam(':adherent', $adherent);
-        $query->bindParam(':coachingType', $coachingType);
         $query->bindParam(':categorie', $categorie);
         $query->bindParam(':coach_id', $id);
         $query->execute();
@@ -220,17 +218,6 @@ class ModelAdmin{
         $adherent = substr($results, 5, -1);
         $adherent = explode(",", $adherent);
         return $adherent;
-    }
-
-    public function getType(){
-        $sql = "SHOW COLUMNS FROM coaching LIKE 'coachingType'";
-        $query = $this->pdo->prepare($sql);
-        $query->execute();
-        $result = $query->fetch();
-        $results = $result['Type'];
-        $coachingType = substr($results, 5, -1);
-        $coachingType = explode(",", $coachingType);
-        return $coachingType;
     }
 
     public function getCategorie(){

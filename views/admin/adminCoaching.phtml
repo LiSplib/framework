@@ -29,16 +29,6 @@
                                         </select>
                                     </div>
                                     <div class="form-group col-md-12">
-                                        <label class="title2">Coaching Type</label>
-                                        <select class="browser-default custom-select" id="coachingType" name="coachingType">
-                                            <option selected><?= $ty = (empty($adminCoaching['coachingType'])) ? 'Coaching Type' : $adminCoaching['coachingType'] ?></option>
-                                        <?php foreach($coachingType as $ty): ?>
-                                            <?php $ty = substr($ty, 1, -1); ?>
-                                            <option value="<?= $ty ?>"><?= $ty ?></option>
-                                        <?php endforeach; ?>
-                                        </select>
-                                    </div>
-                                    <div class="form-group col-md-12">
                                     <label class="title2">Catégorie</label>
                                         <select class="browser-default custom-select" id="categorie" name="categorie">
                                             <option selected><?= $cat = (empty($adminCoaching['categorie'])) ? 'Catégorie' : $adminCoaching['categorie'] ?></option>

@@ -34,13 +34,17 @@ class Account extends Session{
         $email = $_POST['email'];
         $image = $_POST['image'];
         if ($_SESSION['auth']['role'] === 'superAdmin'){
-            $role = $_POST['role'];
+            if(isset($_POST['role'])){
+                $role = $_POST['role'];
+            }
+        }else{
+            $role = $admin['role'];
         }
-        $role = $admin['role'];
         if ($role === 'admin'){
             $coach = 0;
-        }
-        $coach = $admin['coach'];
+        }else{
+            $coach = $admin['coach'];
+        }       
         $dataAdmin = new ModelAdmin;
         $dataAdmin->editAdmin($lastname, $firstname, $email, $image, $role, $id, $coach);
         $_SESSION['flash']['success'] = 'Membre modifié';

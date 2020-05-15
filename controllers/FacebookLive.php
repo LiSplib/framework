@@ -22,7 +22,7 @@ class FacebookLive{
         $fb = new Facebook([
             'app_id' => $appId,
             'app_secret' => $appSecret,
-            'default_graph_version' => 'v2.2',
+            'default_graph_version' => 'v6.0',
         ]);
         
         //TODO boucle génération token
@@ -32,7 +32,7 @@ class FacebookLive{
         $fb->setDefaultAccessToken($longToken);
         try {
             // Requires the "read_stream" permission
-            $response = $fb->get('/177742082376259?fields=id,name,videos{source}');
+            $response = $fb->get('/177742082376259?fields=id,name,videos{source,description,format}');
             $resPageLive = $fb->get('177742082376259/?fields=live_videos{permalink_url,live_views,embed_html,status}');
             // $resPageLive = $fb->get('631254443954084/?fields=live_videos{permalink_url,live_views,embed_html,status}');
           } catch(\Facebook\Exceptions\FacebookResponseException $e) {

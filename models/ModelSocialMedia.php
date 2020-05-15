@@ -17,7 +17,7 @@ class ModelSocialMedia{
         $curl = curl_init($url);    // Initialiser curl
         curl_setopt($curl,CURLOPT_HTTPGET,true);   // pour requête GET
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);   // retourn la valeur du curl_exec() en string.
-        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);   // verifie la validité du certificat !!! ne pas laisser en false.
+        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);   // verifie la validité du certificat        !!! NE PAS LAISSER EN FALSE EN PROD !!!!  et inclure le fichier ssl
         $result = curl_exec($curl);   // Execute la requête
         curl_close($curl);   // ferme la session curl
         return $result;

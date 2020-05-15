@@ -5,6 +5,9 @@
         <a href="http://altair-communication.fr/">Altaïr Communication</a>
       </li>
       <li class="list-inline-item mx-2">
+        <a href="#" data-container="body" data-toggle="popover" data-placement="bottom" data-content="06.33.26.19.57" class="text-white"><i class="fas fa-phone"></i></a>
+      </li>
+      <li class="list-inline-item mr-2">
           <a href="https://www.facebook.com/AltairStrategieEtFormationEnCommunication/posts/1609073655909754" class="text-white"><i class="fab fa-lg fa-facebook"></i></a>
        </li>
        <li class="list-inline-item">
@@ -20,4 +23,11 @@
     $(function () {
     $('[data-toggle="popover"]').popover()
     })
+</script>
+<script>
+  $btnSidebar = document.getElementById('sidebarActive');
+  $sidebar = document.getElementById('mySideBar')
+  $btnSidebar.addEventListener('click', (e) => {
+    $sidebar.classList.toggle('d-none')
+  });
 </script>

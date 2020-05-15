@@ -23,7 +23,7 @@ class FacebookPage{
         $fb = new Facebook([
             'app_id' => $appId,
             'app_secret' => $appSecret,
-            'default_graph_version' => 'v2.2',
+            'default_graph_version' => 'v6.0',
         ]);
         $fb->setDefaultAccessToken($longToken);
         try {

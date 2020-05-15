@@ -22,12 +22,10 @@ class Coaching{
         $adminCoaching = $dataAdmin->getAdminCoaching($id);
         $coach = $dataAdmin->getCoachingDo();
         $adherent = $dataAdmin->getAdherent();
-        $coachingType = $dataAdmin->getType();
         $categorie = $dataAdmin->getCategorie();
         return ['adminCoaching' => $adminCoaching,
                 'coach' => $coach,
                 'adherent' => $adherent,
-                'coachingType' => $coachingType,
                 'categorie' => $categorie
                 ];
     }
@@ -36,15 +34,14 @@ class Coaching{
         $id = (empty($_GET['id']) ? $_SESSION['auth']['id'] : $_GET['id']);
         $coachingDo = $_POST['coachingDo'];
         $adherent = $_POST['adherent'];
-        $coachingType = $_POST['coachingType'];
         $categorie = $_POST['categorie'];
         $dataAdmin = new ModelAdmin;
         $adminCoaching = $dataAdmin->getAdminCoaching($id);
         if(isset($adminCoaching)){
-            $dataAdmin->addCoaching($coachingDo, $adherent, $coachingType, $categorie, $id);
+            $dataAdmin->addCoaching($coachingDo, $adherent, $categorie, $id);
             $_SESSION['flash']['success'] = 'Info ajoutées';
         }else{
-            $dataAdmin->editCoaching($coachingDo, $adherent, $coachingType, $categorie, $id);
+            $dataAdmin->editCoaching($coachingDo, $adherent, $categorie, $id);
             $_SESSION['flash']['success'] = 'Info modifiées';
         }
         redirect_to_route('coaching?id='.$id);

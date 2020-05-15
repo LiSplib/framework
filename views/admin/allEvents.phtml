@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row my-5">
+    <?php foreach($allEvents as $event): ?>
+        <?php $data = $event['start'];
+                    $data = new DateTime($data);
+                    $date = $data->format('Y/m/d');
+                    setlocale(LC_TIME, "fr_FR", "French");
+                    $date = strftime("%A %d %B %G", strtotime($date));
+                    $event['date'] = ucwords($date); ?>
+        <div class="col">
+            <div class="card bg-dark p-3 text-white">
+                <h3><i class="fas fa-circle fa-xs text-<?= $event['themeColor'] ?>"></i> <?= $event['date'] ?></h3>
+                <h5 class="card-title"><?= $event['title'] ?></h5>
+                <div class="card-body text-center">
+                    <button class="btn">
+                        <a href="<?= route_to_url('currentEvent') ?>?id=<?= $event['id'] ?>">
+                            <i class="fas fa-search-plus fa-3x"></i>Aperçu
+                        </a>
+                    </button>
+                    <button class="btn"><i class="fas fa-times fa-3x"></i>Refuser</button>
+                    <form action="" method="POST">
+                        <input type="hidden" name=id value="<?= $event['id'] ?>">
+                        <input type="hidden" name=isValide value="0">
+                        <button class="btn inline-flex" type="submit">
+                            <a href="<?= route_to_url('evenements') ?>?id=<?= $event['id'] ?>">
+                                <i class="fas fa-check fa-3x"></i>Accepter
+                            </a>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <?php endforeach; ?>
+    </div>
+</div>

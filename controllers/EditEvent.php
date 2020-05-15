@@ -15,8 +15,6 @@ class EditEvent{
        $this->events = new \App\Model\Date\Events();
        $this->event = $this->events->find($_GET['id']);
     }
-
-    
     
     public function httpGetRequest(){
         if($_SESSION['auth']['role'] === 'superAdmin' || $this->event->getId_admin() === $_SESSION['auth']['id']){
@@ -31,18 +29,26 @@ class EditEvent{
             } catch (\Exception $e) {
                 //TODO 404;
             }
-
+            
+            $allThemes = new \App\Model\Date\Events;
+            $AllTheme = $allThemes->enumTheme();
             $data = [
                 'title' => $this->event->getTitle(),
+                'urlImage' => $this->event->getUrlImage(),
                 'date' => $this->event->getStart()->format('Y-m-d'),
                 'start' => $this->event->getStart()->format('H:i'),
                 'end' => $this->event->getEnd()->format('H:i'),
-                'content' => $this->event->getContent()
+                'theme' => $this->event->getTheme(),
+                'content' => $this->event->getContent(),
+                'adress' => $this->event->getAdress(),
+                'zipcode' => $this->event->getZipcode(),
+                'city' => $this->event->getCity()
             ];
 
             return ['event' => $this->event,
                     'data' => $data,
-                    'errors' => $errors
+                    'errors' => $errors,
+                    'theme' => $AllTheme
         ];
             
         }else {
@@ -55,9 +61,12 @@ class EditEvent{
                 
         if($_SERVER['REQUEST_METHOD'] === 'POST') {
             $data = $_POST;
+            $theme = $data['theme'];
             $validator = new \App\Model\Date\EventValidator();
             $this->errors = $validator->validates($data);
             if (empty($this->errors)) {
+                $color = $this->events->addColorTheme($theme);
+                $data['themeColor'] = $color;
                 $this->events->hydrate($this->event, $data);
                 $this->events->update($this->event);
                 session_start();

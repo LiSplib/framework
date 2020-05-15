@@ -74,16 +74,6 @@ class ModelSearch{
         return $query->fetchAll();
     }
 
-    public function typeSearch(){
-        $coachingType = $_GET['search_name'];
-        $sql = "SELECT * FROM admin LEFT JOIN coaching ON coach_id = admin.id WHERE coachingType LIKE LOWER(:coachingType)";
-        $query = $this->pdo->prepare($sql);
-        $concat = '%'.$coachingType.'%';
-        $query->bindParam(':coachingType', $concat);
-        $query->execute();
-        return $query->fetchAll();
-    }
-
     public function catSearch(){
         $categorie = $_GET['search_name'];
         $sql = "SELECT * FROM admin LEFT JOIN coaching ON coach_id = admin.id WHERE categorie LIKE LOWER(:categorie)";

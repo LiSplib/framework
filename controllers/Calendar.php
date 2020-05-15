@@ -32,7 +32,7 @@ class Calendar {
                 'weeks' => $weeks,
                 'start' => $start,
                 'end' => $end
-            ];
+                ];
     }
 
     public function httpPostRequest(){}

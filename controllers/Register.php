@@ -32,6 +32,9 @@ class Register{
             if(empty($_POST['password']) || $_POST['password'] != $_POST['confirm_password']){
                 $errors['password'] = "Votre password n'est pas valide!";
             }
+            if(empty($_POST['image']) || !filter_var($_POST['image'], FILTER_VALIDATE_URL)){
+                $errors['image'] = 'L\'url n\'est pas valide!';
+            }
             if(empty($errors)){
                 $lastname = $_POST['lastname'];
                 $firstname = $_POST['firstname'];

@@ -98,6 +98,10 @@ $config = [
         'instagram' => [
             'controller' => 'Instagram',
             'view' => 'pages/instagram.phtml'
+        ],
+        'evenements' => [
+            'controller' => 'AllEvents',
+            'view' => 'admin/allEvents.phtml'
         ]
     ],
 ];

@@ -1,5 +1,23 @@
 <div class="jumbotron jumbotron-fluid text-center text-white bg-dark">
     <div class="container-fluid">
+        <div class="d-flex text-left flex-column mb-5 sm-text-center">
+            <span>
+                <i class="fas fa-circle text-danger"></i>
+                 Développement Personnel
+            </span>
+            <span class="">
+                <i class="fas fa-circle text-primary"></i>
+                 Coaching Dirigeant
+            </span>
+            <span class="">
+                <i class="fas fa-circle text-success"></i>
+                 Coaching Grande Entreprise
+            </span>
+            <span class="">
+                <i class="fas fa-circle text-warning"></i>
+                 Coaching PME
+            </span>
+        </div>
         <div class="d-flex flex-row justify-content-center">
             <h3>
                 <a style="color: <?= $GLOBALS['STYLE']['titleColor'] ?>; font-size: <?= $GLOBALS['STYLE']['titleFontSize'] ?>; font-family: <?= $GLOBALS['STYLE']['titleFontFamily'] ?>; text-shadow: <?= $GLOBALS['STYLE']['titleTextShadow'] ?>;" href="<?= route_to_url('myEvents') ?>">
@@ -38,12 +56,12 @@
                         <?php foreach($eventsForDay as $event): ?>
                             <div class="calendar__event">
                                 <?php if ($_SESSION['auth']['role'] === 'superAdmin' || $event['id_admin'] === $_SESSION['auth']['id']): ?>
-                                    <a href="<?= route_to_url('editEvent') ?>?id=<?= $event['id']; ?>" id="cercle">
-                                        <?= (new DateTime($event['start']))->format('H:i') ?> - <?= (new DateTime($event['end']))->format('H:i') ?><span> : <?= htmlentities($event['title']); ?></span>
+                                    <a href="<?= route_to_url('editEvent') ?>?id=<?= $event['id']; ?>" class="event" data-theme="" data-title="<?= $event['title'] ?>">
+                                        <i class="fas fa-circle text-<?= $event['themeColor'] ?>"></i>
                                     </a> 
-                                <?php else: ?>
-                                    <a href="<?= route_to_url('currentEvent') ?>?id=<?= $event['id']; ?>" id="cercle">
-                                        <?= (new DateTime($event['start']))->format('H:i') ?> - <?= (new DateTime($event['end']))->format('H:i') ?><span> : <?= htmlentities($event['title']); ?></span>
+                                    <?php else: ?>
+                                    <a href="<?= route_to_url('currentEvent') ?>?id=<?= $event['id']; ?>" class="event" data-theme="" data-title="<?= $event['title'] ?>">
+                                        <i class="fas fa-circle text-<?= $event['themeColor'] ?>"></i>
                                     </a>
                                 <?php endif; ?>
                             </div>

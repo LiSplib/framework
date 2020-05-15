@@ -8,6 +8,9 @@ $altairDark: #1a1a1a;
 $altairRose: #eb5f62;
 $altairSable: #ffcb94;
 
+*{
+    font-family: sans-serif;
+}
 
 /*--------------------- HEADER ---------------------*/
 
@@ -63,13 +66,13 @@ $altairSable: #ffcb94;
 
 .navbar{
     box-shadow: 5px 10px 10px rgb(37, 37, 37);
-    font-size: calc(1vw + 1vh + 0.5vmin);
+    // font-size: calc(1vw + 1vh + 0.5vmin);
 }
 
-.navbar svg{
-    width: calc(1vw + 1vh + 0.5vmin)!important;
-    height: calc(1vw + 1vh + 0.5vmin)!important;
-}
+// .navbar svg{
+//     width: calc(1vw + 1vh + 0.5vmin)!important;
+//     height: calc(1vw + 1vh + 0.5vmin)!important;
+// }
 
 .popover-body{
     background-color: $altairRose;
@@ -83,41 +86,41 @@ $altairSable: #ffcb94;
 
  /* Personnalisation des boutons icones */
 
-.btn-altairDark:focus > #phone path, .btn-altairDark:hover > #phone path{
-    fill: #ff5500;
-}
+// .btn-altairDark:focus > #phone path, .btn-altairDark:hover > #phone path{
+//     fill: #ff5500;
+// }
 
-.btn-altairDark:focus > #calendar path, .btn-altairDark:hover > #calendar path{
-    fill: #e14391;
-}
+// .btn-altairDark:focus > #calendar path, .btn-altairDark:hover > #calendar path{
+//     fill: #e14391;
+// }
 
-.btn-altairDark:focus > #logout path, .btn-altairDark:hover > #logout path{
-    fill: #ff4536;
-}
+// .btn-altairDark:focus > #logout path, .btn-altairDark:hover > #logout path{
+//     fill: #ff4536;
+// }
 
-.btn-altairDark:focus > #toolbox path, .btn-altairDark:hover > #toolbox path{
-    fill: #28b60c;
-}
+// .btn-altairDark:focus > #toolbox path, .btn-altairDark:hover > #toolbox path{
+//     fill: #28b60c;
+// }
 
-.btn-altairDark:focus > #connect path, .btn-altairDark:hover > #connect path{
-    fill: #036ce4;
-}
+// .btn-altairDark:focus > #connect path, .btn-altairDark:hover > #connect path{
+//     fill: #036ce4;
+// }
 
-.btn-altairDark:focus > #fb path, .btn-altairDark:hover > #fb path{
-    fill: #036ce4;
-}
+// .btn-altairDark:focus > #fb path, .btn-altairDark:hover > #fb path{
+//     fill: #036ce4;
+// }
 
-.btn-altairDark:focus > #insta path, .btn-altairDark:hover > #insta path{
-    fill: #dc3171;
-}
+// .btn-altairDark:focus > #insta path, .btn-altairDark:hover > #insta path{
+//     fill: #dc3171;
+// }
 
-.btn-altairDark:focus > #vimeo path, .btn-altairDark:hover > #vimeo path{
-    fill: #41b1db;
-}
+// .btn-altairDark:focus > #vimeo path, .btn-altairDark:hover > #vimeo path{
+//     fill: #41b1db;
+// }
 
-.btn-altairDark:focus > #pinterest path, .btn-altairDark:hover > #pinterest path{
-    fill: #e60019;
-}
+// .btn-altairDark:focus > #pinterest path, .btn-altairDark:hover > #pinterest path{
+//     fill: #e60019;
+// }
 
 .dropdown-item{
     color: inherit!important;
@@ -141,6 +144,20 @@ body{
 #bgImage{
     filter: grayscale(0.8);
     width: 99vw;
+}
+
+.sidebar{
+    z-index: 100;
+    width: 25vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh; 
+}
+
+.sidebar a{
+    font-size: 1.5em;
+    color: $altairRose!important;
 }
 
 .card{
@@ -183,6 +200,33 @@ table a{
     background-color: #222;
     border-radius: 5px;
     padding: 10px;
+}
+
+.cardEvent{
+    box-shadow: -1px 2px 10px 3px rgba(0, 0, 0, 0.3) inset;
+}
+
+.imgMap{
+    filter: grayscale(1) invert(1) brightness(0.60);
+}
+
+input, select, textarea{
+    border: none!important;
+    background-color: $altairDark!important;
+    color: white!important;
+    box-shadow: 0px 1px 1px 1px rgb(12, 11, 11);
+}
+
+.form-control{
+    color: white!important;
+}
+
+button a, button{
+    color: white!important;
+}
+
+button:hover, button a:hover{
+    color: black!important;
 }
 
 /*-------------------- PARAMETER -------------------*/
@@ -364,6 +408,7 @@ $cubic-bezier:cubic-bezier(0.68, -0.55, 0.265, 1.55);
     width: auto;
     margin: auto;
 }
+
 .container2 a {
     text-transform: uppercase;
     text-decoration: none;
@@ -402,7 +447,7 @@ $cubic-bezier:cubic-bezier(0.68, -0.55, 0.265, 1.55);
 .eventsBlock{
     height: 10vh!important;
     overflow: auto;
-    scrollbar-color: #2a2e33 #2a2e33;
+    scrollbar-color: transparent #2a2e33;
     text-align: start!important;
 }
 
@@ -417,9 +462,9 @@ $cubic-bezier:cubic-bezier(0.68, -0.55, 0.265, 1.55);
     z-index: 12;
 }
 
-.calendar__table td:last-child{
-    display: none;
-}
+// .calendar__table td:last-child{
+//     display: none;
+// }
 
 .calendar__table--6weeks td{
     height: 16.66%;
@@ -457,6 +502,26 @@ $cubic-bezier:cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
 .jumbotron{
     opacity: 0.8!important;
+}
+
+.event:hover::after{
+    content: attr(data-title);
+}
+
+.calendar__table tr:first-of-type td {
+    border-top: none!important;
+}
+
+.calendar__table td:first-of-type{
+    border-left: none!important
+}
+
+.calendar__table td:last-of-type{
+    border-right: none!important;
+}
+
+.calendar__table tr:last-of-type td{
+    border-bottom: none!important;
 }
 
 
@@ -546,18 +611,28 @@ $cubic-bezier:cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
 
 @media all and (max-width: 768px){
-    .navbar{
-        display: inline-flex!important;
-        justify-content: right;
+
+    .sidebar{
+        width: 100vw;
+        top: 60px;
     }
 
-    .navbar .container{
-        padding: 0!important;
-    }
+    // .navbar{
+    //     display: inline-flex!important;
+    //     justify-content: right;
+    // }
 
-    .navbar svg{
-        width: 1.3em!important;
-        height: 1.3em!important;
+    // .navbar .container{
+    //     padding: 0!important;
+    // }
+
+    // .navbar svg{
+    //     width: 1.3em!important;
+    //     height: 1.3em!important;
+    // }
+
+    #bgImage{
+        height: 100vh;
     }
 
     .nav-link{
@@ -600,15 +675,10 @@ $cubic-bezier:cubic-bezier(0.68, -0.55, 0.265, 1.55);
         display: flex;
         justify-content: center;
         color: white!important;
-        margin: 1em;
     }
 
     .calendar__event a span{
         display: none;
-    }
-
-    #cercle{
-        background: #128293;
     }
 
     /*------------- RS --------------*/
@@ -637,6 +707,6 @@ $cubic-bezier:cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
 @media all and (min-width: 768px){
     .myCards{
-        height: calc(100vh - 220px);
+        height: calc(100vh - 60px);
     }
 }
