@@ -20,6 +20,7 @@ class Calendar {
     }
 
     public function httpGetRequest(){
+        $classEvents = new \App\Model\Date\Events;
         $events = new Events($this->pdo);
         $month = new Month($_GET['month'] ?? null, $_GET['year'] ?? null); 
         $start = $month->getStartingDay();
@@ -31,7 +32,8 @@ class Calendar {
                 'month' => $month,
                 'weeks' => $weeks,
                 'start' => $start,
-                'end' => $end
+                'end' => $end,
+                'classEvents' => $classEvents
                 ];
     }
 

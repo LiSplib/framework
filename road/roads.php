@@ -100,8 +100,8 @@ $config = [
             'view' => 'pages/instagram.phtml'
         ],
         'evenements' => [
-            'controller' => 'AllEvents',
-            'view' => 'admin/allEvents.phtml'
+            'controller' => 'AwaitEvents',
+            'view' => 'admin/awaitEvents.phtml'
         ]
     ],
 ];

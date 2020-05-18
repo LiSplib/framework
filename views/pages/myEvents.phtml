@@ -11,6 +11,7 @@
                                 <th scope="col">Date</th>
                                 <th scope="col">Heure de début - Heure de fin</th>
                                 <th scope="col">Nombres d'inscrits</th>
+                                <th scope="col">Nombres d'intéressés</th>
                                 <?php if($_SESSION['auth']['role'] === 'superAdmin' || $_SESSION['auth']['role'] === 'admin') : ?>
                                     <th scope="col">Éditer</th>
                                 <?php endif; ?>
@@ -19,6 +20,7 @@
                 <?php foreach ($result as $event) : ?>
                     <?php $eid = $event['id']; 
                         $participants = $currentEvent->registerCount($eid);
+                        $interesed = $currentEvent->interestedCount($eid);
                     ?>
                         <tbody>
                             <tr>
@@ -28,6 +30,9 @@
                                 <?php foreach ($participants as $participant): ?>
                                     <td><?= $participant ?></td>
                                 <?php endforeach; ?>
+                                <?php foreach ($interesed as $interes) : ?>
+                                    <td><?= $interes  ?></td>
+                                <?php endforeach ?>
                                 <?php if ($event['id_admin'] === $_SESSION['auth']['id']): ?>
                                     <td>
                                         <a href="<?= route_to_url('editEvent') ?>?id=<?= $event['id']; ?>" style="color:burlywood!important;">

@@ -23,6 +23,23 @@
   height: 61.1px;
 }
 
+.draken-1 {
+  background-color: #757575 !important;
+}
+
+.elegant-color {
+  background-color: #1a1a1a !important;
+}
+
+.card-grey {
+  box-shadow: 1px 3px 15px 10px #202020 inset;
+}
+
+.card-grey, .card-grey-2 {
+  background-color: #3c3838 !important;
+  border-radius: 5% !important;
+}
+
 @font-face {
   font-family: "Barlow-Regular";
   src: url("../fonts/Barlow-Regular.ttf");
@@ -51,6 +68,10 @@
   font-family: "Roboto";
   src: url("../fonts/Roboto-Regular.ttf");
 }
+@font-face {
+  font-family: "Hikou_Inline";
+  src: url("../fonts/Hikou_Inline.otf");
+}
 .navbar {
   box-shadow: 5px 10px 10px #252525;
 }
@@ -64,7 +85,6 @@
   border-bottom-color: #eb5f62 !important;
 }
 
-/* Personnalisation des boutons icones */
 .dropdown-item {
   color: inherit !important;
 }
@@ -79,6 +99,25 @@ body {
   margin: 0 !important;
   padding: 0 !important;
   font-family: "Barlow-Regular", serif;
+}
+
+.bg-Altair-grey {
+  background-color: #3e3c3c;
+}
+
+.monthTitle {
+  font-family: "Hikou_Inline";
+  font-size: 3em;
+  text-shadow: 0 5px 10px black;
+}
+
+.monthHeader i {
+  color: white !important;
+  vertical-align: super;
+}
+
+.titleEvent {
+  font-family: "Hikou_Inline";
 }
 
 #bgImage {
@@ -374,7 +413,7 @@ select {
 .calendar__table td {
   border: 1px solid #ccc;
   vertical-align: top;
-  width: calc(100vw / 7);
+  width: calc(100% / 7);
   z-index: 12;
 }
 
@@ -383,18 +422,10 @@ select {
 }
 
 .calendar__table td:hover, .calendar__table--6weeks td:hover {
-  background-color: #88898b07;
-  background-image: url("../images/logo-blanc.svg");
-  background-repeat: no-repeat;
-  background-position: top 2% right 2%;
-  background-size: 20%;
-  backdrop-filter: grayscale(20%);
-  z-index: 1;
-}
-
-.calendar__weekday {
-  font-weight: bold;
-  font-size: calc(1vw + 1vh + 0.5vmin);
+  transform: scale(1.05);
+  background-color: #363535;
+  box-shadow: 0 2px 5px #000000;
+  border: none;
 }
 
 .calendar__table td.is-today {
@@ -414,10 +445,6 @@ select {
 
 .jumbotron {
   opacity: 0.8 !important;
-}
-
-.event:hover::after {
-  content: attr(data-title);
 }
 
 .calendar__table tr:first-of-type td {

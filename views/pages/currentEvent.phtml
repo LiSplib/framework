@@ -7,7 +7,7 @@
                     <h3 class="card-title">
                         <?= htmlentities(ucwords($event->getTitle())); ?>
                     </h3>
-                    <h5 class="card-title"><i class="far fa-compass"></i><?= $event->getAdress()?>&nbsp;<?= $event->getZipcode() ?>&nbsp;<?= $event->getCity() ?></h5>
+                    <h5 class="card-title"><i class="far fa-compass"></i>&nbsp;<?= $event->getAdress()?>&nbsp;<?= $event->getZipcode() ?>&nbsp;<?= $event->getCity() ?></h5>
                     <?php if($event->getIsValide() === '1'): ?>
                     <p class="text-danger">En attente de validation</p>
                     <?php endif; ?>
@@ -15,22 +15,41 @@
             </div>
             <div class="col-md-6">
                 <div class="card bg-dark p-3 cardEvent">
-                    <img src="<?= $event->getUrlImage(); ?>" alt="<?= $event->getTitle() ?>" class="img-fluid" style="height: 123.2px;">
+                    <img src="<?= $event->getUrlImage(); ?>" alt="<?= $event->getTitle() ?>" class="card-img img-fluid">
                 </div>
             </div>
         </div>
         <div class="row mb-3">
-            <div class="col-md-12 text-center">
+            <div class="col-md-12 text-center d-flex">
             <?php $currentDate = new DateTime(); ?>
                 <?php if ($currentDate < $event->getStart() && $event->getId_admin() !== $_SESSION['auth']['id']): ?>
                     <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal">
-                        <i class="far fa-heart fa-3x"></i>
-                        <span>Je participe</span>
+                            <?php foreach($register as $isReg): ?>
+                                <?php if($isReg['admin_id'] === $_SESSION['auth']['id']): ?>
+                                    <span><i class="far fa-heart fa-3x" style="color: red;"></i> J'y participe</span>
+                                <?php else : ?>
+                                    <span><i class="far fa-heart fa-3x"></i> Je participe</span>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+                        <?php if(empty($register)): ?>
+                            <span><i class="far fa-heart fa-3x"></i> Je participe</span>
+                        <?php endif; ?>
                     </button>
-                    <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal2">
-                        <i class="far fa-smile-wink fa-3x"></i>
-                        <span>Je suis intéressé(e)</span>
-                    </button>
+                    <form action="" method="POST">
+                        <input type="hidden" name="interested">
+                        <button type="submit" class="btn" data-toggle="modal" data-target="#exampleModal2">
+                                <?php foreach($interested as $isInt): ?>
+                                    <?php if($isInt['admin_id'] === $_SESSION['auth']['id']): ?>
+                                        <span><i class="far fa-smile-wink fa-3x" style="color: yellow;"></i> Intéressé(e)</span>
+                                    <?php else: ?>
+                                        <span><i class="far fa-smile-wink fa-3x"></i> Je suis intéressé(e)</span>
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
+                            <?php if(empty($interested)): ?>
+                                <span><i class="far fa-smile-wink fa-3x"></i> Je suis intéressé(e)</span>
+                            <?php endif; ?>
+                        </button>
+                    </form>
                     <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal2">
                         <i class="fas fa-share-alt fa-3x"></i>
                         <span>Partager</span>
@@ -101,16 +120,16 @@
                 <?php endforeach; ?>
             </div>
             <div class="col-md-6">
-                <?php foreach ($participants as $participant): ?>
-                    <h5 class="mt-3"><i class="far fa-smile-wink"></i> <?= $participant; ?> - Participants intéressés</h5>
-                    <?php foreach ($register as $reg): ?>
-                        <img style="width:50px; border-radius: 10px;" src="<?= $reg['image'] ?>" class="ml-3">
-                        <span><?= $reg['lastname'] ?>&nbsp;<?= $reg['firstname'] ?></span>
+                <?php foreach ($interestedcount as $interestedBY): ?>
+                    <h5 class="mt-3"><i class="far fa-smile-wink"></i> <?= $interestedBY; ?> - Participants intéressés</h5>
+                    <?php foreach ($interested as $int): ?>
+                        <img style="width:50px; border-radius: 10px;" src="<?= $int['image'] ?>" class="ml-3">
+                        <span><?= $int['lastname'] ?>&nbsp;<?= $int['firstname'] ?></span>
                     <?php endforeach; ?>
                 <?php endforeach; ?>
             </div>
         </div>
-            <div class="embed-responsive embed-responsive-16by9">
+            <div class="embed-responsive embed-responsive-16by9 mt-3">
                 <iframe class="embed-responsive-item imgMap" src="<?= $maps ?>" allowfullscreen></iframe>
             </div>
     </div>

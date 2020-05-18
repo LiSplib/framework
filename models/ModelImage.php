@@ -3,6 +3,7 @@
 namespace App\Model;
 
 use Intervention\Image\ImageManager;
+use App\Model\ModelAdmin;
 
 class ModelImage{
 
@@ -22,9 +23,24 @@ class ModelImage{
 
     }
 
+    public function getAdminsImg(){
+        $admins = new ModelAdmin;
+        $img = $admins->getAdmins();
+        $adminImg = [];
+        foreach($img as $i){
+            array_push($adminImg, $i['image']);
+        }
+        return $adminImg;
+    }
+
     public function getImage(){
         $dir = "sources/images/avatar/";
         $photos = glob("$dir*.jpg");
+        $adminsImg = new ModelImage;
+        $imgs = $adminsImg->getAdminsImg();
+        $imgs = arr
+        $imgs = glob("$imgs*.jpg");
+        var_dump($imgs);
         return $photos;
     }
 

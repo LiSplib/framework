@@ -4,7 +4,7 @@ namespace App\Controller;
 
 use DateTime;
 
-class AllEvents{
+class AwaitEvents{
 
     public function __construct()
     {
@@ -14,7 +14,7 @@ class AllEvents{
 
     public function httpGetRequest(){
 
-        if($_SESSION['auth']['role'] === 'admin' || $_SESSION['auth']['role'] === 'superAdmin'){
+        if($_SESSION['auth']['role'] === 'superAdmin'){
             $events = new \App\Model\Date\Events;
             $allEvents = $events->eventsToValidate();
             if(empty($allEvents)){

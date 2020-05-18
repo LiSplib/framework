@@ -2,10 +2,17 @@
 
 require_once 'vendor/autoload.php';
 
+use App\Model\ModelSocialMedia;
+
+$fbBdd = new ModelSocialMedia;
+        $appId = $fbBdd->getAppId();
+        $appSecret = $fbBdd->getAppSecret();
+        $longToken = $fbBdd->getLongTokenFb();
+
 
 $fb = new Facebook\Facebook([
-  'app_id' => '596355230967973',
-  'app_secret' => '6d383edbce2edd715d2ff3d393414995',
+  'app_id' => $appId,
+  'app_secret' => $appSecret,
   'default_graph_version' => 'v6.0',
   ]);
 
@@ -63,7 +70,7 @@ foreach($tokenMetadata->getScopes() as $scope){
 </ul>
 <?php
 // Validation (these will throw FacebookSDKException's when they fail)
-$tokenMetadata->validateAppId('596355230967973'); // Replace {app-id} with your app id
+$tokenMetadata->validateAppId($appId); // Replace {app-id} with your app id
 // If you know the user ID this access token belongs to, you can validate it here
 //$tokenMetadata->validateUserId('123');
 $tokenMetadata->validateExpiration();

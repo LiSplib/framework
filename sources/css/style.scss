@@ -7,6 +7,10 @@ $theme-colors:(
 $altairDark: #1a1a1a;
 $altairRose: #eb5f62;
 $altairSable: #ffcb94;
+$elegant-color-dark: #212121;
+$grey-darken-1: #757575;
+$bg-grey: #3e3c3c;
+$card-grey: #3c3838;
 
 *{
     font-family: sans-serif;
@@ -33,6 +37,23 @@ $altairSable: #ffcb94;
     transition: all .2s ease-in-out;
     width: 61.1px;
     height: 61.1px;
+}
+
+.draken-1{
+    background-color: $grey-darken-1!important;
+}
+
+.elegant-color{
+    background-color: $altairDark!important;
+}
+
+.card-grey{
+    box-shadow: 1px 3px 15px 10px rgb(32, 32, 32) inset;
+}
+
+.card-grey, .card-grey-2{
+    background-color: $card-grey!important;
+    border-radius: 5%!important;
 }
 
 @font-face{
@@ -64,15 +85,14 @@ $altairSable: #ffcb94;
     src: url("../fonts/Roboto-Regular.ttf");
 }
 
-.navbar{
-    box-shadow: 5px 10px 10px rgb(37, 37, 37);
-    // font-size: calc(1vw + 1vh + 0.5vmin);
+@font-face{
+    font-family: "Hikou_Inline";
+    src: url('../fonts/Hikou_Inline.otf');
 }
 
-// .navbar svg{
-//     width: calc(1vw + 1vh + 0.5vmin)!important;
-//     height: calc(1vw + 1vh + 0.5vmin)!important;
-// }
+.navbar{
+    box-shadow: 5px 10px 10px rgb(37, 37, 37);
+}
 
 .popover-body{
     background-color: $altairRose;
@@ -82,45 +102,6 @@ $altairSable: #ffcb94;
 .arrow::after{
     border-bottom-color: #eb5f62!important;
 }
-
-
- /* Personnalisation des boutons icones */
-
-// .btn-altairDark:focus > #phone path, .btn-altairDark:hover > #phone path{
-//     fill: #ff5500;
-// }
-
-// .btn-altairDark:focus > #calendar path, .btn-altairDark:hover > #calendar path{
-//     fill: #e14391;
-// }
-
-// .btn-altairDark:focus > #logout path, .btn-altairDark:hover > #logout path{
-//     fill: #ff4536;
-// }
-
-// .btn-altairDark:focus > #toolbox path, .btn-altairDark:hover > #toolbox path{
-//     fill: #28b60c;
-// }
-
-// .btn-altairDark:focus > #connect path, .btn-altairDark:hover > #connect path{
-//     fill: #036ce4;
-// }
-
-// .btn-altairDark:focus > #fb path, .btn-altairDark:hover > #fb path{
-//     fill: #036ce4;
-// }
-
-// .btn-altairDark:focus > #insta path, .btn-altairDark:hover > #insta path{
-//     fill: #dc3171;
-// }
-
-// .btn-altairDark:focus > #vimeo path, .btn-altairDark:hover > #vimeo path{
-//     fill: #41b1db;
-// }
-
-// .btn-altairDark:focus > #pinterest path, .btn-altairDark:hover > #pinterest path{
-//     fill: #e60019;
-// }
 
 .dropdown-item{
     color: inherit!important;
@@ -139,6 +120,25 @@ body{
     margin: 0!important;
     padding: 0!important;
     font-family: "Barlow-Regular", serif;
+}
+
+.bg-Altair-grey{
+    background-color: $bg-grey;
+}
+
+.monthTitle{
+    font-family: "Hikou_Inline";
+    font-size: 3em;
+    text-shadow: 0 5px 10px black;
+}
+
+.monthHeader i{
+    color: white!important;
+    vertical-align: super;
+}
+
+.titleEvent{
+    font-family: "Hikou_Inline";
 }
 
 #bgImage{
@@ -458,31 +458,19 @@ $cubic-bezier:cubic-bezier(0.68, -0.55, 0.265, 1.55);
 .calendar__table td{
     border: 1px solid #ccc;
     vertical-align: top;
-    width: calc(100vw / 7);
+    width: calc(100% / 7);
     z-index: 12;
 }
-
-// .calendar__table td:last-child{
-//     display: none;
-// }
 
 .calendar__table--6weeks td{
     height: 16.66%;
 }
 
 .calendar__table td:hover, .calendar__table--6weeks td:hover{
-    background-color: #88898b07;
-    background-image: url("../images/logo-blanc.svg");
-    background-repeat: no-repeat;
-    background-position: top 2% right 2%;
-    background-size: 20%;
-    backdrop-filter: grayscale(20%);
-    z-index: 1;
-}
-
-.calendar__weekday{
-    font-weight: bold;
-    font-size: calc(1vw + 1vh + 0.5vmin);
+    transform: scale(1.05);
+    background-color: #363535;
+    box-shadow: 0 2px 5px #000000;
+    border: none;
 }
 
 .calendar__table td.is-today{
@@ -502,10 +490,6 @@ $cubic-bezier:cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
 .jumbotron{
     opacity: 0.8!important;
-}
-
-.event:hover::after{
-    content: attr(data-title);
 }
 
 .calendar__table tr:first-of-type td {

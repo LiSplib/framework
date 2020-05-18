@@ -14,10 +14,12 @@ class ImageResizer{
 
     public function httpGetRequest(){
         $img = new ModelImage;
+        $admins = $img->getAdminsImg();
         $photos = $img->getImage();
         $newImgs = $img->getThumbs(); 
         return ['photos' => $photos,
-                'newImgs' => $newImgs];
+                'newImgs' => $newImgs,
+                'admins' => $admins];
     }
 
     public function httpPostRequest(){

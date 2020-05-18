@@ -34,6 +34,8 @@ class CurrentEvent{
         $id = $_GET['id'];
         $participants = $this->events->registerCount($id);
         $register = $this->events->eventsRegister($id);
+        $interested = $this->events->interestedRegister($id);
+        $interestedcount = $this->events->interestedCount($id);
         $date = $this->event->getStart();
         $date = $date->format('Y/m/d');
         setlocale(LC_TIME, "fr_FR", "French");
@@ -76,19 +78,27 @@ class CurrentEvent{
                 'adress' => $adress,
                 'lat' => $lat,
                 'lon' => $lon,
-                'maps' => $maps
+                'maps' => $maps,
+                'interested' => $interested,
+                'interestedcount' => $interestedcount
         ];
     }
 
     public function httpPostRequest(){
         $events = new \App\Model\Date\Events();
-        if(!empty($_POST)){    
+        if(!empty($_POST)){
             $userId = intval($_SESSION['auth']['id']);
             $eventId = intval($_GET['id']);
-            $events->registerEvent($userId, $eventId);
-            $_SESSION['flash']['success'] = 'Vous êtes inscrit';
-            header('Location:' . route_to_url('calendar'));
-            exit();
+            if(isset($_POST['interested'])){
+                $events->interestedEvent($userId, $eventId);
+                $_SESSION['flash']['success'] = 'Cet évènement vous intéresse';
+                redirect_to_route('calendar');
+            }else{
+                $events->registerEvent($userId, $eventId);
+                $_SESSION['flash']['success'] = 'Vous êtes inscrit';
+                header('Location:' . route_to_url('calendar'));
+                exit();    
+            } 
         }
     }
 }

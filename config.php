@@ -1,9 +1,14 @@
 <?php
+
+use App\Model\Date\Events;
 use App\Model\ModelCustomSite;
 use App\Model\ModelAdmin;
 
 $admin = new ModelAdmin;
 $GLOBALS['new'] = $admin->countRequestAdmin();
+
+$event = new Events;
+$GLOBALS['await'] = $event->eventsAwaitCount();
 
 $dataColors = new ModelCustomSite();
 $colors = $dataColors->getColors();

@@ -50,7 +50,13 @@
                     <?php endif; ?>
                     <a class="dropdown-item" href="<?= route_to_url('myEvents') ?>">Mes évènements</a>
                     <?php if ($_SESSION['auth']['role'] === 'superAdmin'): ?>
-                        <a class="dropdown-item" href="<?= route_to_url('evenements')?>">Évènements à valider</a>
+                        <?php foreach($GLOBALS['await'] as $await) : ?>
+                            <?php if($await > 0) : ?>
+                                <a class="dropdown-item" href="<?= route_to_url('evenements')?>">Évènements à valider <span class="badge badge-warning"> <?= $await ?> </span></a>
+                            <?php else : ?>
+                                <a class="dropdown-item" href="<?= route_to_url('evenements')?>">Évènements à valider</a>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
                         <?php foreach($GLOBALS['new'] as $GLOBALS['n']): ?>
                             <?php if($GLOBALS['n'] > 0) : ?>
                                 <a class="dropdown-item" href="<?= route_to_url('members') ?>" title="Coach en attente">Liste des Membres <span class="badge badge-warning"> <?= $GLOBALS['n'] ?> </span></a>

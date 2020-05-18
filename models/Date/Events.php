@@ -147,6 +147,37 @@ class Events {
     }
 
 
+//Lie l'utilisateur à l'évènement
+    public function interestedEvent(int $userId, int $eventId) {
+        $sql = ('INSERT INTO interested (admin_id, events_id) VALUES (:userId, :eventId)');
+        $query = $this->pdo->prepare($sql);
+        $query->bindValue(':userId', $userId, \PDO::PARAM_INT);
+        $query->bindValue(':eventId', $eventId, \PDO::PARAM_INT);
+        $query->execute();
+        return $query;
+    }
+
+
+//Retourne le nombre d'intéressés à l'évènement
+    public function interestedCount(int $id) :array {
+        $sql = 'SELECT COUNT(*) FROM interested WHERE events_id = :id';
+        $query = $this->pdo->prepare($sql);
+        $query->bindValue(':id', $id, \PDO::PARAM_INT);
+        $query->execute();
+        $result = $query->fetch();
+        return $result;
+    }
+
+//Liste les personnes inscrites à l'évènement
+    public function interestedRegister(int $id): array {
+        $sql = "SELECT * FROM interested LEFT JOIN admin ON interested.admin_id = admin.id LEFT JOIN events ON interested.events_id = events.id WHERE events.id = $id";
+        $query = $this->pdo->prepare($sql);
+        $query->execute();
+        $result = $query->fetchAll();
+        return $result;
+    }
+
+
 //Ajoute une couleur en fonction du thème de l'évènement
     public function addColorTheme($theme): string{
         switch ($theme){
@@ -167,6 +198,16 @@ class Events {
                 return $color;
             break;
         }
+    }
+
+
+//Count évènement à valider
+    public function eventsAwaitCount(){
+        $sql = 'SELECT COUNT(*) FROM events WHERE isValide = 1';
+        $query = $this->pdo->prepare($sql);
+        $query->execute();
+        $result = $query->fetch();
+        return $result;
     }
 
 //Liste les évènements à valider
