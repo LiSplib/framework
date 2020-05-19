@@ -13,7 +13,7 @@ $bg-grey: #3e3c3c;
 $card-grey: #3c3838;
 
 *{
-    font-family: sans-serif;
+    font-family: "Barlow-Regular";
 }
 
 /*--------------------- HEADER ---------------------*/
@@ -51,9 +51,13 @@ $card-grey: #3c3838;
     box-shadow: 1px 3px 15px 10px rgb(32, 32, 32) inset;
 }
 
-.card-grey, .card-grey-2{
+.card-grey-2{
+    box-shadow: 0 5px 15px 15px #333232;
+}
+
+.card-grey, .card-grey-2, .card-img{
     background-color: $card-grey!important;
-    border-radius: 5%!important;
+    border-radius: 2em!important;
 }
 
 @font-face{
@@ -440,6 +444,10 @@ $cubic-bezier:cubic-bezier(0.68, -0.55, 0.265, 1.55);
 /*-------------------- CALENDAR -------------------*/
 
 
+.aside-calendar{
+    min-height: 80vh;
+}
+
 .calendar__table{
     width: 100%;
 }
@@ -480,16 +488,6 @@ $cubic-bezier:cubic-bezier(0.68, -0.55, 0.265, 1.55);
 .calendar__othermonth .calendar__day{
     opacity: 0.8;
     color: grey!important;
-}
-
-.calendar__event a{
-    color: #ffcb94!important;
-    padding: 0.4em 2em;
-    text-decoration: none;
-}
-
-.jumbotron{
-    opacity: 0.8!important;
 }
 
 .calendar__table tr:first-of-type td {
@@ -601,20 +599,6 @@ $cubic-bezier:cubic-bezier(0.68, -0.55, 0.265, 1.55);
         top: 60px;
     }
 
-    // .navbar{
-    //     display: inline-flex!important;
-    //     justify-content: right;
-    // }
-
-    // .navbar .container{
-    //     padding: 0!important;
-    // }
-
-    // .navbar svg{
-    //     width: 1.3em!important;
-    //     height: 1.3em!important;
-    // }
-
     #bgImage{
         height: 100vh;
     }
@@ -630,42 +614,17 @@ $cubic-bezier:cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     /**-------CALENDAR----------**/
 
-
-    .calendar__weekday{
-        font-size: 0.65em;
+    #dynamicCard div.row:first-child{
+        margin-top: 3em;
     }
 
-    .calendar__table td{
-        min-width: calc(90vw / 7);
-        max-width: calc(90vw / 7);
-        height: calc(100vh / 5);
+    .aside-calendar{
+        min-height: 100%;
     }
 
-    .calendar__table--6weeks td{
-        height: calc(85vh / 6);
-    }
-
-    .calendar__table td:hover, .calendar__table--6weeks td:hover{
-        background-size: 50%;    
-        background-position: center;
-    }
-
-    .calendar__event{
-        display: flex;
-        justify-content: center;
-    }
-
-    .calendar__event a{
-        display: flex;
-        justify-content: center;
-        color: white!important;
-    }
-
-    .calendar__event a span{
-        display: none;
-    }
 
     /*------------- RS --------------*/
+
     #postsList{
         flex-direction: column;
         justify-content: center;

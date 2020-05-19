@@ -1,8 +1,8 @@
 <div class="jumbotron jumbotron-fluid text-center text-white bg-Altair-grey">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-2">
-                <div class="card card-grey align-items-center">
+            <div class="col-md-12 col-lg-4 col-xl-2">
+                <div class="card card-grey align-items-center aside-calendar">
                     <div class="d-flex flex-row my-5">
                         <div class="monthHeader">
                             <a href="<?= route_to_url('calendar') ?>?month=<?= $month->previousMonth()->month; ?>&year=<?= $month->previousMonth()->year; ?>"><i class="fas fa-caret-left fa-lg"></i></a>
@@ -28,14 +28,14 @@
                             Coaching PME
                         </span>
                     </div>
-                    <div class="mb-5">
+                    <div class="mb-5 d-flex mt-auto">
                         <?php if($_SESSION['auth']['role'] === 'admin' || $_SESSION['auth']['role'] === 'superAdmin'): ?>
-                            <a href="" class="text-white"><i class="fas fa-plus"></i>&nbsp; Créer un évènement</a>
+                            <a href="<?= route_to_url('addEvent') ?>" class="text-white"><i class="fas fa-plus"></i>&nbsp; Créer un évènement</a>
                         <?php endif; ?>
                     </div>
                 </div>
             </div>
-            <div class="col-md-5">
+            <div class="col-lg-8 col-xl-5 d-none d-lg-block">
                 <table class="calendar__table calendar__table--<?= $weeks; ?>weeks">
                     <?php for ($i = 0; $i < $weeks; $i++): ?>
                         <tr>
@@ -60,11 +60,11 @@
                                 <?php foreach($eventsForDay as $event): ?>
                                     <div class="calendar__event">
                                         <?php if ($_SESSION['auth']['role'] === 'superAdmin' || $event['id_admin'] === $_SESSION['auth']['id']): ?>
-                                            <a href="<?= route_to_url('editEvent') ?>?id=<?= $event['id']; ?>" class="event" title="<?= $event['title'] ?>">
+                                            <a href="" class="event" title="<?= $event['title'] ?>">
                                                 <i class="fas fa-circle text-<?= $event['themeColor'] ?>"></i>
                                             </a> 
                                             <?php else: ?>
-                                            <a href="<?= route_to_url('currentEvent') ?>?id=<?= $event['id']; ?>" class="event" title="<?= $event['title'] ?>">
+                                            <a href="" class="event" title="<?= $event['title'] ?>">
                                                 <i class="fas fa-circle text-<?= $event['themeColor'] ?>"></i>
                                             </a>
                                         <?php endif; ?>
@@ -77,7 +77,7 @@
                     <?php endfor; ?>
                 </table>
             </div>
-            <div class="col-md-5">
+            <div class="col-xl-5" id="dynamicCard">
                 <?php foreach($events as $event) : ?>
                     <?php
                     $id = $event[0]['id'];

@@ -1,5 +1,5 @@
 * {
-  font-family: sans-serif;
+  font-family: "Barlow-Regular";
 }
 
 /*--------------------- HEADER ---------------------*/
@@ -35,9 +35,13 @@
   box-shadow: 1px 3px 15px 10px #202020 inset;
 }
 
-.card-grey, .card-grey-2 {
+.card-grey-2 {
+  box-shadow: 0 5px 15px 15px #333232;
+}
+
+.card-grey, .card-grey-2, .card-img {
   background-color: #3c3838 !important;
-  border-radius: 5% !important;
+  border-radius: 2em !important;
 }
 
 @font-face {
@@ -395,6 +399,10 @@ select {
 }
 
 /*-------------------- CALENDAR -------------------*/
+.aside-calendar {
+  min-height: 80vh;
+}
+
 .calendar__table {
   width: 100%;
 }
@@ -435,16 +443,6 @@ select {
 .calendar__othermonth .calendar__day {
   opacity: 0.8;
   color: grey !important;
-}
-
-.calendar__event a {
-  color: #ffcb94 !important;
-  padding: 0.4em 2em;
-  text-decoration: none;
-}
-
-.jumbotron {
-  opacity: 0.8 !important;
 }
 
 .calendar__table tr:first-of-type td {
@@ -561,38 +559,12 @@ select {
   }
 
   /**-------CALENDAR----------**/
-  .calendar__weekday {
-    font-size: 0.65em;
+  #dynamicCard div.row:first-child {
+    margin-top: 3em;
   }
 
-  .calendar__table td {
-    min-width: calc(90vw / 7);
-    max-width: calc(90vw / 7);
-    height: calc(100vh / 5);
-  }
-
-  .calendar__table--6weeks td {
-    height: calc(85vh / 6);
-  }
-
-  .calendar__table td:hover, .calendar__table--6weeks td:hover {
-    background-size: 50%;
-    background-position: center;
-  }
-
-  .calendar__event {
-    display: flex;
-    justify-content: center;
-  }
-
-  .calendar__event a {
-    display: flex;
-    justify-content: center;
-    color: white !important;
-  }
-
-  .calendar__event a span {
-    display: none;
+  .aside-calendar {
+    min-height: 100%;
   }
 
   /*------------- RS --------------*/

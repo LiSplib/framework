@@ -23,29 +23,23 @@
             <div class="col-md-12 text-center d-flex">
             <?php $currentDate = new DateTime(); ?>
                 <?php if ($currentDate < $event->getStart() && $event->getId_admin() !== $_SESSION['auth']['id']): ?>
+                    <?php foreach($register as $isReg): ?>
+                    <?php endforeach; ?>
                     <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal">
-                            <?php foreach($register as $isReg): ?>
-                                <?php if($isReg['admin_id'] === $_SESSION['auth']['id']): ?>
-                                    <span><i class="far fa-heart fa-3x" style="color: red;"></i> J'y participe</span>
-                                <?php else : ?>
-                                    <span><i class="far fa-heart fa-3x"></i> Je participe</span>
-                                <?php endif; ?>
-                            <?php endforeach; ?>
-                        <?php if(empty($register)): ?>
-                            <span><i class="far fa-heart fa-3x"></i> Je participe</span>
+                        <?php if(!empty($register) && $isReg['admin_id'] === $_SESSION['auth']['id']): ?>
+                            <span><i class="far fa-heart fa-3x" style="color: red;"></i> J'y participe</span>
+                        <?php else: ?>
+                                <span><i class="far fa-heart fa-3x"></i> Je participe</span>
                         <?php endif; ?>
-                    </button>
+                        </button>
                     <form action="" method="POST">
                         <input type="hidden" name="interested">
+                        <?php foreach($interested as $isInt): ?>
+                        <?php endforeach; ?>
                         <button type="submit" class="btn" data-toggle="modal" data-target="#exampleModal2">
-                                <?php foreach($interested as $isInt): ?>
-                                    <?php if($isInt['admin_id'] === $_SESSION['auth']['id']): ?>
-                                        <span><i class="far fa-smile-wink fa-3x" style="color: yellow;"></i> Intéressé(e)</span>
-                                    <?php else: ?>
-                                        <span><i class="far fa-smile-wink fa-3x"></i> Je suis intéressé(e)</span>
-                                    <?php endif; ?>
-                                <?php endforeach; ?>
-                            <?php if(empty($interested)): ?>
+                            <?php if(!empty($interested) && $isInt['admin_id'] === $_SESSION['auth']['id']): ?>
+                                <span><i class="far fa-smile-wink fa-3x" style="color: yellow;"></i> Intéressé(e)</span>
+                            <?php else: ?>
                                 <span><i class="far fa-smile-wink fa-3x"></i> Je suis intéressé(e)</span>
                             <?php endif; ?>
                         </button>
