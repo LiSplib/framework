@@ -9,18 +9,36 @@ $altairRose: #eb5f62;
 $altairSable: #ffcb94;
 $elegant-color-dark: #212121;
 $grey-darken-1: #757575;
-$bg-grey: #3e3c3c;
+$bg-grey: #333;
 $card-grey: #3c3838;
+$txtgrey: #acacac;
 
 *{
     font-family: "Barlow-Regular";
+    letter-spacing: 1px;
+    word-spacing: 1px;
+}
+
+.actionBtn button{
+    box-shadow: none!important;
 }
 
 /*--------------------- HEADER ---------------------*/
 
+.text-grey{
+    color: $txtgrey!important;
+    & a:hover{
+        color: #df4650!important;
+    }
+}
 
 .btn{
     color: #fff;
+    text-transform: none!important;
+}
+
+.formBtn button{
+    padding: 0!important;
 }
 
 .btn-fb{
@@ -51,13 +69,13 @@ $card-grey: #3c3838;
     box-shadow: 1px 3px 15px 10px rgb(32, 32, 32) inset;
 }
 
-.card-grey-2{
-    box-shadow: 0 5px 15px 15px #333232;
+.card-grey-2, .card-grey-3{
+    box-shadow: 5px 5px 60px 0px rgba(0, 0, 0, 0.5);
 }
 
 .card-grey, .card-grey-2, .card-img{
-    background-color: $card-grey!important;
-    border-radius: 2em!important;
+    background-color: $bg-grey!important;
+    border-radius: 20px!important;
 }
 
 @font-face{
@@ -120,7 +138,7 @@ $card-grey: #3c3838;
 
 
 body{
-    background-color: black!important;
+    background-color: $bg-grey!important;
     margin: 0!important;
     padding: 0!important;
     font-family: "Barlow-Regular", serif;
@@ -143,6 +161,17 @@ body{
 
 .titleEvent{
     font-family: "Hikou_Inline";
+}
+
+.customLink a{
+    color: white!important;
+    &:hover{
+        color: black!important;
+    }
+}
+
+a:hover svg path{
+    fill: black!important;
 }
 
 #bgImage{
@@ -178,8 +207,8 @@ label{
     color: inherit;
 }
 
-table a{
-    color: $altairRose!important;
+table, table a{
+    color: $txtgrey!important;
 }
 
 .tableMembers{
@@ -208,10 +237,12 @@ table a{
 
 .cardEvent{
     box-shadow: -1px 2px 10px 3px rgba(0, 0, 0, 0.3) inset;
+    min-height: 100%;
 }
 
 .imgMap{
     filter: grayscale(1) invert(1) brightness(0.60);
+    border-radius: 20px;
 }
 
 input, select, textarea{
@@ -445,7 +476,7 @@ $cubic-bezier:cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
 
 .aside-calendar{
-    min-height: 80vh;
+    min-height: 66vh;
 }
 
 .calendar__table{
@@ -476,8 +507,8 @@ $cubic-bezier:cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
 .calendar__table td:hover, .calendar__table--6weeks td:hover{
     transform: scale(1.05);
-    background-color: #363535;
-    box-shadow: 0 2px 5px #000000;
+    background-color: #333;
+    box-shadow: 0 0px 25px 0px rgba(0, 0, 0, 0.5);
     border: none;
 }
 
@@ -620,6 +651,10 @@ $cubic-bezier:cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     .aside-calendar{
         min-height: 100%;
+    }
+
+    .embed-responsive{
+        height: 500px!important;
     }
 
 

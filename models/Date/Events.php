@@ -200,7 +200,6 @@ class Events {
         }
     }
 
-
 //Count évènement à valider
     public function eventsAwaitCount(){
         $sql = 'SELECT COUNT(*) FROM events WHERE isValide = 1';

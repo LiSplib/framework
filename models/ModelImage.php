@@ -38,9 +38,6 @@ class ModelImage{
         $photos = glob("$dir*.jpg");
         $adminsImg = new ModelImage;
         $imgs = $adminsImg->getAdminsImg();
-        $imgs = arr
-        $imgs = glob("$imgs*.jpg");
-        var_dump($imgs);
         return $photos;
     }
 

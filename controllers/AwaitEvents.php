@@ -32,11 +32,13 @@ class AwaitEvents{
     }
 
     public function httpPostRequest(){
-            $id = $_POST['id'];
-            $isValide = $_POST['isValide'];
-            $events = new \App\Model\Date\Events;
-            $events->validateEvent($isValide, $id);
-            $_SESSION['flash']['success'] = 'Évènement validé';
-            redirect_to_route('evenements');
+            if(!empty($_POST)){
+                $id = $_POST['id'];
+                $isValide = $_POST['isValide'];
+                $events = new \App\Model\Date\Events;
+                $events->validateEvent($isValide, $id);
+                $_SESSION['flash']['success'] = 'Évènement validé';
+                redirect_to_route('evenements');    
+            }
     }
 }

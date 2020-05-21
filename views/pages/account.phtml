@@ -1,8 +1,8 @@
-<div class="d-flex align-items-center justify-content-center myCards" style="background: url(<?= URL_SOURCES."/images/creative-light.jpg" ?>)">
+<div class="jumbotron jumbotron-fluid text-white bg-Altair-grey">
     <div class="row">
         <div class="col-sm-12">
-            <div class="card" style="background-color: <?= $GLOBALS['STYLE']['boxBackgroundColor']."d9" ?>; color: <?= $GLOBALS['STYLE']['textColor'] ?>;">
-                <h2 class="text-center card-title mt-5" style="color: <?= $GLOBALS['STYLE']['titleColor'] ?>; font-size: <?= $GLOBALS['STYLE']['titleFontSize'] ?>; font-family: <?= $GLOBALS['STYLE']['titleFontFamily'] ?>; text-shadow: <?= $GLOBALS['STYLE']['titleTextShadow'] ?>;">Mes données personnelles</h2>
+            <div>
+                <h2>Mes données personnelles</h2>
                 <nav class="nav nav-pills justify-content-end px-3">
                     <?php if($admin['role'] === 'admin' || $admin['role'] === 'superAdmin'): ?>
                     <a class="nav-link btn btn-default" href="<?= route_to_url('fullAccount') ?>?id=<?= $admin['id'] ?>">+ d'info</a>

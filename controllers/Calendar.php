@@ -20,6 +20,7 @@ class Calendar {
     }
 
     public function httpGetRequest(){
+        
         $classEvents = new \App\Model\Date\Events;
         $events = new Events($this->pdo);
         $month = new Month($_GET['month'] ?? null, $_GET['year'] ?? null); 
@@ -28,12 +29,49 @@ class Calendar {
         $weeks = $month->getWeeks();
         $end = (clone $start)->modify('+' . (6 + 7 * ($weeks -1)) . 'days');
         $events = $events->getEventsBetweenByDay($start, $end);
+        if(!empty($_GET['eventId'])){
+            $id = $_GET['eventId'];
+            $current = $classEvents->find($id);
+            $adresse = $current->getAdress();
+            $adresse = str_replace(' ', '+', $adresse);
+            $zip = $current->getZipcode();
+            if($zip === '0'){
+                $zip = '83000';
+            }
+            $city = $current->getCity();
+            $city = str_replace(' ', '+', $city);
+            $url = "https://nominatim.openstreetmap.org/search?countrycode=fr&q=$adresse,$zip,$city&format=json&limit=1";
+            //need user_agent set in php.ini
+            $json = file_get_contents($url);
+            $obj = json_decode($json, true);
+            $lat = $obj[0]['lat'];
+            $lon = $obj[0]['lon'];
+            $maps = "https://embed.waze.com/fr/iframe?zoom=15&lat=$lat&lon=$lon&pin=1";
+            $color = $current->getThemeColor();
+                switch ($color){
+                    case 'danger';
+                    $themeRgb = "#ff3547";
+                break;
+                    case 'success';
+                    $themeRgb = "#00c851";
+                break;
+                    case 'primary';
+                    $themeRgb = "#4285f4";
+                break;
+                    case 'warning';
+                    $themeRgb = "#fb3";
+                break;
+                }
+        }
         return ['events' => $events,
                 'month' => $month,
                 'weeks' => $weeks,
                 'start' => $start,
                 'end' => $end,
-                'classEvents' => $classEvents
+                'classEvents' => $classEvents,
+                'current' => (empty($current)) ? '' : $current,
+                'maps' => (empty($maps)) ? '' : $maps,
+                'themeRgb' => (empty($themeRgb)) ? '' : $themeRgb
                 ];
     }
 

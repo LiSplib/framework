@@ -1,10 +1,28 @@
 * {
   font-family: "Barlow-Regular";
+  letter-spacing: 1px;
+  word-spacing: 1px;
+}
+
+.actionBtn button {
+  box-shadow: none !important;
 }
 
 /*--------------------- HEADER ---------------------*/
+.text-grey {
+  color: #acacac !important;
+}
+.text-grey a:hover {
+  color: #df4650 !important;
+}
+
 .btn {
   color: #fff;
+  text-transform: none !important;
+}
+
+.formBtn button {
+  padding: 0 !important;
 }
 
 .btn-fb {
@@ -35,13 +53,13 @@
   box-shadow: 1px 3px 15px 10px #202020 inset;
 }
 
-.card-grey-2 {
-  box-shadow: 0 5px 15px 15px #333232;
+.card-grey-2, .card-grey-3 {
+  box-shadow: 5px 5px 60px 0px rgba(0, 0, 0, 0.5);
 }
 
 .card-grey, .card-grey-2, .card-img {
-  background-color: #3c3838 !important;
-  border-radius: 2em !important;
+  background-color: #333 !important;
+  border-radius: 20px !important;
 }
 
 @font-face {
@@ -99,14 +117,14 @@
 
 /*---------------------- MAIN ----------------------*/
 body {
-  background-color: black !important;
+  background-color: #333 !important;
   margin: 0 !important;
   padding: 0 !important;
   font-family: "Barlow-Regular", serif;
 }
 
 .bg-Altair-grey {
-  background-color: #3e3c3c;
+  background-color: #333;
 }
 
 .monthTitle {
@@ -122,6 +140,17 @@ body {
 
 .titleEvent {
   font-family: "Hikou_Inline";
+}
+
+.customLink a {
+  color: white !important;
+}
+.customLink a:hover {
+  color: black !important;
+}
+
+a:hover svg path {
+  fill: black !important;
 }
 
 #bgImage {
@@ -157,8 +186,8 @@ label {
   color: inherit;
 }
 
-table a {
-  color: #eb5f62 !important;
+table, table a {
+  color: #acacac !important;
 }
 
 .tableMembers {
@@ -187,10 +216,12 @@ table a {
 
 .cardEvent {
   box-shadow: -1px 2px 10px 3px rgba(0, 0, 0, 0.3) inset;
+  min-height: 100%;
 }
 
 .imgMap {
   filter: grayscale(1) invert(1) brightness(0.6);
+  border-radius: 20px;
 }
 
 input, select, textarea {
@@ -400,7 +431,7 @@ select {
 
 /*-------------------- CALENDAR -------------------*/
 .aside-calendar {
-  min-height: 80vh;
+  min-height: 66vh;
 }
 
 .calendar__table {
@@ -431,8 +462,8 @@ select {
 
 .calendar__table td:hover, .calendar__table--6weeks td:hover {
   transform: scale(1.05);
-  background-color: #363535;
-  box-shadow: 0 2px 5px #000000;
+  background-color: #333;
+  box-shadow: 0 0px 25px 0px rgba(0, 0, 0, 0.5);
   border: none;
 }
 
@@ -565,6 +596,10 @@ select {
 
   .aside-calendar {
     min-height: 100%;
+  }
+
+  .embed-responsive {
+    height: 500px !important;
   }
 
   /*------------- RS --------------*/
