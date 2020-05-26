@@ -17,6 +17,7 @@ class Register{
     public function httpPostRequest(){
 
         $admin = new ModelAdmin();
+        $isEmpty = $admin->getAdmins();
 
         if(!empty($_POST)){
             $errors = [];
@@ -36,12 +37,17 @@ class Register{
                 $errors['image'] = 'L\'url n\'est pas valide!';
             }
             if(empty($errors)){
-                $lastname = $_POST['lastname'];
-                $firstname = $_POST['firstname'];
-                $email = $_POST['email'];
-                $image = $_POST['image'];
+
+                $lastname = $admin->valid_donnees($_POST['lastname']);
+                $firstname = $admin->valid_donnees($_POST['firstname']);
+                $email = strtolower($admin->valid_donnees($_POST['email']));
+                $image = $admin->valid_donnees($_POST['image']);
                 $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-                $role = 'user';
+                if ($isEmpty === false){
+                    $role = 'superAdmin';
+                }else{
+                    $role = 'user';
+                }
                 $token = $GLOBALS['TOKEN_ID_FRAMEWORK_ALTAIR'];
                 if($_POST['coach'] === 'on'){
                     $coach = 1;

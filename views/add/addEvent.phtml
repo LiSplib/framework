@@ -15,7 +15,7 @@ if (!empty($errors)): ?>
                     <form method="POST" action="">
                         <div class="row my-2">    
                             <div class="col-12">
-                                <input type="text" class="form-control bg-dark" id="title" name="title" required value="<?= isset($data['title']) ? htmlentities($data['title']) : '' ?>" placeholder="Titre de l'événement">
+                                <input type="text" class="form-control bg-dark" id="title" name="title" value="<?= isset($data['title']) ? htmlentities($data['title']) : '' ?>" placeholder="Titre de l'événement" required>
                                 <?php if (isset($errors['title'])): ?>
                                     <small class="form-text text-muted"><?= $errors['title']; ?></small>
                                 <?php endif; ?>
@@ -23,12 +23,12 @@ if (!empty($errors)): ?>
                         </div>
                         <div class="row my-2">
                             <div class="col">
-                                <input type="url" name="urlImage" class="form-control bg-dark" id="urlImage" value="<?= isset($data['urlImage']) ? htmlentities($data['urlImage']) : '' ?>" placeholder="url d'une image déjà en ligne">
+                                <input type="url" name="urlImage" class="form-control" id="urlImage" value="<?= isset($data['urlImage']) ? htmlentities($data['urlImage']) : '' ?>" placeholder="url d'une image déjà en ligne">
                             </div>
                         </div>
                         <div class="row my-2">
                             <div class="col">
-                                <select class="browser-default custom-select bg-dark" id="theme" name="theme">
+                                <select class="browser-default custom-select" id="theme" name="theme">
                                     <option selected><?= $t = isset($data['theme']) ? htmlentities($data['theme']) : 'Thème' ?></option>
                                     <?php foreach($theme as $t): ?>
                                         <?php $t = substr($t, 1, -1); ?>
@@ -42,7 +42,7 @@ if (!empty($errors)): ?>
                         </div>
                         <div class="row my-2">
                             <div class="col">
-                                <input type="date" class="form-control bg-dark" id="date" name="date" required value="<?= isset($data['date']) ? htmlentities($data['date']) : '' ?>">
+                                <input type="date" class="form-control bg-dark" id="date" name="date" value="<?= isset($data['date']) ? htmlentities($data['date']) : '' ?>" required>
                                 <?php if (isset($errors['date'])): ?>
                                     <small class="form-text text-muted"><?= $errors['date']; ?></small>
                                 <?php endif; ?>
@@ -50,13 +50,13 @@ if (!empty($errors)): ?>
                         </div>
                         <div class="row my-2">
                             <div class="col-6">
-                                <input type="time" class="form-control bg-dark" id="start" name="start" placeholder="HH:MM" required value="<?= isset($data['start']) ? htmlentities($data['start']) : '' ?>">
+                                <input type="time" class="form-control bg-dark" id="start" name="start" placeholder="HH:MM" value="<?= isset($data['start']) ? htmlentities($data['start']) : '' ?>" required>
                                 <?php if (isset($errors['start'])): ?>
                                     <small class="form-text text-muted"><?= $errors['start']; ?></small>
                                 <?php endif; ?>
                             </div>
                             <div class="col-6">
-                                <input type="time" class="form-control bg-dark" id="end" name="end" placeholder="HH:MM" required value="<?= isset($data['end']) ? htmlentities($data['end']) : '' ?>">
+                                <input type="time" class="form-control bg-dark" id="end" name="end" placeholder="HH:MM" value="<?= isset($data['end']) ? htmlentities($data['end']) : '' ?>" required>
                             </div>
                         </div>
                         <div class="row my-2">
@@ -66,15 +66,15 @@ if (!empty($errors)): ?>
                         </div>
                         <div class="row my-2">
                             <div class="col">
-                                <input type="text" class="form-control bg-dark" id="adress" name="adress" placeholder="Adresse" required value="<?= isset($data['adress']) ? htmlentities($data['adress']) : '' ?>">
+                                <input type="text" class="form-control bg-dark" id="adress" name="adress" placeholder="Adresse" value="<?= isset($data['adress']) ? htmlentities($data['adress']) : '' ?>" required>
                             </div>
                         </div>
                         <div class="row my-2">
                             <div class="col-6">
-                                <input type="text" class="form-control bg-dark" id="zipcode" name="zipcode" placeholder="Code Postal" required value="<?= isset($data['zipcode']) ? htmlentities($data['zipcode']) : '' ?>">
+                                <input type="text" class="form-control bg-dark" id="zipcode" name="zipcode" placeholder="Code Postal" pattern="^(2[A|B])|[0-9]{2}[0-9]{3}" value="<?= isset($data['zipcode']) ? htmlentities($data['zipcode']) : '' ?>" required>
                             </div>
                             <div class="col-6">
-                                <input type="text" class="form-control bg-dark" id="city" name="city" placeholder="Ville" required value="<?= isset($data['city']) ? htmlentities($data['city']) : '' ?>">
+                                <input type="text" class="form-control bg-dark" id="city" name="city" placeholder="Ville" value="<?= isset($data['city']) ? htmlentities($data['city']) : '' ?>" required>
                             </div>
                         </div>
                         <div class="row w-100">

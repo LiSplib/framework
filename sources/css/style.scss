@@ -32,6 +32,13 @@ $txtgrey: #acacac;
     }
 }
 
+.text-rose a{
+    color: #df4650!important;
+    &:hover{
+        color: black!important;
+    }
+}
+
 .btn{
     color: #fff;
     text-transform: none!important;
@@ -170,6 +177,13 @@ body{
     }
 }
 
+.customLink2 a{
+    color: white!important;
+    &:hover{
+        color: #df4650!important;
+    }
+}
+
 a:hover svg path{
     fill: black!important;
 }
@@ -247,13 +261,14 @@ table, table a{
 
 input, select, textarea{
     border: none!important;
-    background-color: $altairDark!important;
+    background-color: $bg-grey!important;
     color: white!important;
     box-shadow: 0px 1px 1px 1px rgb(12, 11, 11);
 }
 
 .form-control{
     color: white!important;
+    background-color: $bg-grey!important;
 }
 
 button a, button{

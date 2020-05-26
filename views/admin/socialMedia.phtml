@@ -9,12 +9,13 @@
                         <input type="password" class="form-control" value="<?= (empty($result->access_token) ? '' : $result->access_token); ?>">
                     </p>
                     <p>
-                        Expirera dans <span style="color: red"><?= (empty($_SESSION['value']->days) ? ' ' : $_SESSION['value']->days); ?></span> jours.
+                        Expirera dans <span style="color: red"><?= (empty($dayTo->days) ? ' ' : $dayTo->days); ?></span> jours.
                     </p>
                     <form method="GET" action="">
                         <button type="submit" class="btn btn-info mt-2" name="refresh">Token 60j</button>
                     </form>
                     <form action="" method="POST">
+                        <input type="hidden" name="nextTokenDate" value="<?= (empty($nextDate))? '' : $nextDate ?>">
                         <input type="hidden" class="form-control" name="long_token_insta" value="<?= (empty($result->access_token) ? '' : $result->access_token); ?>">
                         <button type="submit" class="btn btn-info mt-2" name="update">Mise a jour</button>
                     </form>

@@ -1,9 +1,9 @@
-<div class="container-fluid d-flex align-items-center justify-content-center" style="background: url(<?= URL_SOURCES."/images/events/meeting.jpg"?>); filter: blur(.8); color: <?= $GLOBALS['STYLE']['textColor'] ?>; font-size: <?= $GLOBALS['STYLE']['textFontSize'] ?>; font-family: <?= $GLOBALS['STYLE']['textFontFamily'] ?>; background-size: cover; background-position: center;">
-    <div class="card p-3 my-5" style="background-color: <?= $GLOBALS['STYLE']['boxBackgroundColor']."d9" ?>;">
+<div class="jumbotron jumbotron-fluid text-white bg-Altair-grey">
+    <div class="container-fluid">
         <div class="row mb-3">
             <div class="col-md-6">
-                <div class="card bg-dark p-3 cardEvent">
-                    <h3><i class="fas fa-circle fa-xs text-<?= $event->getThemeColor() ?>"></i> <?= $date; ?></h3>
+                <div class="card card-grey-2 p-3 cardEvent">
+                    <h3><i class="fas fa-circle fa-xs text-<?= $event->getThemeColor() ?>"></i> <?= $date ?></h3>
                     <h3 class="card-title">
                         <?= htmlentities(ucwords($event->getTitle())); ?>
                     </h3>

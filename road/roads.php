@@ -102,6 +102,10 @@ $config = [
         'evenements' => [
             'controller' => 'AwaitEvents',
             'view' => 'admin/awaitEvents.phtml'
+        ],
+        'adminPro' => [
+            'controller' => 'AdminPro',
+            'view' => 'admin/adminPro.phtml'
         ]
     ],
 ];

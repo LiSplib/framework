@@ -60,11 +60,11 @@
                                 <?php foreach($eventsForDay as $event): ?>
                                     <div class="calendar__event pl-1">
                                         <?php if ($_SESSION['auth']['role'] === 'superAdmin' || $event['id_admin'] === $_SESSION['auth']['id']): ?>
-                                            <a href="<?= route_to_url('calendar') ?>?eventId=<?= $event['id'] ?>" class="event" title="<?= $event['title'] ?>">
+                                            <a href="<?= route_to_url('calendar') ?>?eventId=<?= $event['id'] ?>" class="event infobulle">
                                                 <i class="fas fa-circle text-<?= $event['themeColor'] ?>"></i>
-                                            </a> 
+                                            </a>
                                             <?php else: ?>
-                                            <a href="<?= route_to_url('calendar') ?>?eventId=<?= $event['id'] ?>" class="event" title="<?= $event['title'] ?>">
+                                            <a href="<?= route_to_url('calendar') ?>?eventId=<?= $event['id'] ?>" class="event infobulle">
                                                 <i class="fas fa-circle text-<?= $event['themeColor'] ?>"></i>
                                             </a>
                                         <?php endif; ?>
@@ -142,12 +142,20 @@
                                     <?php endif; ?>
                                 </button>
                             </form>
-                            <button type="button" class="btn align-self-stretch">
-                                <span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="2em" viewBox="0 0 60 60" class="mr-2"><defs><style>.cls-2{fill:#acacac;}</style></defs><g id="Calque_2" data-name="Calque 2"><g id="Calque_1-2" data-name="Calque 1"><path class="cls-2" d="M48.75,22.5A11.25,11.25,0,1,1,60,11.25,11.27,11.27,0,0,1,48.75,22.5Zm0-20a8.75,8.75,0,1,0,8.75,8.75A8.77,8.77,0,0,0,48.75,2.5Z"/><path class="cls-2" d="M11.25,40A11.25,11.25,0,1,1,22.5,28.75,11.27,11.27,0,0,1,11.25,40Zm0-20A8.75,8.75,0,1,0,20,28.75,8.77,8.77,0,0,0,11.25,20Z"/><path class="cls-2" d="M48.75,60A11.25,11.25,0,1,1,60,48.75,11.27,11.27,0,0,1,48.75,60Zm0-20a8.75,8.75,0,1,0,8.75,8.75A8.77,8.77,0,0,0,48.75,40Z"/><path class="cls-2" d="M38.75,45a1.27,1.27,0,0,1-.62-.16l-17.5-10a1.25,1.25,0,1,1,1.24-2.18l17.5,10a1.26,1.26,0,0,1,.47,1.71A1.28,1.28,0,0,1,38.75,45Z"/><path class="cls-2" d="M21.25,25a1.28,1.28,0,0,1-1.09-.63,1.26,1.26,0,0,1,.47-1.71l17.5-10a1.25,1.25,0,1,1,1.24,2.18l-17.5,10A1.27,1.27,0,0,1,21.25,25Z"/></g></g></svg>    
-                                        Partager
-                                </span>
-                            </button>
+                            <div class="dropdown">
+                                <button type="button" class="btn align-self-stretch dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="2em" viewBox="0 0 60 60" class="mr-2"><defs><style>.cls-2{fill:#acacac;}</style></defs><g id="Calque_2" data-name="Calque 2"><g id="Calque_1-2" data-name="Calque 1"><path class="cls-2" d="M48.75,22.5A11.25,11.25,0,1,1,60,11.25,11.27,11.27,0,0,1,48.75,22.5Zm0-20a8.75,8.75,0,1,0,8.75,8.75A8.77,8.77,0,0,0,48.75,2.5Z"/><path class="cls-2" d="M11.25,40A11.25,11.25,0,1,1,22.5,28.75,11.27,11.27,0,0,1,11.25,40Zm0-20A8.75,8.75,0,1,0,20,28.75,8.77,8.77,0,0,0,11.25,20Z"/><path class="cls-2" d="M48.75,60A11.25,11.25,0,1,1,60,48.75,11.27,11.27,0,0,1,48.75,60Zm0-20a8.75,8.75,0,1,0,8.75,8.75A8.77,8.77,0,0,0,48.75,40Z"/><path class="cls-2" d="M38.75,45a1.27,1.27,0,0,1-.62-.16l-17.5-10a1.25,1.25,0,1,1,1.24-2.18l17.5,10a1.26,1.26,0,0,1,.47,1.71A1.28,1.28,0,0,1,38.75,45Z"/><path class="cls-2" d="M21.25,25a1.28,1.28,0,0,1-1.09-.63,1.26,1.26,0,0,1,.47-1.71l17.5-10a1.25,1.25,0,1,1,1.24,2.18l-17.5,10A1.27,1.27,0,0,1,21.25,25Z"/></g></g></svg>    
+                                            Partager
+                                    </span>
+                                </button>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton" style="background-color: transparent; border: none; color: white;">
+                                <?php $request = $_SERVER['REQUEST_URI']; ?>
+                                    <a class="dropdown-item" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost<?= $request ?>">Facebook</a>
+                                    <a class="dropdown-item" href="mailto:?subject=<?= $current->getTitle() ?>&body=https://localhost<?= $request ?>">Email</a>
+                                    <a class="dropdown-item" href="https://www.linkedin.com/sharing/share-offsite/?url=https://localhost<?= $request ?>">LinkedIn</a>
+                                </div>
+                            </div>
                             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content card-grey-2">
@@ -250,7 +258,7 @@
                                 <?php foreach ($interested as $int): ?>
                                     <div class="col-md-6">
                                         <img style="width:40px; border-radius: 10px;" src="<?= $int['image'] ?>" class="ml-5">
-                                        <span><?= $int['lastname'] . ' ' . $int['firstname'] ?></span>
+                                        <span class="ml-2"><?= $int['lastname'] . ' ' . $int['firstname'] ?></span>
                                     </div>
                                 <?php endforeach; ?>
                                 </div>
@@ -310,7 +318,7 @@
                                     <span class="d-flex w-100 justify-content-end text-grey"><a href="<?= route_to_url('calendar') ?>?eventId=<?= $id ?>" class="text-grey">Découvrir&nbsp;<i class="fas fa-plus"></i></a></span>
                             </div>
                         <?php endif; ?>
-                                <?php endfor; ?>
+                        <?php endfor; ?>
                     <?php endforeach; ?>
                 <?php endif; ?>
             </div>

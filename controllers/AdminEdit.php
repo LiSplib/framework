@@ -30,27 +30,28 @@ class AdminEdit{
     }
 
     public function httpPostRequest(){
-            $id = (empty($_GET['id']) ? $_SESSION['auth']['id'] : $_GET['id']);
-            $region = $_POST['region'];
-            $departement = $_POST['departement'];
-            $ville = ucwords($_POST['ville']);
-            $telephone = $_POST['telephone'];
-            $adresse = $_POST['adresse'];
-            $societe = $_POST['societe'];
-            $website = $_POST['website'];
-            $facebook = $_POST['facebook'];
-            $linkedin = $_POST['linkedin'];
-            $viadeo = $_POST['viadeo'];
-            $skype = $_POST['skype'];
-            $dataAdmin = new ModelAdmin;
-            $adminInfo = $dataAdmin->getAdminInfo($id);
-            if(empty($adminInfo) && !empty($region) && !empty($departement) && !empty($ville)){
-                $dataAdmin->addInfo($region, $departement, $ville, $telephone, $adresse, $societe, $website, $facebook, $linkedin, $viadeo, $skype, $id);
-                $_SESSION['flash']['success'] = 'Info ajouté';
-            }else{
-            $dataAdmin->editAccount($region, $departement, $ville, $telephone, $adresse, $societe, $website, $facebook, $linkedin, $viadeo, $skype, $id);
-            $_SESSION['flash']['success'] = 'Info modifié';
-            }
-            redirect_to_route('adminEdit?id='.$id);
+        $dataAdmin = new ModelAdmin;
+        $id = (empty($_GET['id']) ? $_SESSION['auth']['id'] : $_GET['id']);
+        $region = $dataAdmin->valid_donnees($_POST['region']);
+        $departement = $dataAdmin->valid_donnees($_POST['departement']);
+        $ville = $dataAdmin->valid_donnees(ucwords($_POST['ville']));
+        $telephone = $dataAdmin->valid_donnees($_POST['telephone']);
+        $adresse = $dataAdmin->valid_donnees($_POST['adresse']);
+        $job = $dataAdmin->valid_donnees($_POST['job']);
+        $societe = $dataAdmin->valid_donnees($_POST['societe']);
+        $website = $dataAdmin->valid_donnees($_POST['website']);
+        $facebook = $dataAdmin->valid_donnees($_POST['facebook']);
+        $linkedin = $dataAdmin->valid_donnees($_POST['linkedin']);
+        $viadeo = $dataAdmin->valid_donnees($_POST['viadeo']);
+        $skype = $dataAdmin->valid_donnees($_POST['skype']);
+        $adminInfo = $dataAdmin->getAdminInfo($id);
+        if(empty($adminInfo) && !empty($region) && !empty($departement) && !empty($ville)){
+            $dataAdmin->addInfo($region, $departement, $ville, $telephone, $adresse, $job, $societe, $website, $facebook, $linkedin, $viadeo, $skype, $id);
+            $_SESSION['flash']['success'] = 'Info ajouté';
+        }else{
+        $dataAdmin->editAccount($region, $departement, $ville, $telephone, $adresse, $job, $societe, $website, $facebook, $linkedin, $viadeo, $skype, $id);
+        $_SESSION['flash']['success'] = 'Info modifié';
+        }
+        redirect_to_route('adminEdit?id='.$id);
     }
 }

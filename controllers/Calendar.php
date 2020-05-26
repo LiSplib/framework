@@ -75,6 +75,22 @@ class Calendar {
                 ];
     }
 
-    public function httpPostRequest(){}
+    public function httpPostRequest(){
+        $events = new \App\Model\Date\Events();
+        if(!empty($_POST)){
+            $userId = intval($_SESSION['auth']['id']);
+            $eventId = intval($_GET['eventId']);
+            if(isset($_POST['interested'])){
+                $events->interestedEvent($userId, $eventId);
+                $_SESSION['flash']['success'] = 'Cet évènement vous intéresse';
+                redirect_to_route('calendar');
+            }else{
+                $events->registerEvent($userId, $eventId);
+                $_SESSION['flash']['success'] = 'Vous êtes inscrit';
+                header('Location:' . route_to_url('calendar'));
+                exit();    
+            } 
+        }
+    }
 }
     

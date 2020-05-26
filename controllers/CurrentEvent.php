@@ -55,7 +55,7 @@ class CurrentEvent{
         $obj = json_decode($json, true);
         $lat = $obj[0]['lat'];
         $lon = $obj[0]['lon'];
-        $maps = "https://embed.waze.com/fr/iframe?zoom=15&lat=$lat&lon=$lon&ct=livemap";
+        $maps = "https://embed.waze.com/fr/iframe?zoom=15&lat=$lat&lon=$lon&pin=1";
 
         $data = [
             'title' => $this->event->getTitle(),

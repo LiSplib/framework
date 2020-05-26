@@ -2,8 +2,6 @@
 
 namespace App\Controller;
 
-use PDO;
-
 class AddEvent {
 
     public function __construct()

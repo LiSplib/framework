@@ -4,7 +4,13 @@ namespace App\Model;
 
 use App\Model\dataBase\PdoSql;
 
-class ModelAdmin{
+/**
+ * Class ModelAdmin
+ * Sert a la gestion des données relative aux admins - users
+ * @package App\Model
+ */
+class ModelAdmin
+{
 
     private $pdo;
 
@@ -13,29 +19,70 @@ class ModelAdmin{
         $this->pdo = (new PdoSql)->getPdo();
     }
 
-    public function getAdmins(){
+    /**
+     * utilitaire des gestion et de protection des données à traiter
+     * @param string $donnees
+     * @return string
+     */
+    public function valid_donnees ($donnees){
+        $donnees = trim($donnees);
+        $donnees = stripslashes($donnees);
+        $donnees = htmlspecialchars($donnees);
+        return $donnees;
+    }
+
+    
+    /**
+     * Récupère la liste de tous les utilisateurs
+     * 
+     * @return array
+     */
+    public function getAdmins(): array
+    {
         $sql = 'SELECT * FROM admin';
         $query = $this->pdo->prepare($sql);
         $query->execute();
         return $query->fetchAll();
     }
 
-    public function getAllInfo($id){
+        
+    /**
+     * Renvoi les infos de type coaching d'un admin(coaching pratiqué, adhérant etc...)
+     *
+     * @param  mixed $id
+     * @return array
+     */
+    public function getAllInfo($id) :array
+    {
         $sql = "SELECT * FROM admin LEFT JOIN admininfo ON id_admin = admin.id LEFT JOIN coaching ON coach_id = admin.id WHERE admin.id = :id";
         $query = $this->pdo->prepare($sql);
         $query->bindParam(':id', $id);
         $query->execute();
-        return $query->fetch();
+        $result = $query->fetch();
+        return $result;
     }
-
-    public function adminToValidate(){
+    
+    /**
+     * Liste les users en attente de validation admin
+     *
+     * @return array
+     */
+    public function adminToValidate() :array
+    {
         $sql = 'SELECT * FROM admin ORDER BY coach DESC';
         $query = $this->pdo->prepare($sql);
         $query->execute();
         return $query->fetchAll();
     }
-
-    public function getAdmin($id){
+    
+    /**
+     * Retourne les infos d'un utilisateur en fonction de son id dans la table admin(nom, prenom, email, image de profil, role, status)
+     *
+     * @param  mixed $id
+     * @return array
+     */
+    public function getAdmin($id) :array
+    {
         $sql = 'SELECT * FROM admin WHERE id = :id';
         $query = $this->pdo->prepare($sql);
         $query->bindParam(':id', $id);
@@ -43,17 +90,31 @@ class ModelAdmin{
         $result = $query->fetch();
         return $result;
     }
-
-    public function getAdminInfo($id){
+    
+    /**
+     * retourne les infos d'un utilisateur de la table admininfo(region, departement, adresse, societe, reéseaux sociaux, tel, ville etc...)
+     *
+     * @param  mixed $id
+     * 
+     */
+    public function getAdminInfo($id) 
+    {
         $sql = 'SELECT * FROM admininfo WHERE id_admin = :id';
         $query = $this->pdo->prepare($sql);
         $query->bindParam(':id', $id);
         $query->execute();
         $result = $query->fetch();
         return $result;
-    } 
-
-    public function getAdminCoaching($id){
+    }
+    
+    /**
+     * retourne les infos d'un utilisateur de la table coaching( type de coaching pratiqué, adhérant à, catégorie)
+     *
+     * @param  mixed $id
+     * 
+     */
+    public function getAdminCoaching($id)
+    {
         $sql = 'SELECT * FROM coaching WHERE coach_id = :id';
         $query = $this->pdo->prepare($sql);
         $query->bindParam(':id', $id);
@@ -62,14 +123,30 @@ class ModelAdmin{
         return $result;
     }
     
-    public function getEmail($email){
+    /**
+     * cherche un utilisateur inscrit avec son email
+     *
+     * @param  mixed $email
+     * @return array
+     */
+    public function getEmail($email): array
+    {
         $sql = 'SELECT * FROM admin WHERE email = ?';
         $query = $this->pdo->prepare($sql);
         $query->execute([$email]);
         return $query->fetch();
     }
-
-    public function addConnect($email, $password, $token){
+    
+    /**
+     * Enregistre la connexion d'un utilisateur dans la table history
+     *
+     * @param  mixed $email
+     * @param  mixed $password
+     * @param  mixed $token
+     * @return void
+     */
+    public function addConnect($email, $password, $token)
+    {
         $sql = 'INSERT INTO history (email, password, token) VALUES (:email, :password , :token)';
         $query = $this->pdo->prepare($sql);
         $query->bindParam(':email', $email);
@@ -78,8 +155,21 @@ class ModelAdmin{
         $query->execute();
         return $query;
     }
-
-    public function editAdmin($lastname, $firstname, $email, $image, $role, $id, $coach){
+    
+    /**
+     * Modification de la fiche utilisateur basique
+     *
+     * @param  mixed $lastname
+     * @param  mixed $firstname
+     * @param  mixed $email
+     * @param  mixed $image
+     * @param  mixed $role
+     * @param  mixed $id
+     * @param  mixed $coach
+     * @return void
+     */
+    public function editAdmin($lastname, $firstname, $email, $image, $role, $id, $coach)
+    {
         $sql = "UPDATE admin SET lastname = :lastname, firstname = :firstname, email = :email, image = :image, role = :role, coach = :coach WHERE id = :id";
         $query = $this->pdo->prepare($sql);
         $query->bindParam(':lastname', $lastname);
@@ -92,16 +182,36 @@ class ModelAdmin{
         $query->execute();
         return $query;
     }
-
-    public function editAccount($region, $departement, $ville, $telephone, $adresse, $societe, $website, $facebook, $linkedin, $viadeo, $skype, $id){
+    
+    /**
+     * Modification de la fiche utilisateur détaillée
+     *
+     * @param  mixed $region
+     * @param  mixed $departement
+     * @param  mixed $ville
+     * @param  mixed $telephone
+     * @param  mixed $adresse
+     * @param  mixed $job
+     * @param  mixed $societe
+     * @param  mixed $website
+     * @param  mixed $facebook
+     * @param  mixed $linkedin
+     * @param  mixed $viadeo
+     * @param  mixed $skype
+     * @param  mixed $id
+     * @return void
+     */
+    public function editAccount($region, $departement, $ville, $telephone, $adresse, $job, $societe, $website, $facebook, $linkedin, $viadeo, $skype, $id)
+    {
         $sql = 'UPDATE admininfo 
-        SET region = :region, departement = :departement, ville = :ville, telephone = :telephone, adresse = :adresse, societe = :societe, website = :website, facebook = :facebook, linkedin = :linkedin, viadeo = :viadeo, skype = :skype WHERE id_admin = :id';
+        SET region = :region, departement = :departement, ville = :ville, telephone = :telephone, adresse = :adresse, job = :job, societe = :societe, website = :website, facebook = :facebook, linkedin = :linkedin, viadeo = :viadeo, skype = :skype WHERE id_admin = :id';
         $query = $this->pdo->prepare($sql);
         $query->bindParam(':region', $region);
         $query->bindParam(':departement', $departement);
         $query->bindParam(':ville', $ville);
         $query->bindParam(':telephone', $telephone);
         $query->bindParam(':adresse', $adresse);
+        $query->bindParam(':job', $job);
         $query->bindParam(':societe', $societe);
         $query->bindParam(':website', $website);
         $query->bindParam(':facebook', $facebook);
@@ -112,8 +222,18 @@ class ModelAdmin{
         $query->execute();
         return $query;
     }
-
-    public function editCoaching($coachingDo, $adherent, $categorie, $id){
+    
+    /**
+     * Modification de la fiche admin coaching
+     *
+     * @param  mixed $coachingDo
+     * @param  mixed $adherent
+     * @param  mixed $categorie
+     * @param  mixed $id
+     * @return void
+     */
+    public function editCoaching($coachingDo, $adherent, $categorie, $id)
+    {
         $sql = 'UPDATE coaching 
         SET coachingDo = :coachingDo, adherent = :adherent, categorie = :categorie WHERE coach_id = :id';
         $query = $this->pdo->prepare($sql);
@@ -124,8 +244,22 @@ class ModelAdmin{
         $query->execute();
         return $query;
     }
-
-    public function addAdmin($lastname, $firstname, $email, $image, $password, $role, $token, $coach){
+    
+    /**
+     * création d'utilisateur
+     *
+     * @param  mixed $lastname
+     * @param  mixed $firstname
+     * @param  mixed $email
+     * @param  mixed $image
+     * @param  mixed $password
+     * @param  mixed $role
+     * @param  mixed $token
+     * @param  mixed $coach
+     * @return void
+     */
+    public function addAdmin($lastname, $firstname, $email, $image, $password, $role, $token, $coach)
+    {
         $sql = 'INSERT INTO admin (lastname, firstname, email, image, password, role, token, coach) VALUES (:lastname, :firstname, :email, :image, :password, :role, :token, :coach)';
         $query = $this->pdo->prepare($sql);
         $query->bindParam(':lastname', $lastname);
@@ -139,15 +273,35 @@ class ModelAdmin{
         $query->execute();
         return $query;
     }
-
-    public function addInfo($region, $departement, $ville, $telephone, $adresse, $societe, $website, $facebook, $linkedin, $viadeo, $skype, $id){
-        $sql = 'INSERT INTO admininfo (region, departement, ville, telephone, adresse, societe, website, facebook, linkedin, viadeo, skype, id_admin) VALUES (:region, :departement, :ville, :telephone, :adresse, :societe, :website, :facebook, :linkedin, :viadeo, :skype, :id_admin)';
+    
+    /**
+     * Ajoute les infos supplèmentaire de l'utilisateur
+     *
+     * @param  mixed $region
+     * @param  mixed $departement
+     * @param  mixed $ville
+     * @param  mixed $telephone
+     * @param  mixed $adresse
+     * @param  mixed $job
+     * @param  mixed $societe
+     * @param  mixed $website
+     * @param  mixed $facebook
+     * @param  mixed $linkedin
+     * @param  mixed $viadeo
+     * @param  mixed $skype
+     * @param  mixed $id
+     * @return void
+     */
+    public function addInfo($region, $departement, $ville, $telephone, $adresse, $job, $societe, $website, $facebook, $linkedin, $viadeo, $skype, $id)
+    {
+        $sql = 'INSERT INTO admininfo (region, departement, ville, telephone, adresse, job, societe, website, facebook, linkedin, viadeo, skype, id_admin) VALUES (:region, :departement, :ville, :telephone, :adresse, :job, :societe, :website, :facebook, :linkedin, :viadeo, :skype, :id_admin)';
         $query = $this->pdo->prepare($sql);
         $query->bindParam(':region', $region);
         $query->bindParam(':departement', $departement);
         $query->bindParam(':ville', $ville);
         $query->bindParam(':telephone', $telephone);
         $query->bindParam(':adresse', $adresse);
+        $query->bindParam(':job', $job);
         $query->bindParam(':societe', $societe);
         $query->bindParam(':website', $website);
         $query->bindParam(':facebook', $facebook);
@@ -158,8 +312,18 @@ class ModelAdmin{
         $query->execute();
         return $query;
     }
-
-    public function addCoaching($coachingDo, $adherent, $categorie, $id){
+    
+    /**
+     * Ajoute les info de coaching de l'admin
+     *
+     * @param  mixed $coachingDo
+     * @param  mixed $adherent
+     * @param  mixed $categorie
+     * @param  mixed $id
+     * @return void
+     */
+    public function addCoaching($coachingDo, $adherent, $categorie, $id)
+    {
         $sql = 'INSERT INTO coaching (coachingDo, adherent, categorie, coach_id) VALUES (:coachingDo, :adherent, :categorie, :coach_id)';
         $query = $this->pdo->prepare($sql);
         $query->bindParam(':coachingDo', $coachingDo);
@@ -169,23 +333,42 @@ class ModelAdmin{
         $query->execute();
         return $query;
     }
-
-    public function deleteAdmin($id){
+    
+    /**
+     * Suppression de l'utilisateur par son id
+     *
+     * @param  mixed $id
+     * @return void
+     */
+    public function deleteAdmin($id)
+    {
         $sql = ("DELETE FROM admin WHERE id = :id");
         $query = $this->pdo->prepare($sql);
-        $query->bindParam(':id', $id );
+        $query->bindParam(':id', $id);
         return $query->execute();
     }
-
-    public function countRequestAdmin(){
+    
+    /**
+     * Retourne le nombre d'utilisateur(s) qui attende(nt) la validation du status de coach
+     *
+     * @return array
+     */
+    public function countRequestAdmin(): array
+    {
         $sql = 'SELECT COUNT(*) FROM admin WHERE coach = 1';
         $query = $this->pdo->prepare($sql);
         $query->execute();
         $result = $query->fetch();
         return $result;
     }
-
-    public function getRegion(){
+    
+    /**
+     * Retourne la liste des régions de la table admininfo pour l'afficher dans un select de la fiche d'information de l'utilisateur
+     *
+     * @return array
+     */
+    public function getRegion(): array
+    {
         $sql = "SHOW COLUMNS FROM admininfo LIKE 'region'";
         $query = $this->pdo->prepare($sql);
         $query->execute();
@@ -197,8 +380,14 @@ class ModelAdmin{
         $regions[12] = "Provence-Alpes-Côte d'Azur";
         return $regions;
     }
-
-    public function getCoachingDo(){
+    
+    /**
+     * Retourne la liste des type de coaching pratiqué de la table coaching pour l'afficher dans un select de la fiche d'information coaching de l'admin
+     *
+     * @return array
+     */
+    public function getCoachingDo(): array
+    {
         $sql = "SHOW COLUMNS FROM coaching LIKE 'coachingDo'";
         $query = $this->pdo->prepare($sql);
         $query->execute();
@@ -208,8 +397,14 @@ class ModelAdmin{
         $coachingDo = explode(",", $coachingDo);
         return $coachingDo;
     }
-
-    public function getAdherent(){
+    
+    /**
+     * Retourne la liste des organismes dont l'admin peut adhérer de la table coaching pour l'afficher dans un select de la fiche d'information coaching de l'admin
+     *
+     * @return array
+     */
+    public function getAdherent(): array
+    {
         $sql = "SHOW COLUMNS FROM coaching LIKE 'adherent'";
         $query = $this->pdo->prepare($sql);
         $query->execute();
@@ -219,8 +414,14 @@ class ModelAdmin{
         $adherent = explode(",", $adherent);
         return $adherent;
     }
-
-    public function getCategorie(){
+    
+    /**
+     * Retourne la liste des catégories de coaching pratiqué de la table coaching pour l'afficher dans un select de la fiche d'information coaching de l'admin
+     *
+     * @return array
+     */
+    public function getCategorie(): array
+    {
         $sql = "SHOW COLUMNS FROM coaching LIKE 'categorie'";
         $query = $this->pdo->prepare($sql);
         $query->execute();
@@ -230,5 +431,56 @@ class ModelAdmin{
         $categorie = explode(",", $categorie);
         return $categorie;
     }
+    
+    /**
+     * addAdminPro
+     *
+     * @param  mixed $intervention
+     * @param  mixed $training
+     * @param  mixed $course
+     * @param  mixed $publication
+     * @param  mixed $interest
+     * @param  mixed $quote
+     * @param  mixed $admin_id
+     * @return void
+     */
+    public function addAdminPro($intervention, $training, $course, $publication, $interest, $quote, $admin_id)
+    {
+        $sql = 'INSERT INTO adminpro (intervention, training, course, publication, interest, quote, admin_id) VALUES (:intervention, :training, :course, :publication, :interest, :quote, :admin_id)';
+        $query = $this->pdo->prepare($sql);
+        $query->bindParam(':intervention', $intervention);
+        $query->bindParam(':training', $training);
+        $query->bindParam('course', $course);
+        $query->bindParam(':publication', $publication);
+        $query->bindParam(':interest', $interest);
+        $query->bindParam(':quote', $quote);
+        $query->bindParam('admin_id', $admin_id);
+        $result = $query->execute();
+        return $result;
+    }
 
+    public function updateAdminPro($intervention, $training, $course, $publication, $interest, $quote, $id)
+    {
+        $sql = 'UPDATE adminpro admin_id SET intervention = :intervention, training = :training, course = :course, publication = :publication, interest = :interest, quote = :quote WHERE $admin_id = :id';
+        $query = $this->pdo->prepare($sql);
+        $query->bindParam(':intervention', $intervention);
+        $query->bindParam(':training', $training);
+        $query->bindParam(':course', $course);
+        $query->bindParam(':publication', $publication);
+        $query->bindParam(':interest', $interest);
+        $query->bindParam(':quote', $quote);
+        $query->bindParam('id', $id);
+        $result = $query->execute();
+        return $result;
+    }
+
+    public function getAdminPro($id)
+    {
+        $sql = 'SELECT * FROM adminpro WHERE admin_id = :id';
+        $query = $this->pdo->prepare($sql);
+        $query->bindParam(':id', $id);
+        $query->execute();
+        $result = $query->fetch();
+        return $result;
+    }
 }

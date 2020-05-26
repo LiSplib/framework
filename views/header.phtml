@@ -8,7 +8,7 @@
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
                     <i class="far fa-user"></i>
                 </a>
-                <div class="dropdown-menu dropdown-menu-lg-right text-center" style="background-color: #1a1a1a; color: white;">
+                <div class="dropdown-menu dropdown-menu-lg-right text-center bg-Altair-grey" style="color: white;">
                     <form class="px-4 py-3" action="<?= route_to_url('connect')?>" method="POST">
                         <div class="form-group">
                             <label for="exampleDropdownFormEmail1">Email</label>
@@ -41,8 +41,8 @@
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Mon Compte
                 </a>
-                <div class="dropdown-menu" style="background-color: <?= $GLOBALS['STYLE']['backgroundColor'] ?>; color: <?= $GLOBALS['STYLE']['textColor'] ?>;" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="<?= route_to_url('account') ?>">Mon compte</a>
+                <div class="dropdown-menu bg-Altair-grey">
+                    <a class="dropdown-item" href="<?= route_to_url('fullAccount') ?>?id=<?= $_SESSION['auth']['id'] ?>">Mon compte</a>
                     <?php if ($_SESSION['auth']['role'] === 'superAdmin'): ?>
                         <a class="dropdown-item" href="<?= route_to_url('parameter') ?>">Paramètrage</a>
                         <a class="dropdown-item" href="<?= route_to_url('socialMedia') ?>">Réseaux Sociaux</a>
@@ -75,7 +75,7 @@
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
                     Se Connecter
                 </a>
-                <div class="dropdown-menu text-center" style="background-color: #1a1a1ad9; color: white;">
+                <div class="dropdown-menu text-center card-grey-2" style="color: white;">
                     <form class="px-4 py-3" action="<?= route_to_url('connect')?>" method="POST">
                         <div class="form-group">
                             <label for="exampleDropdownFormEmail1">Email</label>

@@ -32,6 +32,7 @@ class FullAccount{
             };
             $admin = $dataAdmin->getAllInfo($id);
             return ['admin' => $admin,
+                    'id' => $id,
                     'events' => $events,
                     'today' => $today
                     ];

@@ -73,6 +73,38 @@ class ModelSocialMedia{
         return $query;
     }
 
+    public function updateTokenInsta($long_token_insta){
+        $sql = 'UPDATE social_media SET long_token_insta = :long_token_insta WHERE id = "1"';
+        $query = $this->pdo->prepare($sql);
+        $query->bindParam(':long_token_insta', $long_token_insta);
+        $query->execute();
+        return $query;
+    }
+
+    public function updateNextTokenDateInsta($nextTokenDate){
+        $sql = 'UPDATE social_media SET nextTokenDate = :nextTokenDate WHERE id = "1"';
+        $query = $this->pdo->prepare($sql);
+        $query->bindParam(':nextTokenDate', $nextTokenDate);
+        $query->execute();
+        return $query;
+    }
+
+    public function getNextDateInsta(){
+        $sql = 'SELECT nextTokenDate FROM social_media WHERE id = "1"';
+        $query = $this->pdo->prepare($sql);
+        $query->execute();
+        $result = $query->fetch();
+        return $result;
+    }
+
+    public function setNextTokenDate($next_token_date){
+        $sql = 'INSERT INTO social_media (nextTokenDate) VALUES (:nextTokenDate)';
+        $query = $this->pdo->prepare($sql);
+        $query->bindParam(':nextTokenDate', $next_token_date);
+        $query->execute();
+        return $query;
+    }
+
     public function getLongTokenFb(){
         $sql = 'SELECT long_token_fb FROM social_media';
         $query = $this->pdo->prepare($sql);
