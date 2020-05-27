@@ -1,75 +1,120 @@
 <div class="jumbotron jumbotron-fluid bg-Altair-grey text-white">
-    <div class="row justify-content-center">
-    <div class="card-grey p-3" style="box-shadow: <?= $GLOBALS['STYLE']['boxShadow'] ?>; background-color: <?= $GLOBALS['STYLE']['boxBackgroundColor'] . 'd9' ?>; color: <?= $GLOBALS['STYLE']['textColor'] ?>; font-size: <?= $GLOBALS['STYLE']['textFontSize'] ?>; font-family: <?= $GLOBALS['STYLE']['textFontFamily'] ?>;"> 
-        <h3 class="mt-5">Ajouter ou modifier vos informations</h3>
-        <form method="POST" action="" class="form">
-            <div class="form-row my-5">
-                <div class="form-group col-md-4">
-                <select class="browser-default custom-select" id="inputRegion" name="region">
-                    <option selected><?= $region = (empty($adminInfo['region'])) ? 'Région' : $adminInfo['region'] ?></option>
-                <?php foreach($regions as $region): ?>
-                    <option value="<?= $region ?>"><?= $region ?></option>
-                    <?php endforeach; ?>
-                </select>
+    <div class="row justify-content-center p-3">
+        <div class="card-grey p-3" style="box-shadow: <?= $GLOBALS['STYLE']['boxShadow'] ?>; background-color: <?= $GLOBALS['STYLE']['boxBackgroundColor'] . 'd9' ?>; color: <?= $GLOBALS['STYLE']['textColor'] ?>; font-size: <?= $GLOBALS['STYLE']['textFontSize'] ?>; font-family: <?= $GLOBALS['STYLE']['textFontFamily'] ?>;"> 
+            <h3 class="mt-5">Ajouter ou modifier vos informations</h3>
+            <form method="POST" action="" class="form">
+                <div class="form-row my-5">
+                    <div class="form-group col-md-4">
+                        <label for="inputRegion">Région</label>
+                        <select class="browser-default custom-select" id="inputRegion" name="region">
+                            <option selected><?= $region = (empty($adminInfo['region'])) ? 'Région' : $adminInfo['region'] ?></option>
+                        <?php foreach($regions as $region): ?>
+                            <option value="<?= $region ?>"><?= $region ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputDepartement">Département</label>
+                        <select class="browser-default custom-select" id="inputDepartement" name="departement">
+                            <option selected><?= $departement = (empty($adminInfo['departement'])) ? 'Département' : $adminInfo['departement'] ?></option>
+                        <?php foreach($dept as $key => $d): ?>
+                            <option value="<?= $key . '  ' . $d ?>"><?= $key . '  ' . $d ?></option>
+                        <?php endforeach;?>
+                    </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputVille">Ville</label>
+                        <input type="text" class="form-control" id="inputVille" placeholder="Ville" name="ville" value="<?= $ville = (empty($adminInfo['ville'])) ? '' : $adminInfo['ville'] ?>">
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="inputAdresse">Adresse</label>
+                        <input type="text" class="form-control" id="inputAdresse" placeholder="Adresse" name="adresse" value="<?= $adresse = (empty($adminInfo['adresse'])) ? '' : $adminInfo['adresse'] ?>">
+                    </div>
                 </div>
-                <div class="form-group col-md-4">
-                <select class="browser-default custom-select" id="inputDepartement" name="departement">
-                    <option selected><?= $departement = (empty($adminInfo['departement'])) ? 'Département' : $adminInfo['departement'] ?></option>
-                <?php foreach($dept as $key => $d): ?>
-                    <option value="<?= $key . '  ' . $d ?>"><?= $key . '  ' . $d ?></option>
-                <?php endforeach;?>
-                </select>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="inputPhone">Téléphone</label>
+                        <input type="tel" class="form-control" id="inputPhone" pattern="[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}" name="telephone" value="<?= $telephone = (empty($adminInfo['telephone'])) ? '' : $adminInfo['telephone'] ?>">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputjob">Profession</label>
+                        <input type="text" class="form-control" id="inputjob" name="job" value="<?= $societe = (empty($adminInfo['job'])) ? '' : $adminInfo['job'] ?>">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputSociety">Socièté</label>
+                        <input type="text" class="form-control" id="inputSociety" name="societe" value="<?= $societe = (empty($adminInfo['societe'])) ? '' : $adminInfo['societe'] ?>">
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="inputwebsite">Site Web</label>
+                        <input type="text" class="form-control" id="inputwebsite" name="website" value="<?= $website = (empty($adminInfo['website'])) ? '' : $adminInfo['website'] ?>">
+                    </div>
                 </div>
-                <div class="form-group col-md-4">
-                <input type="text" class="form-control" id="inputVille" placeholder="Ville" name="ville" value="<?= $ville = (empty($adminInfo['ville'])) ? '' : $adminInfo['ville'] ?>">
+                <div class="form-row mt-5 mb-4">
+                    <h5 class="text-grey">Choisissez jusqu'à 4 réseaux sociaux</h5>
                 </div>
-                <div class="form-group col-md-12">
-                <input type="text" class="form-control" id="inputAdresse" placeholder="Adresse" name="adresse" value="<?= $adresse = (empty($adminInfo['adresse'])) ? '' : $adminInfo['adresse'] ?>">
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="inputFacebook">Facebook</label>
+                        <input type="url" class="form-control" id="inputFacebook" name="facebook" value="<?= $facebook = (empty($adminInfo['facebook'])) ? '' : $adminInfo['facebook'] ?>">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputLinkedIn">LinkedIn</label>
+                        <input type="url" class="form-control" id="inputLinkedIn" name="linkedin" value="<?= $linkedin = (empty($adminInfo['linkedin'])) ? '' : $adminInfo['linkedin'] ?>">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputViadeo">Vimeo</label>
+                        <input type="url" class="form-control" id="inputVimeo" name="vimeo" value="<?= $viadeo = (empty($adminInfo['vimeo'])) ? '' : $adminInfo['vimeo'] ?>">
+                    </div>            
                 </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-3">
-                    <label for="inputSociety">Téléphone</label>
-                    <input type="tel" class="form-control" id="inputPhone" pattern="[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}" name="telephone" value="<?= $telephone = (empty($adminInfo['telephone'])) ? '' : $adminInfo['telephone'] ?>">
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="inputSkype">Skype</label>
+                        <input type="text" class="form-control" id="inputSkype" name="skype" value="<?= $skype = (empty($adminInfo['skype'])) ? '' : $adminInfo['skype'] ?>">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputFacebook">Google +</label>
+                        <input type="url" class="form-control" id="inputGoogle" name="google" value="<?= $google = (empty($adminInfo['google'])) ? '' : $adminInfo['google'] ?>">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputLinkedIn">Youtube</label>
+                        <input type="url" class="form-control" id="inputYoutube" name="youtube" value="<?= $youtube = (empty($adminInfo['youtube'])) ? '' : $adminInfo['youtube'] ?>">
+                    </div>
                 </div>
-                <div class="form-group col-md-3">
-                    <label for="inputSociety">Profession</label>
-                    <input type="text" class="form-control" id="inputjob" name="job" value="<?= $societe = (empty($adminInfo['job'])) ? '' : $adminInfo['job'] ?>">
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="inputViadeo">Instagram</label>
+                        <input type="url" class="form-control" id="inputInstagram" name="instagram" value="<?= $instagram = (empty($adminInfo['instagram'])) ? '' : $adminInfo['instagram'] ?>">
+                    </div>            
+                    <div class="form-group col-md-4">
+                        <label for="inputSkype">Pinterest</label>
+                        <input type="text" class="form-control" id="inputPinterest" name="pinterest" value="<?= $pinterest = (empty($adminInfo['pinterest'])) ? '' : $adminInfo['pinterest'] ?>">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputFacebook">Snapchat</label>
+                        <input type="url" class="form-control" id="inputSnapchat" name="snapchat" value="<?= $snapchat = (empty($adminInfo['snapchat'])) ? '' : $adminInfo['snapchat'] ?>">
+                    </div>
                 </div>
-                <div class="form-group col-md-3">
-                    <label for="inputSociety">Socièté</label>
-                    <input type="text" class="form-control" id="inputSociety" name="societe" value="<?= $societe = (empty($adminInfo['societe'])) ? '' : $adminInfo['societe'] ?>">
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="inputLinkedIn">Twitter</label>
+                        <input type="url" class="form-control" id="inputTwitter" name="twitter" value="<?= $twitter = (empty($adminInfo['twitter'])) ? '' : $adminInfo['twitter'] ?>">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputViadeo">SoundCloud</label>
+                        <input type="url" class="form-control" id="inputSoundCloud" name="soundcloud" value="<?= $soundcloud = (empty($adminInfo['soundcloud'])) ? '' : $adminInfo['soundcloud'] ?>">
+                    </div>            
+                    <div class="form-group col-md-4">
+                        <label for="inputSkype">Spotify</label>
+                        <input type="text" class="form-control" id="inputSpotify" name="spotify" value="<?= $spotify = (empty($adminInfo['spotify'])) ? '' : $adminInfo['spotify'] ?>">
+                    </div>
                 </div>
-                <div class="form-group col-md-6">
-                    <label for="inputSociety">Site Web</label>
-                    <input type="text" class="form-control" id="inputwebsite" name="website" value="<?= $website = (empty($adminInfo['website'])) ? '' : $adminInfo['website'] ?>">
+                <div class="d-flex justify-content-end mt-5">
+                    <a href="<?= route_to_url('fullAccount') ?>?id=<?= $id ?>" class="btn grey darken-1">
+                        Mon compte
+                    </a>
+                    <button type="submit" class="btn elegant-color">Enregistrer / Modifier</button>
                 </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-3">
-                    <label for="inputFacebook">Facebook</label>
-                    <input type="url" class="form-control" id="inputFacebook" name="facebook" value="<?= $facebook = (empty($adminInfo['facebook'])) ? '' : $adminInfo['facebook'] ?>">
-                </div>
-                <div class="form-group col-md-3">
-                    <label for="inputLinkedIn">LinkedIn</label>
-                    <input type="url" class="form-control" id="inputLinkedIn" name="linkedin" value="<?= $linkedin = (empty($adminInfo['linkedin'])) ? '' : $adminInfo['linkedin'] ?>">
-                </div>
-                <div class="form-group col-md-3">
-                    <label for="inputViadeo">Viadeo</label>
-                    <input type="url" class="form-control" id="inputViadeo" name="viadeo" value="<?= $viadeo = (empty($adminInfo['viadeo'])) ? '' : $adminInfo['viadeo'] ?>">
-                </div>            
-                <div class="form-group col-md-3">
-                    <label for="inputSkype">Skype</label>
-                    <input type="text" class="form-control" id="inputSkype" name="skype" value="<?= $skype = (empty($adminInfo['skype'])) ? '' : $adminInfo['skype'] ?>">
-                </div>
-            </div>
-            <div class="d-flex justify-content-end">
-                <button type="submit" class="btn elegant-color">Enregistrer / Modifier</button>
-                <a href="<?= route_to_url('fullAccount') ?>?id=<?= $adminInfo['id_admin'] ?>" class="btn grey darken-1">
-                    Mon compte
-                </a>
-            </div>
-        </form>
-    </div>
+            </form>
+        </div>
     </div>  
 </div>

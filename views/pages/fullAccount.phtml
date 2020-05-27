@@ -38,7 +38,7 @@
                                     <h5><?= (empty($admin['job'])) ? 'Profession' : $admin['job'] ?> chez <?= (empty($admin['societe'])) ? 'entreprise' : $admin['societe'] ?></h5>
                                     <h5><?= (empty($admin['diplome'])) ? 'Diplôme' : $admin['etude'] ?></h5>
                                     <h5><?= (empty($admin['etudes'])) ? 'Études' : $admin['etude'] ?></h5>
-                                    <h5><?= (empty($admin['ville'])) ? 'Ville' : $admin['ville'] ?></h5>
+                                    <h5><?= (empty($admin['other'])) ? 'Autres' : $admin['other'] ?></h5>
                                 </div>
                             </div>
                         </div>
@@ -50,7 +50,7 @@
                         <div class="list-group">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <h5><?= (empty($admin['adresse'])) ? 'Adresse' : $admin['adresse'] ?></h5>
+                                    <h5><?= (empty($admin['adresse'])) ? 'Adresse' : $admin['adresse'] ?> à <?= (empty($admin['ville'])) ? 'Ville' : $admin['ville'] ?></h5>
                                     <h5><?= (empty($admin['telephone'])) ? 'Téléphone' : $admin['telephone'] ?></h5>
                                     <h5><?= (empty($admin['email'])) ? 'Email' : $admin['email'] ?></h5>
                                     <h5 class="customLink"><a href="<?= (empty($admin['website'])) ? 'Website' : $admin['website'] ?>">Voir son site web</a></h5>
@@ -60,6 +60,11 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-xl-6 col-sm-12 my-2">
+                
         </div>
     </div>
     <div class="row justify-content-center">

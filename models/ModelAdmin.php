@@ -54,7 +54,7 @@ class ModelAdmin
      */
     public function getAllInfo($id) :array
     {
-        $sql = "SELECT * FROM admin LEFT JOIN admininfo ON id_admin = admin.id LEFT JOIN coaching ON coach_id = admin.id WHERE admin.id = :id";
+        $sql = "SELECT * FROM admin LEFT JOIN admininfo ON id_admin = admin.id LEFT JOIN coaching ON coach_id = admin.id LEFT JOIN adminpro ON admin_id = admin.id WHERE admin.id = :id";
         $query = $this->pdo->prepare($sql);
         $query->bindParam(':id', $id);
         $query->execute();
@@ -92,7 +92,7 @@ class ModelAdmin
     }
     
     /**
-     * retourne les infos d'un utilisateur de la table admininfo(region, departement, adresse, societe, reéseaux sociaux, tel, ville etc...)
+     * retourne les infos d'un utilisateur de la table admininfo(region, departement, adresse, societe, réseaux sociaux, tel, ville etc...)
      *
      * @param  mixed $id
      * 
@@ -196,15 +196,23 @@ class ModelAdmin
      * @param  mixed $website
      * @param  mixed $facebook
      * @param  mixed $linkedin
-     * @param  mixed $viadeo
+     * @param  mixed $vimeo
      * @param  mixed $skype
+     * @param  mixed $google
+     * @param  mixed $youtube
+     * @param  mixed $instagram
+     * @param  mixed $pinterest
+     * @param  mixed $snapchat
+     * @param  mixed $twitter
+     * @param  mixed $soundcloud
+     * @param  mixed $spotify
      * @param  mixed $id
      * @return void
      */
-    public function editAccount($region, $departement, $ville, $telephone, $adresse, $job, $societe, $website, $facebook, $linkedin, $viadeo, $skype, $id)
+    public function editAccount($region, $departement, $ville, $telephone, $adresse, $job, $societe, $website, $facebook, $linkedin, $vimeo, $skype, $google, $youtube, $instagram, $pinterest, $snapchat, $twitter, $sounclound, $spotify, $id)
     {
         $sql = 'UPDATE admininfo 
-        SET region = :region, departement = :departement, ville = :ville, telephone = :telephone, adresse = :adresse, job = :job, societe = :societe, website = :website, facebook = :facebook, linkedin = :linkedin, viadeo = :viadeo, skype = :skype WHERE id_admin = :id';
+        SET region = :region, departement = :departement, ville = :ville, telephone = :telephone, adresse = :adresse, job = :job, societe = :societe, website = :website, facebook = :facebook, linkedin = :linkedin, vimeo = :vimeo, skype = :skype, google = :google, youtube = :youtube, instagram = :instagram, pinterest = :pinterest, snapchat = :snapchat, twitter = :twitter, soundcloud = :soundcloud, spotify = :spotify WHERE id_admin = :id';
         $query = $this->pdo->prepare($sql);
         $query->bindParam(':region', $region);
         $query->bindParam(':departement', $departement);
@@ -216,8 +224,16 @@ class ModelAdmin
         $query->bindParam(':website', $website);
         $query->bindParam(':facebook', $facebook);
         $query->bindParam(':linkedin', $linkedin);
-        $query->bindParam(':viadeo', $viadeo);
+        $query->bindParam(':vimeo', $vimeo);
         $query->bindParam(':skype', $skype);
+        $query->bindParam(':google', $google);
+        $query->bindParam(':youtube', $youtube);
+        $query->bindParam(':instagram', $instagram);
+        $query->bindParam(':pinterest', $pinterest);
+        $query->bindParam(':snapchat', $snapchat);
+        $query->bindParam(':twitter', $twitter);
+        $query->bindParam(':soundcloud', $sounclound);
+        $query->bindParam(':spotify', $spotify);
         $query->bindParam(':id', $id);
         $query->execute();
         return $query;
@@ -287,14 +303,22 @@ class ModelAdmin
      * @param  mixed $website
      * @param  mixed $facebook
      * @param  mixed $linkedin
-     * @param  mixed $viadeo
+     * @param  mixed $vimeo
      * @param  mixed $skype
+     * @param  mixed $google
+     * @param  mixed $youtube
+     * @param  mixed $instagram
+     * @param  mixed $pinterest
+     * @param  mixed $snapchat
+     * @param  mixed $twitter
+     * @param  mixed $soundcloud
+     * @param  mixed $spotify
      * @param  mixed $id
      * @return void
      */
-    public function addInfo($region, $departement, $ville, $telephone, $adresse, $job, $societe, $website, $facebook, $linkedin, $viadeo, $skype, $id)
+    public function addInfo($region, $departement, $ville, $telephone, $adresse, $job, $societe, $website, $facebook, $linkedin, $vimeo, $skype, $google, $youtube, $instagram, $pinterest, $snapchat, $twitter, $sounclound, $spotify, $id)
     {
-        $sql = 'INSERT INTO admininfo (region, departement, ville, telephone, adresse, job, societe, website, facebook, linkedin, viadeo, skype, id_admin) VALUES (:region, :departement, :ville, :telephone, :adresse, :job, :societe, :website, :facebook, :linkedin, :viadeo, :skype, :id_admin)';
+        $sql = 'INSERT INTO admininfo (region, departement, ville, telephone, adresse, job, societe, website, facebook, linkedin, vimeo, skype, google, youtube, instagram, pinterest, snapchat, twitter, soundcloud, spotify, id_admin) VALUES (:region, :departement, :ville, :telephone, :adresse, :job, :societe, :website, :facebook, :linkedin, :vimeo, :skype, :google, :youtube, :instagram, :pinterest, :snapchat, :twitter, :soundcloud, :spotify, :id_admin)';
         $query = $this->pdo->prepare($sql);
         $query->bindParam(':region', $region);
         $query->bindParam(':departement', $departement);
@@ -306,8 +330,16 @@ class ModelAdmin
         $query->bindParam(':website', $website);
         $query->bindParam(':facebook', $facebook);
         $query->bindParam(':linkedin', $linkedin);
-        $query->bindParam(':viadeo', $viadeo);
+        $query->bindParam(':vimeo', $vimeo);
         $query->bindParam(':skype', $skype);
+        $query->bindParam(':google', $google);
+        $query->bindParam(':youtube', $youtube);
+        $query->bindParam(':instagram', $instagram);
+        $query->bindParam(':pinterest', $pinterest);
+        $query->bindParam(':snapchat', $snapchat);
+        $query->bindParam(':twitter', $twitter);
+        $query->bindParam(':soundcloud', $sounclound);
+        $query->bindParam(':spotify', $spotify);
         $query->bindParam(':id_admin', $id);
         $query->execute();
         return $query;

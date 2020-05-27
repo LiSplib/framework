@@ -31,8 +31,7 @@
                         <input type="text" class="form-control" id="inputquote" name="quote" value="<?= (empty($admin['quote'])) ? '' : $admin['quote'] ?>">
                     </div>
                 </div>
-                
-                <div class="d-flex justify-content-end">
+                <div class="d-flex justify-content-end mt-5">
                     <button type="submit" class="btn elegant-color">Enregistrer / Modifier</button>
                     <a href="<?= route_to_url('fullAccount') ?>?id=<?= $admin['admin_id'] ?>" class="btn grey darken-1">
                         Mon compte

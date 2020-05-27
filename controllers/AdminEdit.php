@@ -25,7 +25,8 @@ class AdminEdit{
         $dept = $GLOBALS['departements'];
         return ['adminInfo' => $adminInfo,
                 'regions' => $regions,
-                'dept' => $dept
+                'dept' => $dept,
+                'id' => $id
         ];
     }
 
@@ -42,14 +43,22 @@ class AdminEdit{
         $website = $dataAdmin->valid_donnees($_POST['website']);
         $facebook = $dataAdmin->valid_donnees($_POST['facebook']);
         $linkedin = $dataAdmin->valid_donnees($_POST['linkedin']);
-        $viadeo = $dataAdmin->valid_donnees($_POST['viadeo']);
+        $vimeo = $dataAdmin->valid_donnees($_POST['vimeo']);
         $skype = $dataAdmin->valid_donnees($_POST['skype']);
+        $google = $dataAdmin->valid_donnees($_POST['google']);
+        $youtube = $dataAdmin->valid_donnees($_POST['youtube']);
+        $instagram = $dataAdmin->valid_donnees($_POST['instagram']);
+        $pinterest = $dataAdmin->valid_donnees($_POST['pinterest']);
+        $snapchat = $dataAdmin->valid_donnees($_POST['snapchat']);
+        $twitter = $dataAdmin->valid_donnees($_POST['twitter']);
+        $soundcloud = $dataAdmin->valid_donnees($_POST['soundcloud']);
+        $spotify = $dataAdmin->valid_donnees($_POST['spotify']);
         $adminInfo = $dataAdmin->getAdminInfo($id);
         if(empty($adminInfo) && !empty($region) && !empty($departement) && !empty($ville)){
-            $dataAdmin->addInfo($region, $departement, $ville, $telephone, $adresse, $job, $societe, $website, $facebook, $linkedin, $viadeo, $skype, $id);
+            $dataAdmin->addInfo($region, $departement, $ville, $telephone, $adresse, $job, $societe, $website, $facebook, $linkedin, $vimeo, $skype, $google, $youtube, $instagram, $pinterest, $snapchat, $twitter, $soundcloud, $spotify, $id);
             $_SESSION['flash']['success'] = 'Info ajouté';
         }else{
-        $dataAdmin->editAccount($region, $departement, $ville, $telephone, $adresse, $job, $societe, $website, $facebook, $linkedin, $viadeo, $skype, $id);
+        $dataAdmin->editAccount($region, $departement, $ville, $telephone, $adresse, $job, $societe, $website, $facebook, $linkedin, $vimeo, $skype, $google, $youtube, $instagram, $pinterest, $snapchat, $twitter, $soundcloud, $spotify, $id);
         $_SESSION['flash']['success'] = 'Info modifié';
         }
         redirect_to_route('adminEdit?id='.$id);
