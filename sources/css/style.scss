@@ -263,12 +263,14 @@ input, select, textarea{
     border: none!important;
     background-color: $bg-grey!important;
     color: white!important;
-    box-shadow: 0px 1px 1px 1px rgb(12, 11, 11);
+    box-shadow: 5px 5px 30px 0px rgba(0, 0, 0, 0.5);
 }
 
 .form-control{
     color: white!important;
-    background-color: $bg-grey!important;
+    background-color: #222121!important;
+    margin: 0!important;
+    box-shadow: 5px 5px 30px 0px rgba(0, 0, 0, 0.5)!important;
 }
 
 button a, button{
@@ -278,6 +280,7 @@ button a, button{
 button:hover, button a:hover{
     color: black!important;
 }
+
 
 /*-------------------- PARAMETER -------------------*/
 
@@ -656,6 +659,25 @@ $cubic-bezier:cubic-bezier(0.68, -0.55, 0.265, 1.55);
     .myLink a{
         padding: 0.4rem 0.3rem!important;
     }
+
+    #editProfil{
+        & a{
+        position: absolute;
+        top: -15px;
+        // right: -20px;
+        }
+        & a span{
+            display: none;
+        }
+        & a svg{
+            width: 1.5em;
+        }
+    }
+
+    // #bannerImg{
+    //     width: 100vw!important;
+    // }
+
 
 
     /**-------CALENDAR----------**/

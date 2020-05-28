@@ -18,7 +18,7 @@
                             <label for="exampleDropdownFormPassword1">Mot de passe</label>
                             <input type="password" class="form-control" id="exampleDropdownFormPassword1" name="password">
                         </div>
-                        <button type="submit" class="btn btn-info">Se Connecter</button>
+                        <button type="submit" class="btn grey darken-1">Se Connecter</button>
                     </form>
                 </div>
             </div>
@@ -127,7 +127,7 @@
                 </a>
             </div>
         <?php if(isset($_SESSION['auth'])): ?>
-            <div class="nav-item dropdown ml-5">
+            <div class="nav-item dropdown p-4">
                 <form class="form-inline md-form" action="<?= route_to_url('search') ?>">
                     <input class="form-control mr-sm-2" type="search" placeholder="Rechercher" name="search_name" aria-label="Search">
                     <a class="nav-link dropdown-toggle" id="navbarDropdownSearch" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
@@ -149,7 +149,7 @@
                             <option value="pme">coaching de PME</option>
                         </select>
                     </div>
-                    <button class="btn btn-info my-2 my-sm-0" type="submit" name="form_submit">
+                    <button class="btn grey draken-1" type="submit" name="form_submit">
                         <i class="fas fa-search fa-lg"></i>
                     </button>
                 </form>
