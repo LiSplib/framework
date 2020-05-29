@@ -61,6 +61,6 @@ class AdminEdit{
         $dataAdmin->editAccount($region, $departement, $ville, $telephone, $adresse, $job, $societe, $website, $facebook, $linkedin, $vimeo, $skype, $google, $youtube, $instagram, $pinterest, $snapchat, $twitter, $soundcloud, $spotify, $id);
         $_SESSION['flash']['success'] = 'Info modifié';
         }
-        redirect_to_route('adminEdit?id='.$id);
+        redirect_to_route('fullAccount?id='.$id);
     }
 }

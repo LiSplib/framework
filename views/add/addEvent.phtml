@@ -6,14 +6,15 @@ if (!empty($errors)): ?>
         </div>
     </div>
 <?php endif; ?>
+
 <div class="container-fluid text-center d-flex align-items-center justify-content-center bg-grey myCards">
     <div class="row">
         <div class="col-12">
             <div class="card p-3 bg-grey card-grey-2">
-                <h1 class="card-title mt-2 text-grey">Créer un événemment</h1>
+                <h2 class="card-title mt-2 text-grey text-left ml-4">Créer un événemment</h2>
                 <div class="card-body">
                     <form method="POST" action="">
-                        <div class="row my-2">    
+                        <div class="row my-3">    
                             <div class="col-12">
                                 <input type="text" class="form-control bg-dark" id="title" name="title" value="<?= isset($data['title']) ? htmlentities($data['title']) : '' ?>" placeholder="Titre de l'événement" required>
                                 <?php if (isset($errors['title'])): ?>
@@ -77,19 +78,15 @@ if (!empty($errors)): ?>
                                 <input type="text" class="form-control bg-dark" id="city" name="city" placeholder="Ville" value="<?= isset($data['city']) ? htmlentities($data['city']) : '' ?>" required>
                             </div>
                         </div>
-                        <div class="row w-100 justify-content-end">
-                            <div class="col-md-6 ">
-                                <button class="btn elegant-color flex-grow-1">
-                                    <a href="<?= route_to_url('calendar') ?>">
-                                        <i class="fas fa-times fa-lg"></i>&nbsp;Annuler
-                                    </a>
-                                </button>
-                            </div>
-                            <div class="col-md-6">
+                        <div class="row" style="padding-right: 10px; padding-left: 10px;">
+                            <button class="btn elegant-color flex-grow-1">
+                                <a href="<?= route_to_url('calendar') ?>">
+                                    <i class="fas fa-times fa-lg"></i>&nbsp;Annuler
+                                </a>
+                            </button>
                             <button type="submit" class="btn btn-grey darken-1 flex-grow-1">
-                                    <i class="fas fa-check fa-lg"></i>&nbsp;Enregistrer
-                                </button>
-                            </div>
+                                <i class="fas fa-check fa-lg"></i>&nbsp;Enregistrer
+                            </button>
                         </div>
                     </form>
                 </div>

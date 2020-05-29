@@ -209,7 +209,7 @@ class ModelAdmin
      * @param  mixed $id
      * @return void
      */
-    public function editAccount($region, $departement, $ville, $telephone, $adresse, $job, $societe, $website, $facebook, $linkedin, $vimeo, $skype, $google, $youtube, $instagram, $pinterest, $snapchat, $twitter, $sounclound, $spotify, $id)
+    public function editAccount($region, $departement, $ville, $telephone, $adresse, $job, $societe, $website, $facebook, $linkedin, $vimeo, $skype, $google, $youtube, $instagram, $pinterest, $snapchat, $twitter, $soundclound, $spotify, $id)
     {
         $sql = 'UPDATE admininfo 
         SET region = :region, departement = :departement, ville = :ville, telephone = :telephone, adresse = :adresse, job = :job, societe = :societe, website = :website, facebook = :facebook, linkedin = :linkedin, vimeo = :vimeo, skype = :skype, google = :google, youtube = :youtube, instagram = :instagram, pinterest = :pinterest, snapchat = :snapchat, twitter = :twitter, soundcloud = :soundcloud, spotify = :spotify WHERE id_admin = :id';
@@ -232,7 +232,7 @@ class ModelAdmin
         $query->bindParam(':pinterest', $pinterest);
         $query->bindParam(':snapchat', $snapchat);
         $query->bindParam(':twitter', $twitter);
-        $query->bindParam(':soundcloud', $sounclound);
+        $query->bindParam(':soundcloud', $soundclound);
         $query->bindParam(':spotify', $spotify);
         $query->bindParam(':id', $id);
         $query->execute();
@@ -316,7 +316,7 @@ class ModelAdmin
      * @param  mixed $id
      * @return void
      */
-    public function addInfo($region, $departement, $ville, $telephone, $adresse, $job, $societe, $website, $facebook, $linkedin, $vimeo, $skype, $google, $youtube, $instagram, $pinterest, $snapchat, $twitter, $sounclound, $spotify, $id)
+    public function addInfo($region, $departement, $ville, $telephone, $adresse, $job, $societe, $website, $facebook, $linkedin, $vimeo, $skype, $google, $youtube, $instagram, $pinterest, $snapchat, $twitter, $soundclound, $spotify, $id)
     {
         $sql = 'INSERT INTO admininfo (region, departement, ville, telephone, adresse, job, societe, website, facebook, linkedin, vimeo, skype, google, youtube, instagram, pinterest, snapchat, twitter, soundcloud, spotify, id_admin) VALUES (:region, :departement, :ville, :telephone, :adresse, :job, :societe, :website, :facebook, :linkedin, :vimeo, :skype, :google, :youtube, :instagram, :pinterest, :snapchat, :twitter, :soundcloud, :spotify, :id_admin)';
         $query = $this->pdo->prepare($sql);
@@ -338,7 +338,7 @@ class ModelAdmin
         $query->bindParam(':pinterest', $pinterest);
         $query->bindParam(':snapchat', $snapchat);
         $query->bindParam(':twitter', $twitter);
-        $query->bindParam(':soundcloud', $sounclound);
+        $query->bindParam(':soundcloud', $soundclound);
         $query->bindParam(':spotify', $spotify);
         $query->bindParam(':id_admin', $id);
         $query->execute();
@@ -493,7 +493,7 @@ class ModelAdmin
 
     public function updateAdminPro($intervention, $training, $course, $publication, $interest, $quote, $id)
     {
-        $sql = 'UPDATE adminpro admin_id SET intervention = :intervention, training = :training, course = :course, publication = :publication, interest = :interest, quote = :quote WHERE $admin_id = :id';
+        $sql = 'UPDATE adminpro admin_id SET intervention = :intervention, training = :training, course = :course, publication = :publication, interest = :interest, quote = :quote WHERE admin_id = :admin_id';
         $query = $this->pdo->prepare($sql);
         $query->bindParam(':intervention', $intervention);
         $query->bindParam(':training', $training);
@@ -501,7 +501,7 @@ class ModelAdmin
         $query->bindParam(':publication', $publication);
         $query->bindParam(':interest', $interest);
         $query->bindParam(':quote', $quote);
-        $query->bindParam('id', $id);
+        $query->bindParam(':admin_id', $id);
         $result = $query->execute();
         return $result;
     }

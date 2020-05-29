@@ -60,6 +60,7 @@ class Instagram{
 
     public function httpPostRequest(){
         
+        redirect_to_route('instagram');
 
     }
 }

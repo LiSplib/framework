@@ -15,7 +15,15 @@ class Month{
     public $day;
 
 
-
+    
+    /**
+     * __construct
+     *
+     * @param  mixed $month Le mois compris entre 1 et 12
+     * @param  mixed $year  L'année
+     * @param  mixed $day   Le jour
+     * @return void
+     */
     public function __construct(?int $month = null, ?int $year = null, ?int $day = null)
     {
         if ($month === null || $month < 1 || $month > 12){
@@ -30,32 +38,44 @@ class Month{
             $day = intval(date('N'));
         }
 
-       
         $this->month = $month;
         $this->year = $year;
         $this->day = $day;
-
     }
 
     public function getStartingDay () : \DateTime {
         return new \DateTime("{$this->year}-{$this->month}-01");
     }
-
+    
+    /**
+     * toString retourne le mois en toute lettre et l'année (ex: Mars 2018)
+     *
+     * @return string
+     */
     public function toString() : string {
         return $this->months[$this->month -1] . ' ' . $this->year;
     }
-
+    
+    /**
+     * monthToString retourne le mois en toute lettre (ex: mars)
+     *
+     * @return string
+     */
     public function monthToString() : string {
         return $this->months[$this->month -1];
     }
-
+    
+    /**
+     * dayToString retourne le jour en toute lettre (ex: lundi)
+     *
+     * @return string
+     */
     public function dayToString() : string {
         return $this->days[$this->day -1];
     }
 
-
     /**
-     * Renvoie le nombre de semaine dans le mois
+     * Renvoie le nombre de semaine dans le mois (ex: 5 semaines)
      * 
      */
     public function getWeeks () : int {

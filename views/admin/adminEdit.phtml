@@ -1,5 +1,5 @@
 <div class="jumbotron jumbotron-fluid bg-Altair-grey text-white">
-    <div class="row justify-content-center p-3">
+    <div class="row justify-content-center p-4">
         <div class="card-grey p-3" style="box-shadow: <?= $GLOBALS['STYLE']['boxShadow'] ?>; background-color: <?= $GLOBALS['STYLE']['boxBackgroundColor'] . 'd9' ?>; color: <?= $GLOBALS['STYLE']['textColor'] ?>; font-size: <?= $GLOBALS['STYLE']['textFontSize'] ?>; font-family: <?= $GLOBALS['STYLE']['textFontFamily'] ?>;"> 
             <h3 class="mt-5">Ajouter ou modifier vos informations</h3>
             <form method="POST" action="" class="form">
@@ -109,6 +109,13 @@
                     </div>
                 </div>
                 <div class="d-flex justify-content-end mt-5">
+                    <?php 
+                        if($_SESSION['auth']['role'] === 'admin' || $_SESSION['auth']['role'] === 'superAdmin'):
+                    ?>
+                    <a href="<?= route_to_url('adminPro') ?>?id=<?= $id ?>" class="btn grey darken-1">
+                        Mes infos Pro
+                    </a>
+                        <?php endif; ?>
                     <a href="<?= route_to_url('fullAccount') ?>?id=<?= $id ?>" class="btn grey darken-1">
                         Mon compte
                     </a>

@@ -36,7 +36,7 @@ class AddEvent {
     }
 
     public function httpPostRequest(){
-        $errors = [];
+        // $errors = [];
 
         if($_SERVER['REQUEST_METHOD'] === 'POST') {
             $data = $_POST;
@@ -49,11 +49,13 @@ class AddEvent {
                 $data['themeColor'] = $color;
                 $data['isValide'] = 1;
                 $event = $events->hydrate(new \App\Model\Date\Event(), $data);
-                var_dump($event);
                 $events->create($event);
                 $_SESSION['flash']['success'] = 'L\'événement a été crée, il est en attente d\'acceptation';
-                header('Location:' . route_to_url('calendar'));
-                exit();
+                redirect_to_route('calendar');
+            }else{
+                $_SESSION['flash']['danger'] = 'L\'événement comporte des erreurs merci de les corriger';
+                echo $errors;
+                redirect_to_route('addEvent');
             }
         }
     }
