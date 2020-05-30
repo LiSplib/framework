@@ -43,7 +43,7 @@ class Register{
                 $email = strtolower($admin->valid_donnees($_POST['email']));
                 $image = $admin->valid_donnees($_POST['image']);
                 $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-                if ($isEmpty === false){
+                if (empty($isEmpty)){
                     $role = 'superAdmin';
                 }else{
                     $role = 'user';
@@ -56,13 +56,11 @@ class Register{
                 }
                 $admin->addAdmin($lastname, $firstname, $email, $image, $password, $role, $token, $coach);
                 $_SESSION['flash']['success'] = "Vous êtes maintenant enregistré";
-                header('Location:' . route_to_url('home'));
-                exit();
+                redirect_to_route('home');
             }else{
                    $_SESSION['flash']['danger'] = "Saisie incorrecte veuillez corrigez !" ;
                 };
-                header('Location:' .route_to_url('register'));
-                exit();
+                redirect_to_route('register');
             }
         }
     }
