@@ -1,7 +1,6 @@
 /vendor
 /node_modules
 pass.php
-framework_altair.sql
 .idea
 .vscode
 /sources/images
