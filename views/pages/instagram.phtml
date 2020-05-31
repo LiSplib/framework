@@ -1,8 +1,10 @@
 <form class="form-inline float-right mt-5 mr-5" action="<?= route_to_url('instagram') ?>?hashtag" method="POST">
-        <input class="form-control mr-sm-2" type="search" placeholder="Rechercher" name="search_hashtag" aria-label="Search">
-        <button class="btn grey darken-1" type="submit" name="form_submit">
-            <i class="fas fa-search fa-lg"></i>
-        </button>
+        <input class="form-control mr-sm-2" type="hidden" placeholder="Rechercher" name="search_hashtag" aria-label="Search">
+        <!-- <button class="btn grey darken-1" type="submit" name="form_submit"> -->
+            <!-- <i class="fas fa-search fa-lg"></i> -->
+        <!-- </button> -->
+        <!-- reste le filtre des hashtag a faire -->
+        
     </form>
 <div id="postsList" class="w-100 mb-3">
 <?php 
