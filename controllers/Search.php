@@ -30,18 +30,7 @@ class Search{
                 'coachInfo' => $coachInfo
             ];
         }
-        if (isset($_GET['filter']) && $_GET['filter'] === 'type'){
-            $result = new ModelSearch;
-            $coachs = $result->typeSearch();
-            $events = $result->eventSearch();
-            $coachEvents = new ModelMyEvents;
-            $coachInfo = new ModelAdmin;
-            return ['coachs' => $coachs,
-            'events' => $events,
-            'coachEvents' => $coachEvents,
-            'coachInfo' => $coachInfo
-        ];
-    }
+        
         if (isset($_GET['filter']) && $_GET['filter'] === 'categorie'){
             $result = new ModelSearch;
             $coachs = $result->catSearch();
