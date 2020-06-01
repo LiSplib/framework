@@ -2,15 +2,15 @@
 
 ## Sommaire :
 - [Description](#description)
-- [la page d'accueil](#register)
-- [la connexion](#connect)
-- [le calendrier](#calendar)
-- [le compte](#myAccount)
-- [le superAdmin](#superAdmin)
-- [liste des membres](#members)
-- [les réseaux sociaux](#socialMedia)
-- [le resizer](#resizer)
-- [la barre de recherche](#search)
+- [Page d'accueil](#register)
+- [Connexion](#connect)
+- [Calendrier](#calendar)
+- [Compte](#myAccount)
+- [SuperAdmin](#superAdmin)
+- [Liste des membres](#members)
+- [Réseaux sociaux](#socialMedia)
+- [Resizer](#resizer)
+- [Barre de recherche](#search)
 
 ## Description {#description}
 
@@ -78,7 +78,7 @@ Si l'utilisateur s'est inscrit à un ou plusieurs évènements il pourra les ret
  Le coach pourra créer un nouvel évènement en cliquant directement sur la date qu'il souhaite ou sur le bouton créer un événement.
 
  <img src="sources/images/doc/addEvent.jpg">
- 
+
  - le titre doit avoir plus de 3 caractère pour être valide
  - le lien de l'image doit être un lien valide (*ce champ est facultatif*)
  - le thème choisi définira la couleur de la pastille de l'évènement sur le calendrier
