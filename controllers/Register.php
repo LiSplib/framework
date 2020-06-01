@@ -21,10 +21,10 @@ class Register{
 
         if(!empty($_POST)){
             $errors = [];
-            if(empty($_POST['lastname']) || !preg_match('/^[a-zA-Z0-9_]+$/', $_POST['lastname'])){
+            if(empty($_POST['lastname']) || !preg_match('/^[a-zA-Z_]+$/', $_POST['lastname'])){
                 $errors['lastname'] = "Votre Nom n'est pas valide!";
             }
-            if(empty($_POST['firstname']) || !preg_match('/^[a-zA-Z0-9_]+$/', $_POST['firstname'])){
+            if(empty($_POST['firstname']) || !preg_match('/^[a-zA-Z_]+$/', $_POST['firstname'])){
                 $errors['firstname'] = "Votre prénom n'est pas valide!";
             }
             if(empty($_POST['email']) || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){

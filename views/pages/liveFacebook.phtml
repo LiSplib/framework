@@ -14,12 +14,18 @@
 <div class="mb-5"> 
     <h1 class="text-center mb-5" style="color: <?= $GLOBALS['STYLE']['titleColor'] ?>; font-size: <?= $GLOBALS['STYLE']['titleFontSize'] ?>; font-family: <?= $GLOBALS['STYLE']['titleFontFamily'] ?>; text-shadow: <?= $GLOBALS['STYLE']['titleTextShadow'] ?>;">Les Videos</h1>
     <?php if(!empty($videos)) : ?>
+        <div class="d-flex flex-wrap justify-content-around p-4">
         <?php foreach ($videos as $vid) : ?>
-            <div class="embed-responsive embed-responsive-16by9">
-                <video controls>
-                    <source class="embed-responsive-item" src="<?= $vid['source'] ?>">
-                </video>
+            <div class="my-5">
+            <?= $vid['format'][2]['embed_html'] ?>
+            <span><?= $vid['description'] ?></span>
             </div>
+            <!-- <div class="embed-responsive embed-responsive-16by9" style="width: 25%">
+                <video controls>
+                    <source class="embed-responsive-item" src="<?= $vid['format'][1]['picture'] ?>">
+                </video>
+            </div> -->
         <?php endforeach; ?>
+        </div>
     <?php endif; ?>
 </div>
