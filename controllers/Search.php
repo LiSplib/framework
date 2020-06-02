@@ -16,7 +16,7 @@ class Search{
     
     public function httpGetRequest(){
         $users = new ModelSearch;
-        $nbUsers = $users->countCoach();
+        $nbUsers = $users->countCoach(); // servira pour la pagination 
               
         if (isset($_GET['filter']) && $_GET['filter'] === 'coaching'){
                 $result = new ModelSearch;
