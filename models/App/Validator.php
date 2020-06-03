@@ -68,6 +68,15 @@ class Validator{
         return false;
     }
 
+        
+    /**
+     * vérifie si l'adresse et le code postal existe et correspondent à la ville
+     *
+     * @param  mixed $field
+     * @param  mixed $adress
+     * @param  mixed $zipcode
+     * @return bool
+     */
     public function checkCity(string $field, string $adress, string $zipcode) :bool {
         $location = new ZipCode;
         $adress = $this->data['adress'];
