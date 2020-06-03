@@ -4,7 +4,7 @@
             <div class="col-md-12 col-lg-4 col-xl-2 mt-5 align-self-stretch">
                 <div class="card card-grey align-items-center aside-calendar mt-5">
                     <div class="d-flex flex-row my-5">
-                        <div class="monthHeader">
+                        <div class="monthHeader px-2">
                             <a href="<?= route_to_url('calendar') ?>?month=<?= $month->previousMonth()->month; ?>&year=<?= $month->previousMonth()->year; ?>"><i class="fas fa-caret-left fa-lg"></i></a>
                                 <span class="monthTitle"><?= $month->toString(); ?></span>
                             <a href="<?= route_to_url('calendar') ?>?month=<?= $month->nextMonth()->month; ?>&year=<?= $month->nextMonth()->year; ?>"><i class="fas fa-caret-right fa-lg"></i></a>

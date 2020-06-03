@@ -1,12 +1,3 @@
-<?php
-if (!empty($errors)): ?>
-    <div class="container text-center">
-        <div class="alert alert-danger">
-            Merci de corriger vos erreurs
-        </div>
-    </div>
-<?php endif; ?>
-
 <div class="container-fluid text-center d-flex align-items-center justify-content-center bg-grey myCards">
     <div class="row">
         <div class="col-12">
@@ -18,7 +9,7 @@ if (!empty($errors)): ?>
                             <div class="col-12">
                                 <input type="text" class="form-control bg-dark" id="title" name="title" value="<?= isset($data['title']) ? htmlentities($data['title']) : '' ?>" placeholder="Titre de l'événement" required>
                                 <?php if (isset($errors['title'])): ?>
-                                    <small class="form-text text-muted"><?= $errors['title']; ?></small>
+                                    <p class="form-text px-4 text-danger"><?= $errors['title']; ?></p>
                                 <?php endif; ?>
                             </div>
                         </div>
@@ -35,9 +26,6 @@ if (!empty($errors)): ?>
                                         <?php $t = substr($t, 1, -1); ?>
                                         <option value="<?= $t ?>"><?= $t ?></option>
                                     <?php endforeach; ?>
-                                    <?php if (isset($errors['theme'])): ?>
-                                        <small class="form-text text-muted"><?= $errors['theme']; ?></small>
-                                    <?php endif; ?>
                                 </select>
                             </div>
                         </div>
@@ -45,7 +33,7 @@ if (!empty($errors)): ?>
                             <div class="col">
                                 <input type="date" class="form-control bg-dark" id="date" name="date" value="<?= isset($data['date']) ? htmlentities($data['date']) : '' ?>" required>
                                 <?php if (isset($errors['date'])): ?>
-                                    <small class="form-text text-muted"><?= $errors['date']; ?></small>
+                                    <p class="form-text px-4 text-danger"><?= $errors['date']; ?></p>
                                 <?php endif; ?>
                             </div>
                         </div>
@@ -53,7 +41,7 @@ if (!empty($errors)): ?>
                             <div class="col-6">
                                 <input type="time" class="form-control bg-dark" id="start" name="start" placeholder="HH:MM" value="<?= isset($data['start']) ? htmlentities($data['start']) : '' ?>" required>
                                 <?php if (isset($errors['start'])): ?>
-                                    <small class="form-text text-muted"><?= $errors['start']; ?></small>
+                                    <p class="form-text px-4 text-danger"><?= $errors['start']; ?></p>
                                 <?php endif; ?>
                             </div>
                             <div class="col-6">
@@ -67,7 +55,7 @@ if (!empty($errors)): ?>
                         </div>
                         <div class="row my-3">
                             <div class="col">
-                                <input type="text" class="form-control bg-dark" id="adress" name="adress" placeholder="Adresse" value="<?= isset($data['adress']) ? htmlentities($data['adress']) : '' ?>" required>
+                                <input type="text" class="form-control bg-dark" id="adress" name="adress" placeholder="Adresse" value="<?= isset($data['adress']) ? htmlentities($data['adress']) : '' ?>" required onkeyup="showHint(this.value)">
                             </div>
                         </div>
                         <div class="row my-3">
@@ -77,6 +65,9 @@ if (!empty($errors)): ?>
                             <div class="col-6">
                                 <input type="text" class="form-control bg-dark" id="city" name="city" placeholder="Ville" value="<?= isset($data['city']) ? htmlentities($data['city']) : '' ?>" required>
                             </div>
+                            <?php if (isset($errors['city'])): ?>
+                                <p class="form-text text-center px-4 text-danger"><?= $errors['city']; ?></p>
+                            <?php endif; ?>
                         </div>
                         <div class="row" style="padding-right: 10px; padding-left: 10px;">
                             <button class="btn elegant-color flex-grow-1">

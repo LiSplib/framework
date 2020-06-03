@@ -136,7 +136,7 @@ body {
 
 .monthTitle {
   font-family: "Hikou_Inline";
-  font-size: 3em;
+  font-size: 2em;
   text-shadow: 0 5px 10px black;
 }
 
@@ -254,12 +254,6 @@ input, select, textarea {
 
 .form-group input {
   padding: 1.5rem !important;
-}
-
-.custom-select {
-  padding: 1rem !important;
-  height: 60% !important;
-  line-height: 1 !important;
 }
 
 button a, button {

@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+
 class AddEvent {
 
     public function __construct()
@@ -29,20 +30,31 @@ class AddEvent {
                     'errors' => $errors,
                     'theme' => $theme
                 ];
-        }else{
+        }elseif($_SERVER['REQUEST_METHOD'] === 'POST'){
+            $data = $_POST;
+            $allTheme = new \App\Model\Date\Events;
+            $theme = $allTheme->enumTheme();
+            $validator = new \App\Model\Date\EventValidator();
+            $errors = $validator->validates($data);
+            return ['errors' => $errors,
+                    'data' => $data, 
+                    'theme' => $theme];
+        }
+        else{
             $_SESSION['flash']['danger'] = 'Vous n\'avez pas le droit !!!';
             redirect_to_route('home');
         }
     }
 
     public function httpPostRequest(){
-        // $errors = [];
 
         if($_SERVER['REQUEST_METHOD'] === 'POST') {
             $data = $_POST;
             $theme = $data['theme'];
             $validator = new \App\Model\Date\EventValidator();
             $errors = $validator->validates($data);
+            $allTheme = new \App\Model\Date\Events;
+            $allTheme = $allTheme->enumTheme();
             if (empty($errors)) {
                 $events = new \App\Model\Date\Events();
                 $color = $events->addColorTheme($theme);
@@ -54,8 +66,11 @@ class AddEvent {
                 redirect_to_route('calendar');
             }else{
                 $_SESSION['flash']['danger'] = 'L\'événement comporte des erreurs merci de les corriger';
-                echo $errors;
-                redirect_to_route('addEvent');
+                // redirect_to_route('addEvent');
+                return [
+                    'data' => $data,
+                    'theme' => $allTheme,
+                    'errors' => $errors];
             }
         }
     }

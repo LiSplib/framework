@@ -2,6 +2,8 @@
 
 namespace App\Model\App;
 
+use App\Model\App\ZipCode;
+
 class Validator{
 
     private $data;
@@ -29,7 +31,7 @@ class Validator{
     }
 
     public function minLength(string $field, int $length): bool {
-        if (mb_strlen($field) < $length) {
+        if (mb_strlen($this->data[$field]) < $length) {
             $this->errors[$field] = "Le champ doit avoir plus de $length caractères";
             return false;
         }
@@ -65,4 +67,21 @@ class Validator{
         }
         return false;
     }
+
+    public function checkCity(string $field, string $adress, string $zipcode) :bool {
+        $location = new ZipCode;
+        $adress = $this->data['adress'];
+        $adress = str_replace(' ', '+', $adress);
+        $adress = str_replace('é', 'e', $adress);
+        $zipcode = $this->data['zipcode'];
+        $location = $location->checkLocation($adress, $zipcode);
+        $location = array_slice($location, -6, 1);
+        $location = $location['features'][0]['properties']['city'];
+        if ($this->data[$field] !== $location){
+            $this->errors[$field] = "L'adresse ne semble pas valide";
+            return false;
+        }
+        return true; 
+    }
+    
 }
