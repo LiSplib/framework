@@ -182,6 +182,9 @@ body{
     &:hover{
         color: #df4650!important;
     }
+    &:hover svg path{
+        fill: #df4650!important;
+    }
 }
 
 a:hover svg path{
@@ -523,7 +526,7 @@ $cubic-bezier:cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 .calendar__table td{
-    border: 1px solid #ccc;
+    border: 1px solid #acacac;
     vertical-align: top;
     width: calc(100% / 7);
     z-index: 12;

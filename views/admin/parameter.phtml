@@ -1,86 +1,89 @@
-<div class="container-fluid my-5">
-    <form method="POST" action="<?= route_to_url('parameter'); ?>">
-        <div class="row">
-            <div class="col-lg-4 mb-3">
-                <div class="widget-flat card" style="box-shadow: <?= $GLOBALS['STYLE']['boxShadow'] ?>; background-color: <?= $GLOBALS['STYLE']['boxBackgroundColor'] ?>">
-                    <div class="card-body">
-                        <div class="form-group col-md-12 text-center">
-                            <h3 style="color: <?= $GLOBALS['STYLE']['titleColor'] ?>; font-size: <?= $GLOBALS['STYLE']['titleFontSize'] ?>; font-family: <?= $GLOBALS['STYLE']['titleFontFamily'] ?>; text-shadow: <?= $GLOBALS['STYLE']['titleTextShadow'] ?>;">COULEURS DE FOND</h3>
-                            <p style="color: <?= $GLOBALS['STYLE']['textColor'] ?>; font-size: <?= $GLOBALS['STYLE']['textFontSize'] ?>; font-family: <?= $GLOBALS['STYLE']['textFontFamily'] ?>;">Exemple de couleur du site</p>
-                            <div class="btn-toolbar justify-content-center">
-                                <div class="dropdown mr-2">
-                                    <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Entête / pied de page
-                                    </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <div class="input-group mb-3">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text" style="background-color:#480000;">
-                                                    <label for="backgroundColor"></label>
-                                                    <input type="radio" aria-label="Checkbox for following text input" value="#480000" name="backgroundColor">
-                                                </div>
-                                            </div>
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text" style="background-color:#1a1a1a;">
-                                                    <label for="backgroundColor"></label>
-                                                    <input type="radio" aria-label="Checkbox for following text input" value="#1a1a1a" name="backgroundColor" checked>
-                                                </div>
-                                            </div>
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text" style="background-color:darkslategray;">
-                                                    <label for="backgroundColor"></label>
-                                                    <input type="radio" aria-label="Checkbox for following text input" value="darkslategray" name="backgroundColor">
-                                                </div>
-                                            </div>
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text" style="background-color:#033623;">
-                                                    <label for="backgroundColor"></label>
-                                                    <input type="radio" aria-label="Checkbox for following text input" value="#033623" name="backgroundColor">
-                                                </div>
-                                            </div>
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text" style="background-color:#ffcb94;">
-                                                    <label for="backgroundColor"></label>
-                                                    <input type="radio" aria-label="Checkbox for following text input" value="#ffcb94" name="backgroundColor">
+<div class="jumbotron jumbotron-fluid text-white bg-Altair-grey">
+    <div class="container-fluid">
+            <form method="POST" action="<?= route_to_url('parameter'); ?>">
+                <div class="row">
+                    <div class="col-lg-4 mb-3">
+                        <div class="card card-grey-2 p-4" style="box-shadow: <?= $GLOBALS['STYLE']['boxShadow'] ?>; background-color: <?= $GLOBALS['STYLE']['boxBackgroundColor'] ?>">
+                            <div class="card-body">
+                                <div class="form-group col-md-12 ">
+                                    <h3 style="color: <?= $GLOBALS['STYLE']['titleColor'] ?>; font-size: <?= $GLOBALS['STYLE']['titleFontSize'] ?>; font-family: <?= $GLOBALS['STYLE']['titleFontFamily'] ?>; text-shadow: <?= $GLOBALS['STYLE']['titleTextShadow'] ?>;">COULEURS DE FOND</h3>
+                                    <p style="color: <?= $GLOBALS['STYLE']['textColor'] ?>; font-size: <?= $GLOBALS['STYLE']['textFontSize'] ?>; font-family: <?= $GLOBALS['STYLE']['textFontFamily'] ?>;">Exemple de couleur du site</p>
+                                    <div class="btn-toolbar">
+                                        <div class="dropdown">
+                                            <button class="btn grey darken-1 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                Entête / pied de page
+                                            </button>
+                                            <div class="dropdown-menu bg-Altair-grey" aria-labelledby="dropdownMenuButton">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text" style="background-color:#480000;">
+                                                            <label for="backgroundColor"></label>
+                                                            <input type="radio" aria-label="Checkbox for following text input" value="#480000" name="backgroundColor">
+                                                        </div>
+                                                    </div>
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text" style="background-color:#1a1a1a;">
+                                                            <label for="backgroundColor"></label>
+                                                            <input type="radio" aria-label="Checkbox for following text input" value="#1a1a1a" name="backgroundColor" checked>
+                                                        </div>
+                                                    </div>
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text" style="background-color:darkslategray;">
+                                                            <label for="backgroundColor"></label>
+                                                            <input type="radio" aria-label="Checkbox for following text input" value="darkslategray" name="backgroundColor">
+                                                        </div>
+                                                    </div>
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text" style="background-color:#033623;">
+                                                            <label for="backgroundColor"></label>
+                                                            <input type="radio" aria-label="Checkbox for following text input" value="#033623" name="backgroundColor">
+                                                        </div>
+                                                    </div>
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text" style="background-color:#ffcb94;">
+                                                            <label for="backgroundColor"></label>
+                                                            <input type="radio" aria-label="Checkbox for following text input" value="#ffcb94" name="backgroundColor">
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="dropdown">
-                                    <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Couleurs de fond des box
-                                    </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <div class="input-group mb-3">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text" style="background-color:#FFFFFF;">
-                                                    <label for="boxBackgroundColor"></label>
-                                                    <input type="radio" aria-label="Checkbox for following text input" value="#FFFFFF" name="boxBackgroundColor">
-                                                </div>
-                                            </div>
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text" style="background-color:#1a1a1a;">
-                                                    <label for="boxBackgroundColor"></label>
-                                                    <input type="radio" aria-label="Checkbox for following text input" value="#1a1a1a" name="boxBackgroundColor" checked>
-                                                </div>
-                                            </div>
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text" style="background-color:darkslategray;">
-                                                    <label for="boxBackgroundColor"></label>
-                                                    <input type="radio" aria-label="Checkbox for following text input" value="darkslategray" name="boxBackgroundColor">
-                                                </div>
-                                            </div>
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text" style="background-color:#033623;">
-                                                    <label for="boxBackgroundColor"></label>
-                                                    <input type="radio" aria-label="Checkbox for following text input" value="#033623" name="boxBackgroundColor">
-                                                </div>
-                                            </div>
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text" style="background-color:#ffcb94;">
-                                                    <label for="boxBackgroundColor"></label>
-                                                    <input type="radio" aria-label="Checkbox for following text input" value="#ffcb94" name="boxBackgroundColor">
+                                        <div class="dropdown">
+                                            <button class="btn grey darken-1 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                Couleurs de fond des box
+                                            </button>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text" style="background-color:#FFFFFF;">
+                                                            <label for="boxBackgroundColor"></label>
+                                                            <input type="radio" aria-label="Checkbox for following text input" value="#FFFFFF" name="boxBackgroundColor">
+                                                        </div>
+                                                    </div>
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text" style="background-color:#333;">
+                                                            <label for="boxBackgroundColor"></label>
+                                                            <input type="radio" aria-label="Checkbox for following text input" value="#333" name="boxBackgroundColor" checked>
+                                                        </div>
+                                                    </div>
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text" style="background-color:#1a1a1a;">
+                                                            <label for="boxBackgroundColor"></label>
+                                                            <input type="radio" aria-label="Checkbox for following text input" value="#1a1a1a" name="boxBackgroundColor">
+                                                        </div>
+                                                    </div>
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text" style="background-color:#033623;">
+                                                            <label for="boxBackgroundColor"></label>
+                                                            <input type="radio" aria-label="Checkbox for following text input" value="#033623" name="boxBackgroundColor">
+                                                        </div>
+                                                    </div>
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text" style="background-color:#ffcb94;">
+                                                            <label for="boxBackgroundColor"></label>
+                                                            <input type="radio" aria-label="Checkbox for following text input" value="#ffcb94" name="boxBackgroundColor">
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -89,297 +92,296 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-lg-4 mb-3">
+                        <div class="card card-grey-2 p-4" style="box-shadow: <?= $GLOBALS['STYLE']['boxShadow'] ?>; background-color: <?= $GLOBALS['STYLE']['boxBackgroundColor'] ?>">
+                            <div class="card-body">
+                                <div class="form-group col-md-12">
+                                    <h3 style="color: <?= $GLOBALS['STYLE']['titleColor'] ?>; font-size: <?= $GLOBALS['STYLE']['titleFontSize'] ?>; font-family: <?= $GLOBALS['STYLE']['titleFontFamily'] ?>; text-shadow: <?= $GLOBALS['STYLE']['titleTextShadow'] ?>;">OMBRE DES BOX</h3>
+                                    <p style="color: <?= $GLOBALS['STYLE']['textColor'] ?>; font-size: <?= $GLOBALS['STYLE']['textFontSize'] ?>; font-family: <?= $GLOBALS['STYLE']['textFontFamily'] ?>;">Exemple d'ombres pour les box</p>
+                                    <div class="dropdown">
+                                        <button class="btn grey darken-1 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Ombre des box
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text" style="background-color:#ff999e;">
+                                                        <label for="boxShadow"></label>
+                                                        <input type="radio" aria-label="Checkbox for following text input" value="5px 10px 10px #ff999e" name="boxShadow">
+                                                    </div>
+                                                </div>
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text" style="background-color:#e1e1e1;">
+                                                        <label for="boxShadow"></label>
+                                                        <input type="radio" aria-label="Checkbox for following text input" value="5px 10px 10px #e1e1e1" name="boxShadow">
+                                                    </div>
+                                                </div>
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text" style="background-color:#ffcb94;">
+                                                        <label for="boxShadow"></label>
+                                                        <input type="radio" aria-label="Checkbox for following text input" value="5px 10px 10px #ffcb94" name="boxShadow">
+                                                    </div>
+                                                </div>
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text" style="background-color:#00bbff;">
+                                                        <label for="boxShadow"></label>
+                                                        <input type="radio" aria-label="Checkbox for following text input" value="5px 10px 10px #00bbff" name="boxShadow">
+                                                    </div>
+                                                </div>
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text" style="background-color:black;">
+                                                        <label for="boxShadow"></label>
+                                                        <input type="radio" aria-label="Checkbox for following text input" value="5px 5px 60px 0px rgba(0, 0, 0, 0.5)" name="boxShadow" checked>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mb-3">
+                        <div class="card card-grey-2 p-4" style="box-shadow: <?= $GLOBALS['STYLE']['boxShadow'] ?>; background-color: <?= $GLOBALS['STYLE']['boxBackgroundColor'] ?>">
+                            <div class="card-body">
+                                <div class="form-group col-md-12">
+                                    <h3 style="color: <?= $GLOBALS['STYLE']['titleColor'] ?>; font-size: <?= $GLOBALS['STYLE']['titleFontSize'] ?>; font-family: <?= $GLOBALS['STYLE']['titleFontFamily'] ?>; text-shadow: <?= $GLOBALS['STYLE']['titleTextShadow'] ?>;">GESTION DES TITRES</h3>
+                                    <p style="color: <?= $GLOBALS['STYLE']['textColor'] ?>; font-size: <?= $GLOBALS['STYLE']['textFontSize'] ?>; font-family: <?= $GLOBALS['STYLE']['textFontFamily'] ?>;">Exemple de couleur pour les titres</p>
+                                    <div class="btn-toolbar justify-content-center">
+                                        <div class="dropdown mr-2">
+                                            <button class="btn  grey darken-1 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Couleur
+                                            </button>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text" style="background-color:#acacac;">
+                                                            <label for="titleColor"></label>
+                                                            <input type="radio" aria-label="Checkbox for following text input" value="#acacac" name="titleColor" checked>
+                                                        </div>
+                                                    </div>
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text" style="background-color:#ff999e;">
+                                                            <input type="radio" aria-label="Checkbox for following text input" value="#ff999e" name="titleColor">
+                                                            <label for="titleColor"></label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text" style="background-color:#ffcb94;">
+                                                            <label for="titleColor"></label>
+                                                            <input type="radio" aria-label="Checkbox for following text input" value="#ffcb94" name="titleColor">
+                                                        </div>
+                                                    </div>
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text" style="background-color:#00bbff;">
+                                                            <input type="radio" aria-label="Checkbox for following text input" value="#00bbff" name="titleColor">
+                                                            <label for="titleColor"></label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text" style="background-color:#171717;">
+                                                            <input type="radio" aria-label="Checkbox for following text input" value="#171717" name="titleColor">
+                                                            <label for="titleColor"></label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="input-group mr-2">
+                                            <select class="browser-default custom-select" id="inputGroupSelect03" name="titleFontSize">
+                                                <option selected>Taille</option>
+                                                <option value="1em"> 1em </option>
+                                                <option value="1.2em"> 1.2em </option>
+                                                <option value="1.5em"> 1.5em </option>
+                                                <option value="2em"> 2em </option>
+                                                <option value="2.5em"> 2.5em </option>
+                                            </select>
+                                        </div>
+                                        <div class="input-group mr-2">
+                                            <select class="browser-default custom-select" id="inputGroupSelect04" name="titleFontFamily">
+                                                <option selected>Police</option>
+                                                <option class="exempleFont" value="Barlow Regular"> Barlow Regular </option>
+                                                <option class="exempleFont1" value="AbrilFatface"> AbrilFatface </option>
+                                                <option class="exempleFont2" value="BebasNeue-Regular"> BebasNeue-Regular </option>
+                                                <option class="exempleFont3" value="DancingScript"> DancingScript </option>
+                                                <option class="exempleFont4" value="HelveticaNeue"> HelveticaNeue </option>
+                                                <option class="exempleFont5" value="Raleway"> Raleway </option>
+                                                <option class="exempleFont6" value="Roboto"> Roboto </option>
+                                            </select>
+                                        </div>
+                                        <div class="input-group mr-2">
+                                            <select class="browser-default custom-select" id="inputGroupSelect05" name="titleTextShadow">
+                                                <option selected>Ombrage titre</option>
+                                                <option style="color: red" class="exemple" value="1px 1px 2px red"> EN ROUGE </option>
+                                                <option style="color: pink"class="exemple1" value="1px 1px 2px pink"> EN ROSE </option>
+                                                <option style="color: black"class="exemple2" value="1px 1px 2px black"> EN NOIR </option>
+                                                <option style="color: yellow"class="exemple3" value="1px 1px 2px yellow"> EN JAUNE </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-4 mb-3">
-                <div class="widget-flat card" style="box-shadow: <?= $GLOBALS['STYLE']['boxShadow'] ?>; background-color: <?= $GLOBALS['STYLE']['boxBackgroundColor'] ?>">
-                    <div class="card-body">
-                        <div class="form-group col-md-12 text-center">
-                            <h3 style="color: <?= $GLOBALS['STYLE']['titleColor'] ?>; font-size: <?= $GLOBALS['STYLE']['titleFontSize'] ?>; font-family: <?= $GLOBALS['STYLE']['titleFontFamily'] ?>; text-shadow: <?= $GLOBALS['STYLE']['titleTextShadow'] ?>;">OMBRE DES BOX</h3>
-                            <p style="color: <?= $GLOBALS['STYLE']['textColor'] ?>; font-size: <?= $GLOBALS['STYLE']['textFontSize'] ?>; font-family: <?= $GLOBALS['STYLE']['textFontFamily'] ?>;">Exemple d'ombres pour les box</p>
-                            <div class="dropdown">
-                                <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Ombre des box
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <div class="row">
+                    <div class="col-lg-4 mb-3">
+                        <div class="card card-grey-2 p-4" style="box-shadow: <?= $GLOBALS['STYLE']['boxShadow'] ?>; background-color: <?= $GLOBALS['STYLE']['boxBackgroundColor'] ?>">
+                            <div class="card-body">
+                                <div class="form-group col-md-12">
+                                    <h3 style="color: <?= $GLOBALS['STYLE']['titleColor'] ?>; font-size: <?= $GLOBALS['STYLE']['titleFontSize'] ?>; font-family: <?= $GLOBALS['STYLE']['titleFontFamily'] ?>; text-shadow: <?= $GLOBALS['STYLE']['titleTextShadow'] ?>;">GESTION DU TEXTE</h3>
+                                    <p style="color: <?= $GLOBALS['STYLE']['textColor'] ?>; font-size: <?= $GLOBALS['STYLE']['textFontSize'] ?>; font-family: <?= $GLOBALS['STYLE']['textFontFamily'] ?>;">Couleur du texte, Police, Taille</p>
+                                    <div class="btn-toolbar justify-content-center">
+                                        <div class="dropdown mr-2">
+                                            <button class="btn  grey darken-1 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                Couleur
+                                            </button>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text" style="background-color:#ff999e;">
+                                                            <label for="textColor"></label>
+                                                            <input type="radio" aria-label="Checkbox for following text input" value="#ff999e" name="textColor">
+                                                        </div>
+                                                    </div>
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text" style="background-color:#e1e1e1;">
+                                                            <input type="radio" aria-label="Checkbox for following text input" value="#e1e1e1" name="textColor">
+                                                            <label for="textColor"></label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text" style="background-color:#ffcb94;">
+                                                            <label for="textColor"></label>
+                                                            <input type="radio" aria-label="Checkbox for following text input" value="#ffcb94" name="textColor">
+                                                        </div>
+                                                    </div>
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text" style="background-color:#00bbff;">
+                                                            <input type="radio" aria-label="Checkbox for following text input" value="#00bbff" name="textColor">
+                                                            <label for="textColor"></label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text" style="background-color:#171717;">
+                                                            <input type="radio" aria-label="Checkbox for following text input" value="#171717" name="textColor">
+                                                            <label for="textColor"></label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text" style="background-color:#FFF;">
+                                                            <input type="radio" aria-label="Checkbox for following text input" value="#FFF" name="textColor" checked>
+                                                            <label for="textColor"></label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="input-group mr-2">
+                                            <select class="browser-default custom-select" id="inputGroupSelect01" name="textFontSize">
+                                                <option> Taille </option>
+                                                <option class="green" value="1em"> 1em </option>
+                                                <option value="1.2em"> 1.2em </option>
+                                                <option value="1.5em"> 1.5em </option>
+                                                <option value="2em"> 2em </option>
+                                                <option value="2.5em"> 2.5em </option>
+                                            </select>
+                                        </div>
+                                        <div class="input-group mr-2">
+                                            <select class="browser-default custom-select" id="inputGroupSelect02" name="textFontFamily">
+                                                <option> Police </option>
+                                                <option class="exempleFont" value="Barlow Regular"> Barlow Regular </option>
+                                                <option class="exempleFont1" value="AbrilFatface"> AbrilFatface </option>
+                                                <option class="exempleFont2" value="BebasNeue-Regular"> BebasNeue-Regular </option>
+                                                <option class="exempleFont3" value="DancingScript"> DancingScript </option>
+                                                <option class="exempleFont4" value="HelveticaNeue"> HelveticaNeue </option>
+                                                <option class="exempleFont5" value="Raleway"> Raleway </option>
+                                                <option class="exempleFont6" value="Roboto"> Roboto </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mb-3">
+                        <div class="card card-grey-2 p-4" style="box-shadow: <?= $GLOBALS['STYLE']['boxShadow'] ?>; background-color: <?= $GLOBALS['STYLE']['boxBackgroundColor'] ?>">
+                            <div class="card-body">
+                                <div class="form-group col-md-12">
+                                    <h3 style="color: <?= $GLOBALS['STYLE']['titleColor'] ?>; font-size: <?= $GLOBALS['STYLE']['titleFontSize'] ?>; font-family: <?= $GLOBALS['STYLE']['titleFontFamily'] ?>; text-shadow: <?= $GLOBALS['STYLE']['titleTextShadow'] ?>;">EFFET ZOOM</h3>
+                                    <p style="color: <?= $GLOBALS['STYLE']['textColor'] ?>; font-size: <?= $GLOBALS['STYLE']['textFontSize'] ?>; font-family: <?= $GLOBALS['STYLE']['textFontFamily'] ?>;">Effet zoom sur image</p>
                                     <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text" style="background-color:#ff999e;">
-                                                <label for="boxShadow"></label>
-                                                <input type="radio" aria-label="Checkbox for following text input" value="5px 10px 10px #ff999e" name="boxShadow">
-                                            </div>
-                                        </div>
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text" style="background-color:#e1e1e1;">
-                                                <label for="boxShadow"></label>
-                                                <input type="radio" aria-label="Checkbox for following text input" value="5px 10px 10px #e1e1e1" name="boxShadow">
-                                            </div>
-                                        </div>
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text" style="background-color:#ffcb94;">
-                                                <label for="boxShadow"></label>
-                                                <input type="radio" aria-label="Checkbox for following text input" value="5px 10px 10px #ffcb94" name="boxShadow">
-                                            </div>
-                                        </div>
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text" style="background-color:#00bbff;">
-                                                <label for="boxShadow"></label>
-                                                <input type="radio" aria-label="Checkbox for following text input" value="5px 10px 10px #00bbff" name="boxShadow">
-                                            </div>
-                                        </div>
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text" style="background-color:white;">
-                                                <label for="boxShadow"></label>
-                                                <input type="radio" aria-label="Checkbox for following text input" value="none" name="boxShadow" checked>
-                                            </div>
-                                        </div>
+                                        <select class="browser-default custom-select" id="inputGroupSelect08" name="class">
+                                            <option selected>Zoom</option>
+                                            <option value="zoom1"> Normal </option>
+                                            <option value="zoom05"> Small </option>
+                                            <option value="zoom15"> Medium </option>
+                                            <option value="zoom2"> Large </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mb-3">
+                        <div class="card card-grey-2 p-4" style="box-shadow: <?= $GLOBALS['STYLE']['boxShadow'] ?>; background-color: <?= $GLOBALS['STYLE']['boxBackgroundColor'] ?>">
+                            <div class="card-body">
+                                <div class="form-group col-md-12">
+                                    <h3 style="color: <?= $GLOBALS['STYLE']['titleColor'] ?>; font-size: <?= $GLOBALS['STYLE']['titleFontSize'] ?>; font-family: <?= $GLOBALS['STYLE']['titleFontFamily'] ?>; text-shadow: <?= $GLOBALS['STYLE']['titleTextShadow'] ?>;">EFFET BOUTON</h3>
+                                    <p style="color: <?= $GLOBALS['STYLE']['textColor'] ?>; font-size: <?= $GLOBALS['STYLE']['textFontSize'] ?>; font-family: <?= $GLOBALS['STYLE']['textFontFamily'] ?>;">Effet enfoncement bouton</p>
+                                    <div class="input-group mb-3">
+                                        <select class="browser-default custom-select" id="inputGroupSelect08" name="btnEffect">
+                                            <option selected> Effet Bouton </option>
+                                            <option value="btnEffect"> Cool </option>
+                                            <option value="btnEffect2"> Waouw </option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4 mb-3">
-                <div class="widget-flat card" style="box-shadow: <?= $GLOBALS['STYLE']['boxShadow'] ?>; background-color: <?= $GLOBALS['STYLE']['boxBackgroundColor'] ?>">
-                    <div class="card-body">
-                        <div class="form-group col-md-12 text-center">
-                            <h3 style="color: <?= $GLOBALS['STYLE']['titleColor'] ?>; font-size: <?= $GLOBALS['STYLE']['titleFontSize'] ?>; font-family: <?= $GLOBALS['STYLE']['titleFontFamily'] ?>; text-shadow: <?= $GLOBALS['STYLE']['titleTextShadow'] ?>;">GESTION DES TITRES</h3>
-                            <p style="color: <?= $GLOBALS['STYLE']['textColor'] ?>; font-size: <?= $GLOBALS['STYLE']['textFontSize'] ?>; font-family: <?= $GLOBALS['STYLE']['textFontFamily'] ?>;">Exemple de couleur pour les titres</p>
-                            <div class="btn-toolbar justify-content-center">
-                                <div class="dropdown mr-2">
-                                    <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Couleur
-                                    </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <div class="input-group mb-3">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text" style="background-color:#ff999e;">
-                                                    <label for="titleColor"></label>
-                                                    <input type="radio" aria-label="Checkbox for following text input" value="#ff999e" name="titleColor" checked>
-                                                </div>
-                                            </div>
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text" style="background-color:#e1e1e1;">
-                                                    <input type="radio" aria-label="Checkbox for following text input" value="#e1e1e1" name="titleColor">
-                                                    <label for="titleColor"></label>
-                                                </div>
-                                            </div>
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text" style="background-color:#ffcb94;">
-                                                    <label for="titleColor"></label>
-                                                    <input type="radio" aria-label="Checkbox for following text input" value="#ffcb94" name="titleColor">
-                                                </div>
-                                            </div>
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text" style="background-color:#00bbff;">
-                                                    <input type="radio" aria-label="Checkbox for following text input" value="#00bbff" name="titleColor">
-                                                    <label for="titleColor"></label>
-                                                </div>
-                                            </div>
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text" style="background-color:#171717;">
-                                                    <input type="radio" aria-label="Checkbox for following text input" value="#171717" name="titleColor">
-                                                    <label for="titleColor"></label>
-                                                </div>
-                                            </div>
-                                        </div>
+                <div class="row">
+                    <div class="col-lg-4 mb-3">
+                        <div class="card card-grey-2 p-4" style="box-shadow: <?= $GLOBALS['STYLE']['boxShadow'] ?>; background-color: <?= $GLOBALS['STYLE']['boxBackgroundColor'] ?>">
+                            <div class="card-body">
+                                <div class="form-group col-sm-12">
+                                    <h3 style="color: <?= $GLOBALS['STYLE']['titleColor'] ?>; font-size: <?= $GLOBALS['STYLE']['titleFontSize'] ?>; font-family: <?= $GLOBALS['STYLE']['titleFontFamily'] ?>; text-shadow: <?= $GLOBALS['STYLE']['titleTextShadow'] ?>;">BOX D'EXEMPLE TEXTE</h3>
+                                    <div class="mb-3">
+                                        <textarea cols="50" rows="8" style="color: <?= $GLOBALS['STYLE']['textColor'] ?>; font-size: <?= $GLOBALS['STYLE']['textFontSize'] ?>; font-family: <?= $GLOBALS['STYLE']['textFontFamily'] ?>; background-color: <?= $GLOBALS['STYLE']['boxBackgroundColor'] ?>;">Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que son contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme Aldus PageMaker.</textarea>
                                     </div>
                                 </div>
-                                <div class="input-group mr-2">
-                                    <select class="browser-default custom-select" id="inputGroupSelect03" name="titleFontSize">
-                                        <option selected>Taille</option>
-                                        <option class="green" value="1em"> 1em </option>
-                                        <option value="1.2em"> 1.2em </option>
-                                        <option value="1.5em"> 1.5em </option>
-                                        <option value="2em"> 2em </option>
-                                        <option value="2.5em"> 2.5em </option>
-                                    </select>
-                                </div>
-                                <div class="input-group mr-2">
-                                    <select class="browser-default custom-select" id="inputGroupSelect04" name="titleFontFamily">
-                                        <option selected>Police</option>
-                                        <option class="exempleFont" value="Barlow Regular"> Barlow Regular </option>
-                                        <option class="exempleFont1" value="AbrilFatface"> AbrilFatface </option>
-                                        <option class="exempleFont2" value="BebasNeue-Regular"> BebasNeue-Regular </option>
-                                        <option class="exempleFont3" value="DancingScript"> DancingScript </option>
-                                        <option class="exempleFont4" value="HelveticaNeue"> HelveticaNeue </option>
-                                        <option class="exempleFont5" value="Raleway"> Raleway </option>
-                                        <option class="exempleFont6" value="Roboto"> Roboto </option>
-                                    </select>
-                                </div>
-                                <div class="input-group mr-2">
-                                    <select class="browser-default custom-select" id="inputGroupSelect05" name="titleTextShadow">
-                                        <option selected>Ombrage titre</option>
-                                        <option style="color: red" class="exemple" value="1px 1px 2px red"> EN ROUGE </option>
-                                        <option style="color: pink"class="exemple1" value="1px 1px 2px pink"> EN ROSE </option>
-                                        <option style="color: black"class="exemple2" value="1px 1px 2px black"> EN NOIR </option>
-                                        <option style="color: yellow"class="exemple3" value="1px 1px 2px yellow"> EN JAUNE </option>
-                                    </select>
-                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-4 mb-3">
-                <div class="widget-flat card" style="box-shadow: <?= $GLOBALS['STYLE']['boxShadow'] ?>; background-color: <?= $GLOBALS['STYLE']['boxBackgroundColor'] ?>">
-                    <div class="card-body">
-                        <div class="form-group col-md-12 text-center">
-                            <h3 style="color: <?= $GLOBALS['STYLE']['titleColor'] ?>; font-size: <?= $GLOBALS['STYLE']['titleFontSize'] ?>; font-family: <?= $GLOBALS['STYLE']['titleFontFamily'] ?>; text-shadow: <?= $GLOBALS['STYLE']['titleTextShadow'] ?>;">GESTION DU TEXTE</h3>
-                            <p style="color: <?= $GLOBALS['STYLE']['textColor'] ?>; font-size: <?= $GLOBALS['STYLE']['textFontSize'] ?>; font-family: <?= $GLOBALS['STYLE']['textFontFamily'] ?>;">Couleur du texte, Police, Taille</p>
-                            <div class="btn-toolbar justify-content-center">
-                                <div class="dropdown mr-2">
-                                    <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Couleur
-                                    </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <div class="input-group mb-3">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text" style="background-color:#ff999e;">
-                                                    <label for="textColor"></label>
-                                                    <input type="radio" aria-label="Checkbox for following text input" value="#ff999e" name="textColor">
-                                                </div>
-                                            </div>
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text" style="background-color:#e1e1e1;">
-                                                    <input type="radio" aria-label="Checkbox for following text input" value="#e1e1e1" name="textColor">
-                                                    <label for="textColor"></label>
-                                                </div>
-                                            </div>
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text" style="background-color:#ffcb94;">
-                                                    <label for="textColor"></label>
-                                                    <input type="radio" aria-label="Checkbox for following text input" value="#ffcb94" name="textColor">
-                                                </div>
-                                            </div>
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text" style="background-color:#00bbff;">
-                                                    <input type="radio" aria-label="Checkbox for following text input" value="#00bbff" name="textColor">
-                                                    <label for="textColor"></label>
-                                                </div>
-                                            </div>
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text" style="background-color:#171717;">
-                                                    <input type="radio" aria-label="Checkbox for following text input" value="#171717" name="textColor">
-                                                    <label for="textColor"></label>
-                                                </div>
-                                            </div>
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text" style="background-color:#FFF;">
-                                                    <input type="radio" aria-label="Checkbox for following text input" value="#FFF" name="textColor" checked>
-                                                    <label for="textColor"></label>
-                                                </div>
-                                            </div>
-                                        </div>
+                    <div class="col-lg-4 mb-3">
+                        <div class="card card-grey-2 p-4" style="box-shadow: <?= $GLOBALS['STYLE']['boxShadow'] ?>; background-color: <?= $GLOBALS['STYLE']['boxBackgroundColor'] ?>">
+                            <div class="card-body">
+                                <div class="form-group col-md-12">
+                                    <h3 style="color: <?= $GLOBALS['STYLE']['titleColor'] ?>; font-size: <?= $GLOBALS['STYLE']['titleFontSize'] ?>; font-family: <?= $GLOBALS['STYLE']['titleFontFamily'] ?>; text-shadow: <?= $GLOBALS['STYLE']['titleTextShadow'] ?>;">BOX D'EXEMPLE ZOOM IMAGE</h3>
+                                    <div class="mb-3">
+                                        <img src="<?= URL_SOURCES."/images/logo-blanc.svg" ?>" class="<?= $GLOBALS['STYLE']['class'] ?>" width="250px" alt="logo_altair">
                                     </div>
                                 </div>
-                                <div class="input-group mr-2">
-                                    <select class="browser-default custom-select" id="inputGroupSelect01" name="textFontSize">
-                                        <option> Taille </option>
-                                        <option class="green" value="1em"> 1em </option>
-                                        <option value="1.2em"> 1.2em </option>
-                                        <option value="1.5em"> 1.5em </option>
-                                        <option value="2em"> 2em </option>
-                                        <option value="2.5em"> 2.5em </option>
-                                    </select>
-                                </div>
-                                <div class="input-group mr-2">
-                                    <select class="browser-default custom-select" id="inputGroupSelect02" name="textFontFamily">
-                                        <option> Police </option>
-                                        <option class="exempleFont" value="Barlow Regular"> Barlow Regular </option>
-                                        <option class="exempleFont1" value="AbrilFatface"> AbrilFatface </option>
-                                        <option class="exempleFont2" value="BebasNeue-Regular"> BebasNeue-Regular </option>
-                                        <option class="exempleFont3" value="DancingScript"> DancingScript </option>
-                                        <option class="exempleFont4" value="HelveticaNeue"> HelveticaNeue </option>
-                                        <option class="exempleFont5" value="Raleway"> Raleway </option>
-                                        <option class="exempleFont6" value="Roboto"> Roboto </option>
-                                    </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mb-3 myAll">
+                        <div class="card card-grey-2 p-4" style="box-shadow: <?= $GLOBALS['STYLE']['boxShadow'] ?>; background-color: <?= $GLOBALS['STYLE']['boxBackgroundColor'] ?>">
+                            <div class="card-body cardBody">
+                                <div class="form-group col-md-12">
+                                    <h3 style="color: <?= $GLOBALS['STYLE']['titleColor'] ?>; font-size: <?= $GLOBALS['STYLE']['titleFontSize'] ?>; font-family: <?= $GLOBALS['STYLE']['titleFontFamily'] ?>; text-shadow: <?= $GLOBALS['STYLE']['titleTextShadow'] ?>;">BOX D'EXEMPLE BOUTON</h3>
+                                    <div class="container2 my-3">
+                                        <a href="#" class="<?= $GLOBALS['STYLE']['btnEffect'] ?>">Press me</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4 mb-3">
-                <div class="widget-flat card" style="box-shadow: <?= $GLOBALS['STYLE']['boxShadow'] ?>; background-color: <?= $GLOBALS['STYLE']['boxBackgroundColor'] ?>">
-                    <div class="card-body">
-                        <div class="form-group col-md-12 text-center">
-                            <h3 style="color: <?= $GLOBALS['STYLE']['titleColor'] ?>; font-size: <?= $GLOBALS['STYLE']['titleFontSize'] ?>; font-family: <?= $GLOBALS['STYLE']['titleFontFamily'] ?>; text-shadow: <?= $GLOBALS['STYLE']['titleTextShadow'] ?>;">EFFET ZOOM</h3>
-                            <p style="color: <?= $GLOBALS['STYLE']['textColor'] ?>; font-size: <?= $GLOBALS['STYLE']['textFontSize'] ?>; font-family: <?= $GLOBALS['STYLE']['textFontFamily'] ?>;">Effet zoom sur image</p>
-                            <div class="input-group mb-3">
-                                <select class="browser-default custom-select" id="inputGroupSelect08" name="class">
-                                    <option selected>Zoom</option>
-                                    <option value="zoom1"> Normal </option>
-                                    <option value="zoom05"> Small </option>
-                                    <option value="zoom15"> Medium </option>
-                                    <option value="zoom2"> Large </option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
+                <div class="div_button w-100 d-flex">
+                    <button type="submit" class="btn grey darken-1 btn-lg mx-auto">Valider</button>
                 </div>
-            </div>
-            <div class="col-lg-4 mb-3">
-                <div class="widget-flat card" style="box-shadow: <?= $GLOBALS['STYLE']['boxShadow'] ?>; background-color: <?= $GLOBALS['STYLE']['boxBackgroundColor'] ?>">
-                    <div class="card-body">
-                        <div class="form-group col-md-12 text-center">
-                            <h3 style="color: <?= $GLOBALS['STYLE']['titleColor'] ?>; font-size: <?= $GLOBALS['STYLE']['titleFontSize'] ?>; font-family: <?= $GLOBALS['STYLE']['titleFontFamily'] ?>; text-shadow: <?= $GLOBALS['STYLE']['titleTextShadow'] ?>;">EFFET BOUTON</h3>
-                            <p style="color: <?= $GLOBALS['STYLE']['textColor'] ?>; font-size: <?= $GLOBALS['STYLE']['textFontSize'] ?>; font-family: <?= $GLOBALS['STYLE']['textFontFamily'] ?>;">Effet enfoncement bouton</p>
-                            <div class="input-group mb-3">
-                                <select class="browser-default custom-select" id="inputGroupSelect08" name="btnEffect">
-                                    <option selected> Effet Bouton </option>
-                                    <option value="btnEffect"> Cool </option>
-                                    <option value="btnEffect2"> Waouw </option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </form>
         </div>
-        <div class="row">
-            <div class="col-lg-4 mb-3">
-                <div class="widget-flat card" style="box-shadow: <?= $GLOBALS['STYLE']['boxShadow'] ?>; background-color: <?= $GLOBALS['STYLE']['boxBackgroundColor'] ?>">
-                    <div class="card-body">
-                        <div class="form-group col-sm-12 text-center">
-                            <h3 style="color: <?= $GLOBALS['STYLE']['titleColor'] ?>; font-size: <?= $GLOBALS['STYLE']['titleFontSize'] ?>; font-family: <?= $GLOBALS['STYLE']['titleFontFamily'] ?>; text-shadow: <?= $GLOBALS['STYLE']['titleTextShadow'] ?>;">BOX D'EXEMPLE TEXTE</h3>
-                            <div class="mb-3">
-                                <textarea cols="50" rows="8" style="color: <?= $GLOBALS['STYLE']['textColor'] ?>; font-size: <?= $GLOBALS['STYLE']['textFontSize'] ?>; font-family: <?= $GLOBALS['STYLE']['textFontFamily'] ?>; background-color: <?= $GLOBALS['STYLE']['boxBackgroundColor'] ?>;">Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que son contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme Aldus PageMaker.</textarea>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 mb-3">
-                <div class="widget-flat card" style="box-shadow: <?= $GLOBALS['STYLE']['boxShadow'] ?>; background-color: <?= $GLOBALS['STYLE']['boxBackgroundColor'] ?>">
-                    <div class="card-body">
-                        <div class="form-group col-md-12 text-center">
-                            <h3 style="color: <?= $GLOBALS['STYLE']['titleColor'] ?>; font-size: <?= $GLOBALS['STYLE']['titleFontSize'] ?>; font-family: <?= $GLOBALS['STYLE']['titleFontFamily'] ?>; text-shadow: <?= $GLOBALS['STYLE']['titleTextShadow'] ?>;">BOX D'EXEMPLE ZOOM IMAGE</h3>
-                            <div class="mb-3">
-                                <img src="<?= URL_SOURCES."/images/logo-blanc.svg" ?>" class="<?= $GLOBALS['STYLE']['class'] ?>" width="250px" alt="logo_altair">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 mb-3 myAll">
-                <div class="widget-flat card" style="box-shadow: <?= $GLOBALS['STYLE']['boxShadow'] ?>; background-color: <?= $GLOBALS['STYLE']['boxBackgroundColor'] ?>">
-                    <div class="card-body cardBody">
-                        <div class="form-group col-md-12 text-center ">
-                            <h3 style="color: <?= $GLOBALS['STYLE']['titleColor'] ?>; font-size: <?= $GLOBALS['STYLE']['titleFontSize'] ?>; font-family: <?= $GLOBALS['STYLE']['titleFontFamily'] ?>; text-shadow: <?= $GLOBALS['STYLE']['titleTextShadow'] ?>;">BOX D'EXEMPLE BOUTON</h3>
-                            <div class="container2 my-3">
-                                <a href="#" class="<?= $GLOBALS['STYLE']['btnEffect'] ?>">Press me</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="div_button w-100 d-flex">
-            <button type="submit" class="btn btn-info btn-lg mx-auto">Valider</button>
-        </div>
-    </form>
 </div>

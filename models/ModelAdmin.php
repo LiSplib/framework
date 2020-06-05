@@ -127,9 +127,9 @@ class ModelAdmin
      * cherche un utilisateur inscrit avec son email
      *
      * @param  mixed $email
-     * @return array
+     * 
      */
-    public function getEmail($email): array
+    public function getEmail($email)
     {
         $sql = 'SELECT * FROM admin WHERE email = ?';
         $query = $this->pdo->prepare($sql);

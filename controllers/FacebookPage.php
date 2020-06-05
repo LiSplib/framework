@@ -28,7 +28,7 @@ class FacebookPage{
         $fb->setDefaultAccessToken($longToken);
         try {
             // Requires the "read_stream" permission
-            $response = $fb->get('/177742082376259?fields=events{cover,description,name,start_time,end_time,id}');
+            $response = $fb->get('/177742082376259?fields=events{cover,description,name,place,start_time,end_time,id}');
           } catch(\Facebook\Exceptions\FacebookResponseException $e) {
             // When Graph returns an error
             echo 'Graph returned an error: ' . $e->getMessage();

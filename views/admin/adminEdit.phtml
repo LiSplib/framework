@@ -49,63 +49,65 @@
                         <input type="text" class="form-control" id="inputwebsite" name="website" value="<?= $website = (empty($adminInfo['website'])) ? '' : $adminInfo['website'] ?>">
                     </div>
                 </div>
-                <div class="form-row mt-5 mb-4">
-                    <h5 class="text-grey">Choisissez jusqu'à 4 réseaux sociaux</h5>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-4">
-                        <label for="inputFacebook">Facebook</label>
-                        <input type="url" class="form-control" id="inputFacebook" name="facebook" value="<?= $facebook = (empty($adminInfo['facebook'])) ? '' : $adminInfo['facebook'] ?>">
+                <div id="rs">
+                    <div class="form-row mt-5 mb-4">
+                        <h5 class="text-grey">Choisissez jusqu'à 4 réseaux sociaux</h5>
                     </div>
-                    <div class="form-group col-md-4">
-                        <label for="inputLinkedIn">LinkedIn</label>
-                        <input type="url" class="form-control" id="inputLinkedIn" name="linkedin" value="<?= $linkedin = (empty($adminInfo['linkedin'])) ? '' : $adminInfo['linkedin'] ?>">
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="inputFacebook">Facebook</label>
+                            <input type="url" class="form-control" id="inputFacebook" name="facebook" value="<?= $facebook = (empty($adminInfo['facebook'])) ? '' : $adminInfo['facebook'] ?>" onfocusout="checkRs()">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputLinkedIn">LinkedIn</label>
+                            <input type="url" class="form-control" id="inputLinkedIn" name="linkedin" value="<?= $linkedin = (empty($adminInfo['linkedin'])) ? '' : $adminInfo['linkedin'] ?>" onfocusout="checkRs()">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputVimeo">Vimeo</label>
+                            <input type="url" class="form-control" id="inputVimeo" name="vimeo" value="<?= $viadeo = (empty($adminInfo['vimeo'])) ? '' : $adminInfo['vimeo'] ?>" onfocusout="checkRs()">
+                        </div>            
                     </div>
-                    <div class="form-group col-md-4">
-                        <label for="inputViadeo">Vimeo</label>
-                        <input type="url" class="form-control" id="inputVimeo" name="vimeo" value="<?= $viadeo = (empty($adminInfo['vimeo'])) ? '' : $adminInfo['vimeo'] ?>">
-                    </div>            
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-4">
-                        <label for="inputSkype">Skype</label>
-                        <input type="text" class="form-control" id="inputSkype" name="skype" value="<?= $skype = (empty($adminInfo['skype'])) ? '' : $adminInfo['skype'] ?>">
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="inputSkype">Skype</label>
+                            <input type="text" class="form-control" id="inputSkype" name="skype" value="<?= $skype = (empty($adminInfo['skype'])) ? '' : $adminInfo['skype'] ?>" onfocusout="checkRs()">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputGoogle">Google +</label>
+                            <input type="url" class="form-control" id="inputGoogle" name="google" value="<?= $google = (empty($adminInfo['google'])) ? '' : $adminInfo['google'] ?>" onfocusout="checkRs()">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputYoutube">Youtube</label>
+                            <input type="url" class="form-control" id="inputYoutube" name="youtube" value="<?= $youtube = (empty($adminInfo['youtube'])) ? '' : $adminInfo['youtube'] ?>" onfocusout="checkRs()">
+                        </div>
                     </div>
-                    <div class="form-group col-md-4">
-                        <label for="inputFacebook">Google +</label>
-                        <input type="url" class="form-control" id="inputGoogle" name="google" value="<?= $google = (empty($adminInfo['google'])) ? '' : $adminInfo['google'] ?>">
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="inputInstagram">Instagram</label>
+                            <input type="url" class="form-control" id="inputInstagram" name="instagram" value="<?= $instagram = (empty($adminInfo['instagram'])) ? '' : $adminInfo['instagram'] ?>" onfocusout="checkRs()">
+                        </div>            
+                        <div class="form-group col-md-4">
+                            <label for="inputPinterest">Pinterest</label>
+                            <input type="text" class="form-control" id="inputPinterest" name="pinterest" value="<?= $pinterest = (empty($adminInfo['pinterest'])) ? '' : $adminInfo['pinterest'] ?>" onfocusout="checkRs()">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputSnapchat">Snapchat</label>
+                            <input type="url" class="form-control" id="inputSnapchat" name="snapchat" value="<?= $snapchat = (empty($adminInfo['snapchat'])) ? '' : $adminInfo['snapchat'] ?>" onfocusout="checkRs()">
+                        </div>
                     </div>
-                    <div class="form-group col-md-4">
-                        <label for="inputLinkedIn">Youtube</label>
-                        <input type="url" class="form-control" id="inputYoutube" name="youtube" value="<?= $youtube = (empty($adminInfo['youtube'])) ? '' : $adminInfo['youtube'] ?>">
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-4">
-                        <label for="inputViadeo">Instagram</label>
-                        <input type="url" class="form-control" id="inputInstagram" name="instagram" value="<?= $instagram = (empty($adminInfo['instagram'])) ? '' : $adminInfo['instagram'] ?>">
-                    </div>            
-                    <div class="form-group col-md-4">
-                        <label for="inputSkype">Pinterest</label>
-                        <input type="text" class="form-control" id="inputPinterest" name="pinterest" value="<?= $pinterest = (empty($adminInfo['pinterest'])) ? '' : $adminInfo['pinterest'] ?>">
-                    </div>
-                    <div class="form-group col-md-4">
-                        <label for="inputFacebook">Snapchat</label>
-                        <input type="url" class="form-control" id="inputSnapchat" name="snapchat" value="<?= $snapchat = (empty($adminInfo['snapchat'])) ? '' : $adminInfo['snapchat'] ?>">
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-4">
-                        <label for="inputLinkedIn">Twitter</label>
-                        <input type="url" class="form-control" id="inputTwitter" name="twitter" value="<?= $twitter = (empty($adminInfo['twitter'])) ? '' : $adminInfo['twitter'] ?>">
-                    </div>
-                    <div class="form-group col-md-4">
-                        <label for="inputViadeo">SoundCloud</label>
-                        <input type="url" class="form-control" id="inputSoundCloud" name="soundcloud" value="<?= $soundcloud = (empty($adminInfo['soundcloud'])) ? '' : $adminInfo['soundcloud'] ?>">
-                    </div>            
-                    <div class="form-group col-md-4">
-                        <label for="inputSkype">Spotify</label>
-                        <input type="text" class="form-control" id="inputSpotify" name="spotify" value="<?= $spotify = (empty($adminInfo['spotify'])) ? '' : $adminInfo['spotify'] ?>">
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="inputTwitter">Twitter</label>
+                            <input type="url" class="form-control" id="inputTwitter" name="twitter" value="<?= $twitter = (empty($adminInfo['twitter'])) ? '' : $adminInfo['twitter'] ?>" onfocusout="checkRs()">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputSoundCloud">SoundCloud</label>
+                            <input type="url" class="form-control" id="inputSoundCloud" name="soundcloud" value="<?= $soundcloud = (empty($adminInfo['soundcloud'])) ? '' : $adminInfo['soundcloud'] ?>" onfocusout="checkRs()">
+                        </div>            
+                        <div class="form-group col-md-4">
+                            <label for="inputSpotify">Spotify</label>
+                            <input type="text" class="form-control" id="inputSpotify" name="spotify" value="<?= $spotify = (empty($adminInfo['spotify'])) ? '' : $adminInfo['spotify'] ?>" onfocusout="checkRs()">
+                        </div>
                     </div>
                 </div>
                 <div class="d-flex justify-content-end mt-5">
@@ -125,3 +127,34 @@
         </div>
     </div>  
 </div>
+<script>
+    const allRS = document.getElementById('rs');
+    const rsInput = allRS.querySelectorAll('input');
+    const inputValue = [];
+    let result = [];
+
+    function ifAsRs(){
+        rsInput.forEach(element => inputValue.push(element.value));
+        result = inputValue.filter(rs => rs.length != "");
+        disableInput(result);        
+    }
+    // checkRs(); 
+    function checkRs(){
+        data = event.target.value;
+        result.push(data);
+        disableInput(result);        
+
+    }   
+    
+    function disableInput(result){
+        if(result.length >= 4){
+            rsInput.forEach(function(element){
+                if(element.value == ""){
+                    element.setAttribute('disabled', "");
+                }
+            })
+        }
+    }
+    ifAsRs();
+    
+</script>

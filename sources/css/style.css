@@ -162,6 +162,9 @@ body {
 .customLink2 a:hover {
   color: #df4650 !important;
 }
+.customLink2 a:hover svg path {
+  fill: #df4650 !important;
+}
 
 a:hover svg path {
   fill: black !important;
@@ -471,7 +474,7 @@ select {
 }
 
 .calendar__table td {
-  border: 1px solid #ccc;
+  border: 1px solid #acacac;
   vertical-align: top;
   width: calc(100% / 7);
   z-index: 12;
