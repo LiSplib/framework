@@ -1,14 +1,14 @@
 <div class="container-fluid mt-5 text-white">
     <div class="bg-Altair-grey">
         <div class="row justify-content-center">
-            <di class="col-8">
+            <div class="col-8">
                 <h4 class="text-grey">
                 <?php if($_SESSION['auth']['role'] === 'superAdmin' || $_SESSION['auth']['role'] === 'admin'): ?> 
                         Évènements créés</h4>
                 <?php else: ?>
                         Mes futurs évènements</h4>
                 <?php endif; ?>
-            </di>
+            </div>
         </div>
         <div class="row justify-content-center">
         <?php foreach ($result as $event) : ?>

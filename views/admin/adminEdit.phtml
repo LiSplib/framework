@@ -7,7 +7,7 @@
                     <div class="form-group col-md-4">
                         <label for="inputRegion">Région</label>
                         <select class="browser-default custom-select" id="inputRegion" name="region" required>
-                            <option value=""><?= $region = (empty($adminInfo['region'])) ? 'Région' : $adminInfo['region'] ?></option>
+                            <option value="" selected><?= $region = (empty($adminInfo['region'])) ? 'Région' : $adminInfo['region'] ?></option>
                         <?php foreach($regions as $region): ?>
                             <option value="<?= $region ?>"><?= $region ?></option>
                             <?php endforeach; ?>
@@ -16,7 +16,7 @@
                     <div class="form-group col-md-4">
                         <label for="inputDepartement">Département</label>
                         <select class="browser-default custom-select" id="inputDepartement" name="departement" required>
-                            <option value=""><?= $departement = (empty($adminInfo['departement'])) ? 'Département' : $adminInfo['departement'] ?></option>
+                            <option value="" selected><?= $departement = (empty($adminInfo['departement'])) ? 'Département' : $adminInfo['departement'] ?></option>
                         <?php foreach($dept as $key => $d): ?>
                             <option value="<?= $key . '  ' . $d ?>"><?= $key . '  ' . $d ?></option>
                         <?php endforeach;?>
@@ -150,7 +150,7 @@
         if(result.length >= 4){
             rsInput.forEach(function(element){
                 if(element.value == ""){
-                    element.setAttribute('disabled', "");
+                    element.setAttribute('readonly', "");
                 }
             })
         }

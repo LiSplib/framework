@@ -15,44 +15,30 @@ class Search{
     }
     
     public function httpGetRequest(){
-        $users = new ModelSearch;
-        $nbUsers = $users->countCoach(); // servira pour la pagination 
-              
-        if (isset($_GET['filter']) && $_GET['filter'] === 'coaching'){
-                $result = new ModelSearch;
-                $coachs = $result->coachingSearch();
-                $events = $result->eventSearch();
-                $coachEvents = new ModelMyEvents;
-                $coachInfo = new ModelAdmin;
-                return ['coachs' => $coachs,
-                'events' => $events,
-                'coachEvents' => $coachEvents,
-                'coachInfo' => $coachInfo
-            ];
-        }
-        
-        if (isset($_GET['filter']) && $_GET['filter'] === 'categorie'){
+            if(empty($_GET['search_name']) && !isset($_GET['filter']) && !isset($_GET['coachingCat'])){
+                $_SESSION['flash']['danger'] = 'Vous n\'avez rien saisie !';
+                redirect_to_route('calendar');
+            }else{     
             $result = new ModelSearch;
-            $coachs = $result->catSearch();
-            $events = $result->eventSearch();
             $coachEvents = new ModelMyEvents;
             $coachInfo = new ModelAdmin;
+            $events = $result->eventSearch();
+
+            switch ($_GET){
+                case !empty($_GET['filter']):
+                    $coachs = $result->coachingSearch();
+                break;
+                case !empty($_GET['coachingCat']):
+                    $coachs = $result->catSearch();
+                break;
+                case !empty($_GET['search_name']):
+                    $coachs = $result->coachSearch();
+                break;
+            }
             return ['coachs' => $coachs,
             'events' => $events,
             'coachEvents' => $coachEvents,
             'coachInfo' => $coachInfo
-            ];
-        }
-        if(isset($_GET['search_name'])){
-            $result = new ModelSearch;
-            $coachs = $result->coachSearch();
-            $events = $result->eventSearch();
-            $coachEvents = new ModelMyEvents;
-            $coachInfo = new ModelAdmin;
-            return ['coachs' => $coachs,
-                    'events' => $events,
-                    'coachEvents' => $coachEvents,
-                    'coachInfo' => $coachInfo
             ];
         }
     }

@@ -112,24 +112,31 @@
             <div class="nav-item dropdown p-4">
                 <form class="form-inline md-form" action="<?= route_to_url('search') ?>">
                     <input class="form-control mr-sm-2" type="search" placeholder="Rechercher" name="search_name" aria-label="Search">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdownSearch" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
-                    <div class="dropdown-menu text-center dropdown-menu-lg-right" style="background-color: inherit;">
-                        <select class="browser-default custom-select" name="filter" id="filter">
-                            <option value="" disabled selected>Coaching pratiqué</option>
-                            <option value="coachPro">coach professionnel de la personne</option>
-                            <option value="equipeOrganisation">coach professionnel d’équipe et d’organisation</option>
-                            <option value="animateur">animateur co-développement professionnel</option>
-                            <option value="talent">coach professionnel certifié «Talent»</option>
-                            <option value="superviseur">coach professionnel superviseur</option>
-                        </select>
+                    <div class="dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdownSearchCoaching" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">+</a>
+                        <div class="dropdown-menu text-center dropdown-menu-lg-right" aria-labelledby="navbarDropdownSearchCoaching" style="background-color: inherit;">
+                            <select class="browser-default custom-select" name="filter" id="filter">
+                                <option value="" disabled selected>Coaching pratiqué</option>
+                                <option value="coach professionnel de la personne">coach professionnel de la personne</option>
+                                <option value="coach professionnel d’équipe et d’organisation">coach professionnel d’équipe et d’organisation</option>
+                                <option value="animateur co-développement professionnel">animateur co-développement professionnel</option>
+                                <option value="coach professionnel certifié «Talent»">coach professionnel certifié «Talent»</option>
+                                <option value="coach professionnel superviseur">coach professionnel superviseur</option>
+                                <option value="coaching de dirigeant">coaching de dirigeant</option>
+                                <option value="coaching de grandes entreprises">coaching de grandes entreprises</option>
+                                <option value="coaching de PME">coaching de PME</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="dropdown-menu text-center dropdown-menu-lg-right" style="background-color: inherit;">
-                        <select class="browser-default custom-select" name="coachingType" id="coachingType">
-                            <option value="" disabled selected>Type Coaching</option>
-                            <option value="dirigeant">coaching de dirigeant</option>
-                            <option value="grandeEntreprise">coaching de grandes entreprises</option>
-                            <option value="pme">coaching de PME</option>
-                        </select>
+                    <div class="dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdownSearchCat" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">+</a>
+                        <div class="dropdown-menu text-center dropdown-menu-lg-right" aria-labelledby="navbarDropdownSearchCat" style="background-color: inherit;">
+                            <select class="browser-default custom-select" name="coachingCat" id="coachingCat">
+                                <option value="" disabled selected>Catégorie Coaching</option>
+                                <option value="Coach COS">Coach COS</option>
+                                <option value="Superviseur COS">Superviseur COS</option>
+                            </select>
+                        </div>
                     </div>
                     <button class="btn grey draken-1" type="submit" name="form_submit">
                         <i class="fas fa-search fa-lg"></i>

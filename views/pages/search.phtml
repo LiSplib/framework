@@ -1,34 +1,37 @@
-<div class="d-flex flex-direction-column align-items-center justify-content-center" style="background: url(<?= URL_SOURCES."/images/success.jpg" ?>); background-size: cover;">
-    <div class="container my-5" style="background-color: <?= $GLOBALS['STYLE']['boxBackgroundColor'].'d9' ?>">
-        <div class="row justify-content-center pt-5">
-                <h2 class="card-title" style="color: <?= $GLOBALS['STYLE']['titleColor'] ?>; font-size: <?= $GLOBALS['STYLE']['titleFontSize'] ?>; font-family: <?= $GLOBALS['STYLE']['titleFontFamily'] ?>; text-shadow: 2px 2px 3px #000000;">Le / les coachs : </h2>
+<div class="container-fluid mt-5 text-white">
+    <div class="bg-Altair-grey">
+        <div class="row justify-content-center">
+            <div class="col-8">
+                <h4 class="text-grey" style="color: <?= $GLOBALS['STYLE']['titleColor'] ?>; font-size: <?= $GLOBALS['STYLE']['titleFontSize'] ?>; font-family: <?= $GLOBALS['STYLE']['titleFontFamily'] ?>; text-shadow: 2px 2px 3px #000000;">Pour votre recherche il y a : <?= count($coachs) ?> Coach</h4>
             </div>
-        <div class="card-deck mt-5 p-3">
-        <?php foreach($coachs as $coach): ?>
-            <?php if (!empty($_GET['filter'])):
-                $id = $coach['coach_id']; 
-            ?>
-            <?php else : ?>
-            <?php $id = $coach['id'];
-            ?>
-            <?php endif; ?>
-            <?php 
-                $coachAll = $coachEvents->myCreatedEvents($id);
-                $coachInfos = $coachInfo->getAdminCoaching($id);
-            ?>
-            <div id="card-1" class="card text-center" style="background-color: transparent; color: <?= $GLOBALS['STYLE']['textColor'] ?>; ">
-                <img src="<?= $coach['image'] ?>" class="card-img-top" alt="photo du coach <?= $coach['lastname']?>">
-                <div class="card-body">
-                    <a href="<?= route_to_url('fullAccount') ?>?id=<?= $id?>" class="list-group-item list-group-item-action bg-light mt-2 rounded">
-                        <h5 class="card-title"><?= $coach['firstname'].' '.$coach['lastname']?></h5>
-                        <?php if (!empty($coachInfos)) : ?>
-                                <h5 class="card-title"><?= ucwords($coachInfos['coachingDo']) ?></h5>
-                                <h6 class="card-text"><?= $coachInfos['categorie'] ?></h6>
-                        <?php endif; ?>
-                    </a>
+        </div>
+        <div class="row justify-content-center mh-100">
+            <div class="col-xl-8 mh-100">
+                    <?php foreach($coachs as $coach): ?>
+                    <?php
+                        $id = $coach['id'];
+                        // $coachAll = $coachEvents->myCreatedEvents($id);
+                        // $coachInfos = $coachInfo->getAdminCoaching($id);
+                        // var_dump($coach);
+                    ?>
+                <div class="card-grey-2 p-4 text-white my-5">
+                    <div class="row justify-content-center mh-100">
+                        <div class="col-xl-4 h-100">
+                            <img src="<?= $coach['image'] ?>" class="card-img img-fluid h-100" alt="photo du coach <?= $coach['lastname']?>" style="width: 150px">
+                        </div>
+                        <div class="col-xl-8 mh-100 customLink p-4">
+                            <a href="<?= route_to_url('fullAccount') ?>?id=<?= $id?>" class="bg-Altair-grey h-100">
+                                <h5 class="card-title"><?= $coach['firstname'].' '.$coach['lastname']?></h5>
+                                <?php if (!empty($coach)) : ?>
+                                    <h5 class="card-title"><?= ucwords($coach['coachingDo']) ?></h5>
+                                    <h6 class="card-text"><?= $coach['categorie'] ?></h6>
+                                <?php endif; ?>
+                            </a>
+                        </div>
+                    </div>
                 </div>
+                <?php endforeach; ?>
             </div>
-            <?php endforeach; ?>
         </div>
         <div class="row my-5">
             <div class="col-sm-12">

@@ -29,7 +29,7 @@
                     <tbody>
                         <tr>
                             <th scope="row"><?= $donnees['id'] ?></th>
-                            <td><img style="height:50px;" src="<?= $donnees['image'] ?>"></td>
+                            <td><a href="<?= route_to_url('fullAccount') ?>?id=<?= $donnees['id'] ?>"><img style="height:50px;" src="<?= $donnees['image'] ?>"></a></td>
                             <td><?= strtoupper($donnees['lastname']) ?></td>
                             <td><?= $donnees['firstname'] ?></td>
                             <td><?= $donnees['email'] ?></td>

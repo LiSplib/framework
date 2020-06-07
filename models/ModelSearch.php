@@ -23,7 +23,7 @@ class ModelSearch{
 
     public function coachSearch(){
         $searchName = $_GET['search_name'];
-        $sql = "SELECT * FROM admin WHERE lastname LIKE LOWER(:name) AND role LIKE '%n' ";
+        $sql = "SELECT * FROM admin LEFT JOIN coaching ON coach_id = admin.id WHERE lastname LIKE LOWER(:name) AND role LIKE '%n' ";
         $query = $this->pdo->prepare($sql);
         $concat = $searchName.'%';
         $query->bindParam(':name', $concat);
@@ -41,7 +41,18 @@ class ModelSearch{
 
 
     public function eventSearch(){
-        $searchname = $_GET['search_name'];
+        
+        switch ($_GET){
+            case !empty($_GET['search_name']):
+                $searchname = $_GET['search_name'];
+            break;
+            case !empty($_GET['filter']):
+                $searchname = $_GET['filter'];
+            break;
+            case !empty($_GET['coachingCat']):
+                $searchname = $_GET['coachingCat'];
+            break;
+        }
         $sql = 'SELECT * FROM events WHERE title LIKE LOWER(:name)';
         $query = $this->pdo->prepare($sql);
         $concat = $searchname.'%';
@@ -65,21 +76,22 @@ class ModelSearch{
     }
 
     public function coachingSearch(){
-        $coachingDo = $_GET['search_name'];
-        $sql = "SELECT * FROM admin LEFT JOIN coaching ON coach_id = admin.id WHERE coachingDo LIKE LOWER(:coachingDo)";
+        $coachingDo = $_GET['filter'];
+        $sql = "SELECT * FROM coaching LEFT JOIN admin ON admin.id = coach_id WHERE coachingDo LIKE LOWER(:coachDo)";
         $query = $this->pdo->prepare($sql);
-        $concat = '%'.$coachingDo.'%';
-        $query->bindParam(':coachingDo', $concat);
+        $coachingDo = str_replace('+', ' ', $coachingDo);
+        $query->bindParam(':coachDo', $coachingDo);
         $query->execute();
-        return $query->fetchAll();
+        $result = $query->fetchAll();
+        return $result;
     }
 
     public function catSearch(){
-        $categorie = $_GET['search_name'];
+        $categorie = $_GET['coachingCat'];
         $sql = "SELECT * FROM admin LEFT JOIN coaching ON coach_id = admin.id WHERE categorie LIKE LOWER(:categorie)";
         $query = $this->pdo->prepare($sql);
-        $concat = '%'.$categorie.'%';
-        $query->bindParam(':categorie', $concat);
+        $categorie = str_replace('+', ' ', $categorie);
+        $query->bindParam(':categorie', $categorie);
         $query->execute();
         return $query->fetchAll();
     }
