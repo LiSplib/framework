@@ -18,7 +18,7 @@
                         </div>
                         <div class="col-xl-8 mh-100 customLink p-4">
                             <a href="<?= route_to_url('fullAccount') ?>?id=<?= $id?>" class="bg-Altair-grey h-100">
-                                <h5 class="card-title"><?= $coach['firstname'].' '.$coach['lastname']?></h5>
+                                <h4 class="card-title titleEvent"><?= $coach['firstname'].' '.$coach['lastname']?></h4>
                                 <?php if (!empty($coach)) : ?>
                                     <h5 class="card-title"><?= ucwords(empty($coach['coachingDo'])) ? 'Coaching pratiqué' : ucwords($coach['coachingDo']) ?></h5>
                                     <h6 class="card-text"><?= (empty($coach['categorie']))? 'Catégorie' : $coach['categorie'] ?></h6>
