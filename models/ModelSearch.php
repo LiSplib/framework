@@ -23,7 +23,7 @@ class ModelSearch{
 
     public function coachSearch(){
         $searchName = $_GET['search_name'];
-        $sql = "SELECT * FROM admin LEFT JOIN coaching ON coach_id = admin.id WHERE lastname LIKE LOWER(:name) AND role LIKE '%n' ";
+        $sql = "SELECT admin.id, lastname, firstname, email, image, role, coachingDo, adherent, categorie, coach_id FROM admin LEFT JOIN coaching ON admin.id = coach_id WHERE lastname LIKE LOWER(:name) AND role LIKE '%n' ";
         $query = $this->pdo->prepare($sql);
         $concat = $searchName.'%';
         $query->bindParam(':name', $concat);

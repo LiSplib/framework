@@ -7,13 +7,10 @@
         </div>
         <div class="row justify-content-center mh-100">
             <div class="col-xl-8 mh-100">
-                    <?php foreach($coachs as $coach): ?>
-                    <?php
-                        $id = $coach['id'];
-                        // $coachAll = $coachEvents->myCreatedEvents($id);
-                        // $coachInfos = $coachInfo->getAdminCoaching($id);
-                        // var_dump($coach);
-                    ?>
+                <?php foreach($coachs as $coach): ?>
+                <?php
+                    $id = $coach['id'];
+                ?>
                 <div class="card-grey-2 p-4 text-white my-5">
                     <div class="row justify-content-center mh-100">
                         <div class="col-xl-4 h-100">
@@ -23,8 +20,8 @@
                             <a href="<?= route_to_url('fullAccount') ?>?id=<?= $id?>" class="bg-Altair-grey h-100">
                                 <h5 class="card-title"><?= $coach['firstname'].' '.$coach['lastname']?></h5>
                                 <?php if (!empty($coach)) : ?>
-                                    <h5 class="card-title"><?= ucwords($coach['coachingDo']) ?></h5>
-                                    <h6 class="card-text"><?= $coach['categorie'] ?></h6>
+                                    <h5 class="card-title"><?= ucwords(empty($coach['coachingDo'])) ? 'Coaching pratiqué' : ucwords($coach['coachingDo']) ?></h5>
+                                    <h6 class="card-text"><?= (empty($coach['categorie']))? 'Catégorie' : $coach['categorie'] ?></h6>
                                 <?php endif; ?>
                             </a>
                         </div>

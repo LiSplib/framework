@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use App\Model\ModelSearch;
 use App\Model\ModelMyEvents;
-use App\Model\ModelAdmin;
 
 class Search{
 
@@ -21,7 +20,6 @@ class Search{
             }else{     
             $result = new ModelSearch;
             $coachEvents = new ModelMyEvents;
-            $coachInfo = new ModelAdmin;
             $events = $result->eventSearch();
 
             switch ($_GET){
@@ -37,8 +35,7 @@ class Search{
             }
             return ['coachs' => $coachs,
             'events' => $events,
-            'coachEvents' => $coachEvents,
-            'coachInfo' => $coachInfo
+            'coachEvents' => $coachEvents
             ];
         }
     }
