@@ -33,29 +33,43 @@
                 <?php endforeach; ?>
             </div>
         </div>
-        <div class="row my-5">
-            <div class="col-sm-12">
-                <div class="card text-center" style="box-shadow: <?= $GLOBALS['STYLE']['boxShadow'] ?>; background-color: transparent; color: black; font-size: <?= $GLOBALS['STYLE']['textFontSize'] ?>; font-family: <?= $GLOBALS['STYLE']['textFontFamily'] ?>;">
-                    <div class="card-body">
-                        <div class="col-12 mt-4">
-                            <h2 class="card-title" style="color: <?= $GLOBALS['STYLE']['titleColor'] ?>; font-size: <?= $GLOBALS['STYLE']['titleFontSize'] ?>; font-family: <?= $GLOBALS['STYLE']['titleFontFamily'] ?>; text-shadow: 2px 2px 3px #000000;">Le / les évènements : </h2>
-                            <?php if (!empty($events)) : ?>
-                                <?php foreach($events as $event): ?>
-                                <div class="list-group col-12">
-                                    <a href="<?= route_to_url('currentEvent') ?>?id=<?= $event['id']?>" class="list-group-item list-group-item-action bg-light mt-2 rounded">
-                                        <div class="text-center">
-                                            <h5 class="card-title"><?= $event['title'] ?></h5>
-                                            <h6 class="card-title"><?= $event['content'] ?></h6>
-                                        </div>
-                                    </a>
-                                </div>
-                                <?php endforeach; ?>
-                            <?php else : ?>
-                                <p>Aucun Résultat</p>
-                            <?php endif; ?>
-                            <a href="<?= route_to_url('calendar') ?>" class="btn grey darken-1 mt-2">Retour</a>
+        <div class="row justify-content-center my-5">
+            <div class="col-8">
+                <h4 class="card-title" style="color: <?= $GLOBALS['STYLE']['titleColor'] ?>; font-size: <?= $GLOBALS['STYLE']['titleFontSize'] ?>; font-family: <?= $GLOBALS['STYLE']['titleFontFamily'] ?>; text-shadow: 2px 2px 3px #000000;">Le / les évènements : </h4>
+            </div>
+        </div>
+        <div class="row justify-content-center mh-100 my-5">
+            <div class="col-xl-8 mh-100">
+                <?php if (!empty($events)) : ?>
+                    <?php foreach($events as $event): ?>
+                        <?php $date = new Datetime($event['start']);
+                         $date = $date->format('Y/m/d');
+                         setlocale(LC_TIME, "fr_FR", "French");
+                         $date = strftime("%A %d %B %G", strtotime($date));
+                        ?>
+                <div class="card-grey-2 p-4 text-white my-5"  style="box-shadow: <?= $GLOBALS['STYLE']['boxShadow'] ?>; background-color: transparent; color: black; font-size: <?= $GLOBALS['STYLE']['textFontSize'] ?>; font-family: <?= $GLOBALS['STYLE']['textFontFamily'] ?>;">
+                    <div class="row justify-content-center mh-100">
+                        <div class="col-xl-4 mh-100">
+                            <img src="<?= $event['urlImage'] ?>" class="card-img img-fluid h-100" alt="photo de l'évènement <?= $event['title']?>" style="width: 150px">
+                        </div>
+                        <div class="col-xl-4 mh-100 customLink p-4">
+                            <span><i class="fas fa-circle text-<?= $event['themeColor'] ?>"></i>&nbsp; <?= $date ?></span>
+                            <a href="<?= route_to_url('currentEvent') ?>?id=<?= $event['id']?>" class="bg-Altair-grey h-100">
+                                <h4 class="titleEvent ml-4"><?= $event['title'] ?></h4>
+                            </a>
+                        </div>
+                        <div class="col-xl-4 mh-100 p-4">
+                            <p class="card-title"><?= $event['adress'] ?></p>
+                            <p><?= $event['zipcode'].' '.$event['city'] ?></p>
                         </div>
                     </div>
+                </div>
+                <?php endforeach; ?>
+                <?php else : ?>
+                    <p>Aucun Résultat</p>
+                <?php endif; ?>
+                <div class="d-flex justify-content-end">
+                    <a href="<?= route_to_url('calendar') ?>" class="btn grey darken-1 mt-2">Retour</a>
                 </div>
             </div>
         </div>
