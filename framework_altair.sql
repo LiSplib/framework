@@ -19,10 +19,10 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `framework_altair`
+-- Base de données :  `altairapfhvitrin`
 --
-CREATE DATABASE IF NOT EXISTS `framework_altair` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `framework_altair`;
+CREATE DATABASE IF NOT EXISTS `altairapfhvitrin` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `altairapfhvitrin`;
 
 -- --------------------------------------------------------
 

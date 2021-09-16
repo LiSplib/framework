@@ -77,8 +77,9 @@
                     <button class="btn my-3">
                         <a href="<?= route_to_url('currentEvent') ?>?id=<?= $event->getId(); ?>"><i class="far fa-eye fa-2x"></i> Visualiser</a>
                     </button>
+                    <input type="hidden" name="token" id="token" value="<?= $token; ?>" />
                     <button class="btn btn-danger my-3">
-                        <a href="<?= route_to_url('delete') ?>?delete=<?= $event->getId() ?>" name="delete"><i class="fas fa-times fa-2x"></i> Supprimer</a>
+                        <a href="<?= route_to_url('delete') ?>?delete=<?= $event->getId() . "&token=" . $token ?>" name="delete"><i class="fas fa-times fa-2x"></i> Supprimer</a>
                     </button>
                 </form>
             </div>

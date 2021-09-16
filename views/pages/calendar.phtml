@@ -1,7 +1,7 @@
 <div class="jumbotron jumbotron-fluid text-white bg-Altair-grey">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-12 col-lg-4 col-xl-2 mt-5 align-self-stretch">
+            <div class="col-md-12 col-lg-4 col-xl-2 mt-xl-5 mb-5 mb-xl-0 align-self-stretch">
                 <div class="card card-grey align-items-center aside-calendar mt-5">
                     <div class="d-flex flex-row my-5">
                         <div class="monthHeader px-2">
@@ -17,11 +17,11 @@
                         </span>
                         <span class="">
                             <i class="fas fa-circle text-primary"></i>
-                            Coaching Dirigeant
+                            Coaching Grande Entreprise
                         </span>
                         <span class="">
                             <i class="fas fa-circle text-success"></i>
-                            Coaching Grande Entreprise
+                            Coaching Dirigeant
                         </span>
                         <span class="">
                             <i class="fas fa-circle text-warning"></i>
@@ -35,7 +35,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-8 col-xl-5 d-none d-lg-block mt-5 align-self-stretch">
+            <div class="col-lg-8 col-xl-5 d-none d-lg-block mt-xl-5 align-self-stretch">
                 <table class="calendar__table calendar__table--<?= $weeks; ?>weeks mt-5">
                     <?php for ($i = 0; $i < $weeks; $i++): ?>
                         <tr>
@@ -92,8 +92,8 @@
                     $date = strftime("%A %d %B %G", strtotime($date));
                     $date = ucwords($date); ?>
                     <div class="row mb-3 mh-100">
-                        <div class="col-md-8 mh-100">
-                            <div class="card card-grey-2 py-4 px-5 justify-content-between h-100">
+                        <div class="col-md-8 mh-100 mb-3 mb-xl-0">
+                            <div class="card card-grey-2 p-4 justify-content-between h-100">
                                 <span><i class="fas fa-circle text-<?= $current->getThemeColor() ?>"></i>&nbsp; <?= $date ?></span>
                                 <h3 class="titleEvent"><?= $current->getTitle() ?></h3>
                                 <span>
@@ -107,19 +107,19 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row mb-3 px-2">
+                    <div class="row mb-3">
                         <div class="col-md-12 d-md-flex actionBtn">
                             <?php foreach($register as $isReg): ?>
                             <?php endforeach; ?>
-                            <button type="button" class="btn align-self-stretch" data-toggle="modal" data-target="#exampleModal">
+                            <button type="button" class="btn align-self-stretch p-0 ml-3" data-toggle="modal" data-target="#exampleModal">
                                 <?php if(!empty($register) && $isReg['admin_id'] === $_SESSION['auth']['id']): ?>
                                     <span>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="2em" viewBox="0 0 65.46 60" class="mr-2"><defs><style>.cls-1{fill:#df4650;}</style></defs><g id="Calque_2" data-name="Calque 2"><g id="Calque_1-2" data-name="Calque 1"><path class="cls-1" d="M32.73,60a1.36,1.36,0,0,1-1.22-.75c-1.25-2.51-5.16-5.91-9.69-9.85C12.14,41,.08,30.47,0,17.74A17.44,17.44,0,0,1,5.12,5.25a17.74,17.74,0,0,1,27.61,3,17.72,17.72,0,0,1,32.72,9.44s0,0,0,0C65.2,30.49,53.23,41,43.61,49.38,39.1,53.33,35.2,56.74,34,59.25A1.36,1.36,0,0,1,32.73,60Zm-15-57.27A14.93,14.93,0,0,0,7.05,7.17,14.73,14.73,0,0,0,2.73,17.72c.07,11.5,11.61,21.55,20.88,29.62,3.92,3.42,7.19,6.26,9.12,8.78,1.92-2.53,5.18-5.37,9.08-8.79C51,39.27,62.5,29.23,62.73,17.7h0a15,15,0,0,0-28.75-6,1.37,1.37,0,0,1-1.25.82h0a1.35,1.35,0,0,1-1.25-.82A15,15,0,0,0,17.73,2.73Z"/></g></g></svg>    
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="2em" viewBox="0 0 65.46 60" class="mx-2"><defs><style>.cls-1{fill:#df4650;}</style></defs><g id="Calque_2" data-name="Calque 2"><g id="Calque_1-2" data-name="Calque 1"><path class="cls-1" d="M32.73,60a1.36,1.36,0,0,1-1.22-.75c-1.25-2.51-5.16-5.91-9.69-9.85C12.14,41,.08,30.47,0,17.74A17.44,17.44,0,0,1,5.12,5.25a17.74,17.74,0,0,1,27.61,3,17.72,17.72,0,0,1,32.72,9.44s0,0,0,0C65.2,30.49,53.23,41,43.61,49.38,39.1,53.33,35.2,56.74,34,59.25A1.36,1.36,0,0,1,32.73,60Zm-15-57.27A14.93,14.93,0,0,0,7.05,7.17,14.73,14.73,0,0,0,2.73,17.72c.07,11.5,11.61,21.55,20.88,29.62,3.92,3.42,7.19,6.26,9.12,8.78,1.92-2.53,5.18-5.37,9.08-8.79C51,39.27,62.5,29.23,62.73,17.7h0a15,15,0,0,0-28.75-6,1.37,1.37,0,0,1-1.25.82h0a1.35,1.35,0,0,1-1.25-.82A15,15,0,0,0,17.73,2.73Z"/></g></g></svg>    
                                             J'y participe
                                     </span>
                                 <?php else: ?>
                                     <span>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="2em" viewBox="0 0 65.46 60" class="mr-2"><defs><style>.cls-2{fill:#acacac;}</style></defs><g id="Calque_2" data-name="Calque 2"><g id="Calque_1-2" data-name="Calque 1"><path class="cls-2" d="M32.73,60a1.36,1.36,0,0,1-1.22-.75c-1.25-2.51-5.16-5.91-9.69-9.85C12.14,41,.08,30.47,0,17.74A17.44,17.44,0,0,1,5.12,5.25a17.74,17.74,0,0,1,27.61,3,17.72,17.72,0,0,1,32.72,9.44s0,0,0,0C65.2,30.49,53.23,41,43.61,49.38,39.1,53.33,35.2,56.74,34,59.25A1.36,1.36,0,0,1,32.73,60Zm-15-57.27A14.93,14.93,0,0,0,7.05,7.17,14.73,14.73,0,0,0,2.73,17.72c.07,11.5,11.61,21.55,20.88,29.62,3.92,3.42,7.19,6.26,9.12,8.78,1.92-2.53,5.18-5.37,9.08-8.79C51,39.27,62.5,29.23,62.73,17.7h0a15,15,0,0,0-28.75-6,1.37,1.37,0,0,1-1.25.82h0a1.35,1.35,0,0,1-1.25-.82A15,15,0,0,0,17.73,2.73Z"/></g></g></svg>    
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="2em" viewBox="0 0 65.46 60" class="mx-2"><defs><style>.cls-2{fill:#acacac;}</style></defs><g id="Calque_2" data-name="Calque 2"><g id="Calque_1-2" data-name="Calque 1"><path class="cls-2" d="M32.73,60a1.36,1.36,0,0,1-1.22-.75c-1.25-2.51-5.16-5.91-9.69-9.85C12.14,41,.08,30.47,0,17.74A17.44,17.44,0,0,1,5.12,5.25a17.74,17.74,0,0,1,27.61,3,17.72,17.72,0,0,1,32.72,9.44s0,0,0,0C65.2,30.49,53.23,41,43.61,49.38,39.1,53.33,35.2,56.74,34,59.25A1.36,1.36,0,0,1,32.73,60Zm-15-57.27A14.93,14.93,0,0,0,7.05,7.17,14.73,14.73,0,0,0,2.73,17.72c.07,11.5,11.61,21.55,20.88,29.62,3.92,3.42,7.19,6.26,9.12,8.78,1.92-2.53,5.18-5.37,9.08-8.79C51,39.27,62.5,29.23,62.73,17.7h0a15,15,0,0,0-28.75-6,1.37,1.37,0,0,1-1.25.82h0a1.35,1.35,0,0,1-1.25-.82A15,15,0,0,0,17.73,2.73Z"/></g></g></svg>    
                                             Je participe
                                     </span>
                                 <?php endif; ?>
@@ -131,12 +131,12 @@
                                 <button type="submit" class="btn align-self-stretch">
                                     <?php if(!empty($interested) && $isInt['admin_id'] === $_SESSION['auth']['id']): ?>
                                         <span>
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="2em" viewBox="0 0 60 60" class="mr-2"><defs><style>.cls-1{fill:#df4650;}</style></defs><g id="Calque_2" data-name="Calque 2"><g id="Calque_1-2" data-name="Calque 1"><path class="cls-1" d="M30,60A30,30,0,1,1,60,30,30,30,0,0,1,30,60ZM30,2.61A27.39,27.39,0,1,0,57.39,30,27.42,27.42,0,0,0,30,2.61Z"/><path class="cls-1" d="M30,49.57a19.4,19.4,0,0,1-13.83-5.74A1.3,1.3,0,1,1,18,42a16.95,16.95,0,0,0,24,0,1.3,1.3,0,1,1,1.85,1.84A19.44,19.44,0,0,1,30,49.57Z"/><circle class="cls-1" cx="18.26" cy="23.48" r="2.61"/><path class="cls-1" d="M48.26,26.09a1.28,1.28,0,0,1-.92-.39l-1.53-1.52a4,4,0,0,0-5.53,0L38.75,25.7a1.3,1.3,0,0,1-1.85-1.84l1.53-1.53a6.68,6.68,0,0,1,9.22,0l1.53,1.53a1.3,1.3,0,0,1,0,1.84A1.28,1.28,0,0,1,48.26,26.09Z"/></g></g></svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="2em" viewBox="0 0 60 60" class="mx-2"><defs><style>.cls-1{fill:#df4650;}</style></defs><g id="Calque_2" data-name="Calque 2"><g id="Calque_1-2" data-name="Calque 1"><path class="cls-1" d="M30,60A30,30,0,1,1,60,30,30,30,0,0,1,30,60ZM30,2.61A27.39,27.39,0,1,0,57.39,30,27.42,27.42,0,0,0,30,2.61Z"/><path class="cls-1" d="M30,49.57a19.4,19.4,0,0,1-13.83-5.74A1.3,1.3,0,1,1,18,42a16.95,16.95,0,0,0,24,0,1.3,1.3,0,1,1,1.85,1.84A19.44,19.44,0,0,1,30,49.57Z"/><circle class="cls-1" cx="18.26" cy="23.48" r="2.61"/><path class="cls-1" d="M48.26,26.09a1.28,1.28,0,0,1-.92-.39l-1.53-1.52a4,4,0,0,0-5.53,0L38.75,25.7a1.3,1.3,0,0,1-1.85-1.84l1.53-1.53a6.68,6.68,0,0,1,9.22,0l1.53,1.53a1.3,1.3,0,0,1,0,1.84A1.28,1.28,0,0,1,48.26,26.09Z"/></g></g></svg>
                                             Intéressé(e)
                                         </span>
                                     <?php else: ?>
                                         <span>
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="2em" viewBox="0 0 60 60" class="mr-2"><defs><style>.cls-2{fill:#acacac;}</style></defs><g id="Calque_2" data-name="Calque 2"><g id="Calque_1-2" data-name="Calque 1"><path class="cls-2" d="M30,60A30,30,0,1,1,60,30,30,30,0,0,1,30,60ZM30,2.61A27.39,27.39,0,1,0,57.39,30,27.42,27.42,0,0,0,30,2.61Z"/><path class="cls-2" d="M30,49.57a19.4,19.4,0,0,1-13.83-5.74A1.3,1.3,0,1,1,18,42a16.95,16.95,0,0,0,24,0,1.3,1.3,0,1,1,1.85,1.84A19.44,19.44,0,0,1,30,49.57Z"/><circle class="cls-2" cx="18.26" cy="23.48" r="2.61"/><path class="cls-2" d="M48.26,26.09a1.28,1.28,0,0,1-.92-.39l-1.53-1.52a4,4,0,0,0-5.53,0L38.75,25.7a1.3,1.3,0,0,1-1.85-1.84l1.53-1.53a6.68,6.68,0,0,1,9.22,0l1.53,1.53a1.3,1.3,0,0,1,0,1.84A1.28,1.28,0,0,1,48.26,26.09Z"/></g></g></svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="2em" viewBox="0 0 60 60" class="mx-2"><defs><style>.cls-2{fill:#acacac;}</style></defs><g id="Calque_2" data-name="Calque 2"><g id="Calque_1-2" data-name="Calque 1"><path class="cls-2" d="M30,60A30,30,0,1,1,60,30,30,30,0,0,1,30,60ZM30,2.61A27.39,27.39,0,1,0,57.39,30,27.42,27.42,0,0,0,30,2.61Z"/><path class="cls-2" d="M30,49.57a19.4,19.4,0,0,1-13.83-5.74A1.3,1.3,0,1,1,18,42a16.95,16.95,0,0,0,24,0,1.3,1.3,0,1,1,1.85,1.84A19.44,19.44,0,0,1,30,49.57Z"/><circle class="cls-2" cx="18.26" cy="23.48" r="2.61"/><path class="cls-2" d="M48.26,26.09a1.28,1.28,0,0,1-.92-.39l-1.53-1.52a4,4,0,0,0-5.53,0L38.75,25.7a1.3,1.3,0,0,1-1.85-1.84l1.53-1.53a6.68,6.68,0,0,1,9.22,0l1.53,1.53a1.3,1.3,0,0,1,0,1.84A1.28,1.28,0,0,1,48.26,26.09Z"/></g></g></svg>
                                             Je suis intéressé(e)
                                         </span>
                                     <?php endif; ?>
@@ -145,7 +145,7 @@
                             <div class="dropdown">
                                 <button type="button" class="btn align-self-stretch dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <span>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="2em" viewBox="0 0 60 60" class="mr-2"><defs><style>.cls-2{fill:#acacac;}</style></defs><g id="Calque_2" data-name="Calque 2"><g id="Calque_1-2" data-name="Calque 1"><path class="cls-2" d="M48.75,22.5A11.25,11.25,0,1,1,60,11.25,11.27,11.27,0,0,1,48.75,22.5Zm0-20a8.75,8.75,0,1,0,8.75,8.75A8.77,8.77,0,0,0,48.75,2.5Z"/><path class="cls-2" d="M11.25,40A11.25,11.25,0,1,1,22.5,28.75,11.27,11.27,0,0,1,11.25,40Zm0-20A8.75,8.75,0,1,0,20,28.75,8.77,8.77,0,0,0,11.25,20Z"/><path class="cls-2" d="M48.75,60A11.25,11.25,0,1,1,60,48.75,11.27,11.27,0,0,1,48.75,60Zm0-20a8.75,8.75,0,1,0,8.75,8.75A8.77,8.77,0,0,0,48.75,40Z"/><path class="cls-2" d="M38.75,45a1.27,1.27,0,0,1-.62-.16l-17.5-10a1.25,1.25,0,1,1,1.24-2.18l17.5,10a1.26,1.26,0,0,1,.47,1.71A1.28,1.28,0,0,1,38.75,45Z"/><path class="cls-2" d="M21.25,25a1.28,1.28,0,0,1-1.09-.63,1.26,1.26,0,0,1,.47-1.71l17.5-10a1.25,1.25,0,1,1,1.24,2.18l-17.5,10A1.27,1.27,0,0,1,21.25,25Z"/></g></g></svg>    
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="2em" viewBox="0 0 60 60" class="mx-2"><defs><style>.cls-2{fill:#acacac;}</style></defs><g id="Calque_2" data-name="Calque 2"><g id="Calque_1-2" data-name="Calque 1"><path class="cls-2" d="M48.75,22.5A11.25,11.25,0,1,1,60,11.25,11.27,11.27,0,0,1,48.75,22.5Zm0-20a8.75,8.75,0,1,0,8.75,8.75A8.77,8.77,0,0,0,48.75,2.5Z"/><path class="cls-2" d="M11.25,40A11.25,11.25,0,1,1,22.5,28.75,11.27,11.27,0,0,1,11.25,40Zm0-20A8.75,8.75,0,1,0,20,28.75,8.77,8.77,0,0,0,11.25,20Z"/><path class="cls-2" d="M48.75,60A11.25,11.25,0,1,1,60,48.75,11.27,11.27,0,0,1,48.75,60Zm0-20a8.75,8.75,0,1,0,8.75,8.75A8.77,8.77,0,0,0,48.75,40Z"/><path class="cls-2" d="M38.75,45a1.27,1.27,0,0,1-.62-.16l-17.5-10a1.25,1.25,0,1,1,1.24-2.18l17.5,10a1.26,1.26,0,0,1,.47,1.71A1.28,1.28,0,0,1,38.75,45Z"/><path class="cls-2" d="M21.25,25a1.28,1.28,0,0,1-1.09-.63,1.26,1.26,0,0,1,.47-1.71l17.5-10a1.25,1.25,0,1,1,1.24,2.18l-17.5,10A1.27,1.27,0,0,1,21.25,25Z"/></g></g></svg>    
                                             Partager
                                     </span>
                                 </button>
@@ -198,19 +198,23 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="my-2 w-100">
-                                <span class="d-flex justify-content-end text-grey"><a href="<?= route_to_url('calendar') ?>" class="text-grey">Voir moins&nbsp;<i class="fas fa-undo-alt"></i></a></span>
+                            <div class="mb-2 w-100">
+                                <span class="d-flex justify-content-end text-grey">
+                                    <a href="<?= route_to_url('calendar') ?>" class="text-grey">Voir moins&nbsp;
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" style="transform:rotate(180deg)" viewBox="0 0 35.83 30"><defs><style>.cls-1{fill:#adadad;}</style></defs><g id="Calque_2" data-name="Calque 2"><g id="Calque_1-2" data-name="Calque 1"><path class="cls-1" d="M17.91,30a1.15,1.15,0,0,1-.83-.36L.32,12.15A1.15,1.15,0,1,1,2,10.56L17.91,27.18,33.84,10.56a1.15,1.15,0,1,1,1.67,1.59L18.75,29.64A1.16,1.16,0,0,1,17.91,30Z"/><path class="cls-1" d="M17.91,19.8a1.15,1.15,0,0,1-.83-.36L.32,2A1.15,1.15,0,0,1,2,.36L17.91,17,33.84.36A1.15,1.15,0,0,1,35.51,2L18.75,19.44A1.16,1.16,0,0,1,17.91,19.8Z"/></g></g></svg>
+                                    </a>
+                                </span>
                             </div>
-                            <h5 class=" text-<?= $current->getThemeColor() ?> ml-5">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" viewBox="0 0 25.26 20" class="mr-2"><defs><style>.cls-3{fill:<?= $themeRgb ?>;}</style></defs><g id="Calque_2" data-name="Calque 2"><g id="Calque_1-2" data-name="Calque 1"><path class="cls-3" d="M24.74,20a.55.55,0,0,1-.3-.09l-6.18-4.12H1.58A1.58,1.58,0,0,1,0,14.21V1.58A1.58,1.58,0,0,1,1.58,0h22.1a1.58,1.58,0,0,1,1.58,1.58V19.47a.52.52,0,0,1-.27.47A.57.57,0,0,1,24.74,20ZM1.58,1.05a.53.53,0,0,0-.53.53V14.21a.53.53,0,0,0,.53.53H18.42a.5.5,0,0,1,.29.09l5.5,3.66V1.58a.53.53,0,0,0-.53-.53Z"/><path class="cls-3" d="M19.47,6.32H4.74a.53.53,0,1,1,0-1.06H19.47a.53.53,0,1,1,0,1.06Z"/><path class="cls-3" d="M19.47,10.53H4.74a.53.53,0,0,1,0-1.06H19.47a.53.53,0,0,1,0,1.06Z"/></g></g></svg>
-                                <?= $current->getTheme() ?>
+                            <h5 class=" text-<?= $current->getThemeColor() ?> ml-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" viewBox="0 0 25.26 20" class="mx-2"><defs><style>.cls-3{fill:<?= $themeRgb ?>;}</style></defs><g id="Calque_2" data-name="Calque 2"><g id="Calque_1-2" data-name="Calque 1"><path class="cls-3" d="M24.74,20a.55.55,0,0,1-.3-.09l-6.18-4.12H1.58A1.58,1.58,0,0,1,0,14.21V1.58A1.58,1.58,0,0,1,1.58,0h22.1a1.58,1.58,0,0,1,1.58,1.58V19.47a.52.52,0,0,1-.27.47A.57.57,0,0,1,24.74,20ZM1.58,1.05a.53.53,0,0,0-.53.53V14.21a.53.53,0,0,0,.53.53H18.42a.5.5,0,0,1,.29.09l5.5,3.66V1.58a.53.53,0,0,0-.53-.53Z"/><path class="cls-3" d="M19.47,6.32H4.74a.53.53,0,1,1,0-1.06H19.47a.53.53,0,1,1,0,1.06Z"/><path class="cls-3" d="M19.47,10.53H4.74a.53.53,0,0,1,0-1.06H19.47a.53.53,0,0,1,0,1.06Z"/></g></g></svg>
+                                Coaching <?= $current->getTheme() ?>
                             </h5>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="card card-grey-2 py-4 px-5 mt-2">
-                                <h3 class="mb-4 ml-5"><?= $current->getTitle() ?></h3>
+                            <div class="card card-grey-2 p-4 mt-2">
+                                <h3 class="mb-4 ml-5 titleEvent"><?= $current->getTitle() ?></h3>
                                 <p class="text-justify"><?= htmlentities($current->getContent()); ?></p>
                                 <p class="text-justify">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Incidunt cum consequatur reprehenderit iste. Nobis placeat tempore corporis reiciendis illo at, quis saepe recusandae nulla nihil, sapiente quod voluptatem praesentium aliquid?</p>
                             </div>
@@ -218,7 +222,7 @@
                     </div>
                     <div class="row p-4">
                         <div class="col-md-6">
-                            <h5 class="mt-3 ml-4 text-grey">
+                            <h5 class="mt-3 text-grey">
                             <svg xmlns="http://www.w3.org/2000/svg" width="1.1em" viewBox="0 0 16.77 20"><defs><style>.cls-2{fill:#acacac;}</style></defs><g id="Calque_2" data-name="Calque 2"><g id="Calque_1-2" data-name="Calque 1"><path class="cls-2" d="M10.37,9.92a5.16,5.16,0,1,0-4,0A8.39,8.39,0,0,0,0,18.06V20H16.77V18.06A8.39,8.39,0,0,0,10.37,9.92Zm5.76,9.43H.65V18.06a7.74,7.74,0,0,1,15.48,0ZM12.85,5.24A4.46,4.46,0,1,1,8.39.78,4.46,4.46,0,0,1,12.85,5.24Z"/></g></g></svg>   
                             Créateur de l'évènement</h5>
                             <img class="ml-5" src="<?= $current->getImage(); ?>" style="border-radius: 10px; width: 40px;">
@@ -234,9 +238,9 @@
                     <div class="row p-4">            
                         <div class="col-md-12">
                             <?php foreach ($regsCount as $participant): ?>
-                                <h5 class="ml-4 text-grey">
+                                <h5 class=" text-grey">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="1.1em" viewBox="0 0 21.82 20"><defs><style>.cls-2{fill:#acacac;}</style></defs><g id="Calque_2" data-name="Calque 2"><g id="Calque_1-2" data-name="Calque 1"><path class="cls-2" d="M10.91,20a.47.47,0,0,1-.41-.25,15.14,15.14,0,0,0-3.23-3.28C4.05,13.66,0,10.16,0,5.91A5.81,5.81,0,0,1,1.71,1.75a5.91,5.91,0,0,1,9.2,1A5.91,5.91,0,0,1,21.82,5.91h0c-.09,4.24-4.08,7.74-7.28,10.54a15.26,15.26,0,0,0-3.22,3.29A.47.47,0,0,1,10.91,20ZM5.91.91A5,5,0,0,0,2.35,2.39,4.89,4.89,0,0,0,.91,5.91c0,3.83,3.87,7.18,7,9.87a23.56,23.56,0,0,1,3,2.93,23.36,23.36,0,0,1,3-2.93c3.07-2.69,6.89-6,7-9.88h0a5,5,0,0,0-9.58-2,.47.47,0,0,1-.42.28h0a.46.46,0,0,1-.42-.28A5,5,0,0,0,5.91.91Z"/></g></g></svg> 
-                                <?= $participant; ?> _ Participants inscrits</h5>
+                            <?= $participant; ?><?php if($participant > 1): ?> _ Participants inscrits <?php else : ?> _ Participant inscrit <?php endif; ?></h5>
                                 <div class="row">
                                 <?php foreach ($register as $reg): ?>
                                     <div class="col-md-6">
@@ -251,9 +255,9 @@
                     <div class="row p-4">
                         <div class="col-md-12">
                             <?php foreach ($interesCount as $interestedBY): ?>
-                                <h5 class=" ml-4 text-grey">
+                                <h5 class="text-grey">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="1.1em" viewBox="0 0 20 20"><defs><style>.cls-2{fill:#acacac;}</style></defs><g id="Calque_2" data-name="Calque 2"><g id="Calque_1-2" data-name="Calque 1"><path class="cls-2" d="M10,20A10,10,0,1,1,20,10,10,10,0,0,1,10,20ZM10,.87A9.13,9.13,0,1,0,19.13,10,9.15,9.15,0,0,0,10,.87Z"/><path class="cls-2" d="M10,16.52a6.48,6.48,0,0,1-4.61-1.91A.43.43,0,0,1,6,14a5.67,5.67,0,0,0,8,0,.43.43,0,0,1,.61.61A6.48,6.48,0,0,1,10,16.52Z"/><circle class="cls-2" cx="6.09" cy="7.83" r="0.87"/><path class="cls-2" d="M16.09,8.7a.46.46,0,0,1-.31-.13l-.51-.51a1.34,1.34,0,0,0-1.84,0l-.51.51A.44.44,0,1,1,12.3,8l.51-.51a2.22,2.22,0,0,1,3.07,0l.51.51a.44.44,0,0,1,0,.62A.43.43,0,0,1,16.09,8.7Z"/></g></g></svg>    
-                                <?= $interestedBY; ?> _ Participants intéressés</h5>
+                                <?= $interestedBY; ?><?php if($interestedBY > 1): ?> _ Participants intéressés <?php else : ?> _ Participant intéressé <?php endif; ?></h5>
                                 <div class="row">
                                 <?php foreach ($interested as $int): ?>
                                     <div class="col-md-6">
@@ -289,7 +293,7 @@
                         $date = ucwords($date); ?>
                         <?php if($today <= $eventStart) : ?>
                             <div class="row mb-3 mh-100">
-                                <div class="col-md-8">
+                                <div class="col-md-8 mb-3 mb-xl-0">
                                     <div class="card card-grey-2 p-4 justify-content-between h-100">
                                         <span><i class="fas fa-circle text-<?= $event[$i]['themeColor'] ?>"></i>&nbsp; <?= $date ?></span>
                                         <h3 class="titleEvent"><?= $event[$i]['title'] ?></h3>
@@ -304,7 +308,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row mb-5 p-3 mx-2">
+                            <div class="row mb-2 p-3 mx-2">
                                 <?php foreach($regsCount as $regCount): ?>
                                     <span>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="1.4em" viewBox="0 0 65.46 60" class="mr-2"><defs><style>.cls-2{fill:#acacac;}</style></defs><g id="Calque_2" data-name="Calque 2"><g id="Calque_1-2" data-name="Calque 1"><path class="cls-2" d="M32.73,60a1.36,1.36,0,0,1-1.22-.75c-1.25-2.51-5.16-5.91-9.69-9.85C12.14,41,.08,30.47,0,17.74A17.44,17.44,0,0,1,5.12,5.25a17.74,17.74,0,0,1,27.61,3,17.72,17.72,0,0,1,32.72,9.44s0,0,0,0C65.2,30.49,53.23,41,43.61,49.38,39.1,53.33,35.2,56.74,34,59.25A1.36,1.36,0,0,1,32.73,60Zm-15-57.27A14.93,14.93,0,0,0,7.05,7.17,14.73,14.73,0,0,0,2.73,17.72c.07,11.5,11.61,21.55,20.88,29.62,3.92,3.42,7.19,6.26,9.12,8.78,1.92-2.53,5.18-5.37,9.08-8.79C51,39.27,62.5,29.23,62.73,17.7h0a15,15,0,0,0-28.75-6,1.37,1.37,0,0,1-1.25.82h0a1.35,1.35,0,0,1-1.25-.82A15,15,0,0,0,17.73,2.73Z"/></g></g></svg>   
@@ -315,7 +319,17 @@
                                     <svg xmlns="http://www.w3.org/2000/svg" width="1.4em" viewBox="0 0 20 20"><defs><style>.cls-2{fill:#acacac;}</style></defs><g id="Calque_2" data-name="Calque 2"><g id="Calque_1-2" data-name="Calque 1"><path class="cls-2" d="M10,20A10,10,0,1,1,20,10,10,10,0,0,1,10,20ZM10,.87A9.13,9.13,0,1,0,19.13,10,9.15,9.15,0,0,0,10,.87Z"/><path class="cls-2" d="M10,16.52a6.48,6.48,0,0,1-4.61-1.91A.43.43,0,0,1,6,14a5.67,5.67,0,0,0,8,0,.43.43,0,0,1,.61.61A6.48,6.48,0,0,1,10,16.52Z"/><circle class="cls-2" cx="6.09" cy="7.83" r="0.87"/><path class="cls-2" d="M16.09,8.7a.46.46,0,0,1-.31-.13l-.51-.51a1.34,1.34,0,0,0-1.84,0l-.51.51A.44.44,0,1,1,12.3,8l.51-.51a2.22,2.22,0,0,1,3.07,0l.51.51a.44.44,0,0,1,0,.62A.43.43,0,0,1,16.09,8.7Z"/></g></g></svg>   
                                     <?= $interes ?>&nbsp;Personnes intéressés</span>
                                 <?php endforeach; ?>
-                                    <span class="d-flex w-100 justify-content-end text-grey"><a href="<?= route_to_url('calendar') ?>?eventId=<?= $id ?>" class="text-grey">Découvrir&nbsp;<i class="fas fa-plus"></i></a></span>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="mb-5 w-100">
+                                        <span class="d-flex justify-content-end text-grey">
+                                            <a href="<?= route_to_url('calendar') ?>?eventId=<?= $id ?>" class="text-grey">Découvrir&nbsp;
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" viewBox="0 0 35.83 30"><defs><style>.cls-1{fill:#adadad;}</style></defs><g id="Calque_2" data-name="Calque 2"><g id="Calque_1-2" data-name="Calque 1"><path class="cls-1" d="M17.91,30a1.15,1.15,0,0,1-.83-.36L.32,12.15A1.15,1.15,0,1,1,2,10.56L17.91,27.18,33.84,10.56a1.15,1.15,0,1,1,1.67,1.59L18.75,29.64A1.16,1.16,0,0,1,17.91,30Z"/><path class="cls-1" d="M17.91,19.8a1.15,1.15,0,0,1-.83-.36L.32,2A1.15,1.15,0,0,1,2,.36L17.91,17,33.84.36A1.15,1.15,0,0,1,35.51,2L18.75,19.44A1.16,1.16,0,0,1,17.91,19.8Z"/></g></g></svg>
+                                            </a>
+                                        </span>
+                                    </div>
+                                </div>
                             </div>
                         <?php endif; ?>
                         <?php endfor; ?>

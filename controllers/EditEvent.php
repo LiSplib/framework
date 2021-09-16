@@ -17,6 +17,8 @@ class EditEvent{
     }
     
     public function httpGetRequest(){
+        $token = bin2hex(random_bytes(32));
+        $_SESSION['token'] = $token;
         if($_SESSION['auth']['role'] === 'superAdmin' || $this->event->getId_admin() === $_SESSION['auth']['id']){
             $errors = [];
             
@@ -48,8 +50,9 @@ class EditEvent{
             return ['event' => $this->event,
                     'data' => $data,
                     'errors' => $errors,
-                    'theme' => $AllTheme
-        ];
+                    'theme' => $AllTheme,
+                    'token' => $token
+                    ];
             
         }else {
             $_SESSION['flash']['danger'] = 'Vous n\'avez pas le droit !!!';
@@ -58,23 +61,30 @@ class EditEvent{
     }
 
     public function httpPostRequest(){
-                
-        if($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $data = $_POST;
-            $theme = $data['theme'];
-            $validator = new \App\Model\Date\EventValidator();
-            $this->errors = $validator->validates($data);
-            if (empty($this->errors)) {
-                $color = $this->events->addColorTheme($theme);
-                $data['themeColor'] = $color;
-                $this->events->hydrate($this->event, $data);
-                $this->events->update($this->event);
-                session_start();
-                $_SESSION['flash']['success'] = 'L\'événement a été modifié';
-                header('Location:' . route_to_url('calendar'));
-                exit();
+        if(isset($_SESSION['token']) && isset($_POST['token'])){
+            if($_SESSION['token'] == $_POST['token']){            
+                if($_SERVER['REQUEST_METHOD'] === 'POST') {
+                    $data = $_POST;
+                    $theme = $data['theme'];
+                    $validator = new \App\Model\Date\EventValidator();
+                    $this->errors = $validator->validates($data);
+                    if (empty($this->errors)) {
+                        $color = $this->events->addColorTheme($theme);
+                        $data['themeColor'] = $color;
+                        $this->events->hydrate($this->event, $data);
+                        $this->events->update($this->event);
+                        session_start();
+                        $_SESSION['flash']['success'] = 'L\'événement a été modifié';
+                        header('Location:' . route_to_url('calendar'));
+                        exit();
+                    }
+                }
             }
-        } 
+        }
+        else{
+            $_SESSION['flash']['danger'] = 'Erreur de vérification';
+            redirect_to_route('home');
+        }
     }
 
 }

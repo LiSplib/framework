@@ -24,14 +24,15 @@ class ModelAdmin
      * @param string $donnees
      * @return string
      */
-    public function valid_donnees ($donnees){
+    public function valid_donnees($donnees)
+    {
         $donnees = trim($donnees);
         $donnees = stripslashes($donnees);
         $donnees = htmlspecialchars($donnees);
         return $donnees;
     }
 
-    
+
     /**
      * Récupère la liste de tous les utilisateurs
      * 
@@ -45,14 +46,14 @@ class ModelAdmin
         return $query->fetchAll();
     }
 
-        
+
     /**
      * Renvoi les infos de type coaching d'un admin(coaching pratiqué, adhérant etc...)
      *
      * @param  mixed $id
      * @return array
      */
-    public function getAllInfo($id) :array
+    public function getAllInfo($id): array
     {
         $sql = "SELECT * FROM admin LEFT JOIN admininfo ON id_admin = admin.id LEFT JOIN coaching ON coach_id = admin.id LEFT JOIN adminpro ON admin_id = admin.id WHERE admin.id = :id";
         $query = $this->pdo->prepare($sql);
@@ -61,27 +62,27 @@ class ModelAdmin
         $result = $query->fetch();
         return $result;
     }
-    
+
     /**
      * Liste les users en attente de validation admin
      *
      * @return array
      */
-    public function adminToValidate() :array
+    public function adminToValidate(): array
     {
         $sql = 'SELECT * FROM admin ORDER BY coach DESC';
         $query = $this->pdo->prepare($sql);
         $query->execute();
         return $query->fetchAll();
     }
-    
+
     /**
      * Retourne les infos d'un utilisateur en fonction de son id dans la table admin(nom, prenom, email, image de profil, role, status)
      *
      * @param  mixed $id
      * @return array
      */
-    public function getAdmin($id) :array
+    public function getAdmin($id): array
     {
         $sql = 'SELECT * FROM admin WHERE id = :id';
         $query = $this->pdo->prepare($sql);
@@ -90,14 +91,14 @@ class ModelAdmin
         $result = $query->fetch();
         return $result;
     }
-    
+
     /**
      * retourne les infos d'un utilisateur de la table admininfo(region, departement, adresse, societe, réseaux sociaux, tel, ville etc...)
      *
      * @param  mixed $id
      * 
      */
-    public function getAdminInfo($id) 
+    public function getAdminInfo($id)
     {
         $sql = 'SELECT * FROM admininfo WHERE id_admin = :id';
         $query = $this->pdo->prepare($sql);
@@ -106,7 +107,7 @@ class ModelAdmin
         $result = $query->fetch();
         return $result;
     }
-    
+
     /**
      * retourne les infos d'un utilisateur de la table coaching( type de coaching pratiqué, adhérant à, catégorie)
      *
@@ -122,7 +123,7 @@ class ModelAdmin
         $result = $query->fetch();
         return $result;
     }
-    
+
     /**
      * cherche un utilisateur inscrit avec son email
      *
@@ -136,7 +137,7 @@ class ModelAdmin
         $query->execute([$email]);
         return $query->fetch();
     }
-    
+
     /**
      * Enregistre la connexion d'un utilisateur dans la table history
      *
@@ -155,7 +156,7 @@ class ModelAdmin
         $query->execute();
         return $query;
     }
-    
+
     /**
      * Modification de la fiche utilisateur basique
      *
@@ -182,7 +183,7 @@ class ModelAdmin
         $query->execute();
         return $query;
     }
-    
+
     /**
      * Modification de la fiche utilisateur détaillée
      *
@@ -238,7 +239,7 @@ class ModelAdmin
         $query->execute();
         return $query;
     }
-    
+
     /**
      * Modification de la fiche admin coaching
      *
@@ -260,7 +261,7 @@ class ModelAdmin
         $query->execute();
         return $query;
     }
-    
+
     /**
      * création d'utilisateur
      *
@@ -289,7 +290,7 @@ class ModelAdmin
         $query->execute();
         return $query;
     }
-    
+
     /**
      * Ajoute les infos supplèmentaire de l'utilisateur
      *
@@ -344,7 +345,7 @@ class ModelAdmin
         $query->execute();
         return $query;
     }
-    
+
     /**
      * Ajoute les info de coaching de l'admin
      *
@@ -365,7 +366,7 @@ class ModelAdmin
         $query->execute();
         return $query;
     }
-    
+
     /**
      * Suppression de l'utilisateur par son id
      *
@@ -379,7 +380,7 @@ class ModelAdmin
         $query->bindParam(':id', $id);
         return $query->execute();
     }
-    
+
     /**
      * Retourne le nombre d'utilisateur(s) qui attende(nt) la validation du status de coach
      *
@@ -393,7 +394,7 @@ class ModelAdmin
         $result = $query->fetch();
         return $result;
     }
-    
+
     /**
      * Retourne la liste des régions de la table admininfo pour l'afficher dans un select de la fiche d'information de l'utilisateur
      *
@@ -412,7 +413,7 @@ class ModelAdmin
         $regions[12] = "Provence-Alpes-Côte d'Azur";
         return $regions;
     }
-    
+
     /**
      * Retourne la liste des type de coaching pratiqué de la table coaching pour l'afficher dans un select de la fiche d'information coaching de l'admin
      *
@@ -429,7 +430,7 @@ class ModelAdmin
         $coachingDo = explode(",", $coachingDo);
         return $coachingDo;
     }
-    
+
     /**
      * Retourne la liste des organismes dont l'admin peut adhérer de la table coaching pour l'afficher dans un select de la fiche d'information coaching de l'admin
      *
@@ -446,7 +447,7 @@ class ModelAdmin
         $adherent = explode(",", $adherent);
         return $adherent;
     }
-    
+
     /**
      * Retourne la liste des catégories de coaching pratiqué de la table coaching pour l'afficher dans un select de la fiche d'information coaching de l'admin
      *
@@ -463,7 +464,7 @@ class ModelAdmin
         $categorie = explode(",", $categorie);
         return $categorie;
     }
-    
+
     /**
      * addAdminPro
      *

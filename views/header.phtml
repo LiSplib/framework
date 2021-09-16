@@ -1,4 +1,4 @@
-<nav class="navbar navbar-dark" style="background-color: <?= $GLOBALS['STYLE']['backgroundColor'] ?>; color: <?= $GLOBALS['STYLE']['textColor']?>">
+<nav class="navbar navbar-dark sticky-top" style="background-color: <?= $GLOBALS['STYLE']['backgroundColor'] ?>; color: <?= $GLOBALS['STYLE']['textColor']?>">
     <?php if(isset($_SESSION['auth'])): ?>
         <a class="nav-item nav-link ml-auto text-white" href="<?= route_to_url('logout') ?>">
             <i class="fas fa-power-off"></i>
